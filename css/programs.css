@@ -1,0 +1,43 @@
+.add-course-btn {
+    width: 140px;
+    height: 30px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin: 0;
+    
+    font-size: 13px !important;
+}
+
+.add-course-btn p {
+    margin-top: -3px !important;
+    margin-left: 9px;
+    color: white !important;
+    
+}
+
+.add-text {
+    font-size: 14px !important;
+}
+
+.bx-plus {
+    color: white !important;
+}
+
+.header-program {
+    height: 50px
+}
+
+.course-box {
+    width: 300px;
+    height: 150px;
+    background-color: white;
+    border-radius: 25px;
+    margin: 15px;
+    border: 1px rgb(194, 194, 194) solid;
+    font-size: 28px;
+}
+
+.course-box:hover {
+    background-color: #107869;
+    color: white !important;
+}

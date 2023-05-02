@@ -1,0 +1,290 @@
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #f5f4f4;
+    overflow: auto;
+    
+}
+
+.root {
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    margin-top: 5%;
+    border-radius: 15px;
+    box-shadow: 0 5px 5px #a7a7a7;
+    width: 70%;
+    height: 80%;
+    overflow: scroll;
+}
+
+.stepper-wrapper {
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    @media (max-width: 768px) {
+        font-size: 12px;
+    }
+}
+
+.stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 15px;
+    left: -50%;
+    z-index: 2;
+}
+
+.stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 15px;
+    left: 50%;
+    z-index: 2;
+}
+
+.stepper-item .step-counter {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #bebebe;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    line-height: 27px;
+    background: white;
+    color: #bebebe;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    z-index: 5;
+}
+
+.stepper-item.active .step-counter {
+    font-weight: bold;
+    color: #107869;
+    border-color: #107869;
+}
+
+.stepper-item.completed .step-counter {
+    font-weight: bold;
+    color: white;
+    background-color: #107869;
+    border-color: #107869;
+}
+
+.stepper-item.completed .step-counter {
+    background-color: #107869;
+}
+
+.stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #107869;
+    width: 100%;
+    top: 15px;
+    left: 50%;
+    z-index: 3;
+}
+
+.stepper-item:first-child::before {
+    content: none;
+}
+
+.stepper-item:last-child::after {
+    content: none;
+}
+
+.step-name {
+    font-size: 13px;
+}
+
+.stepper-item.active .step-name {
+    font-weight: bold;
+}
+
+.mainContent {
+    width: 100%;
+    height: 75%;
+}
+
+.firstStepForm {
+    height: 90%;
+}
+
+.first_step, .third_step {
+    margin-top: 3%;
+    width: 90%;
+    height: 80%;
+}
+
+.second_step {
+    width: 90%;
+    height: 90%;
+}
+
+.userName {
+    font-size: 16px;
+    color: #a7a7a7;
+    margin-top: 1%;
+}
+
+.dropdown-select {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2%;
+    font-size: 16px;
+}
+
+.submit-container {
+    
+}
+
+.nxtBtn, .backBtn {
+    margin-left: 5px;
+    padding-right: 25px;
+    padding-left: 25px;
+    font-size: 14px;
+    background-color: white ;
+    color: #107869;
+}
+
+.table-div {
+    height: 80%;
+    width: 100%;
+}
+
+.table-header {
+    width: 100%;
+}
+
+.table-header h6 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.table-body {
+    width: 90%;
+    height: 80%;
+    overflow: scroll;
+}
+
+.table-body h6 {
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.subject-name-div {
+    width: 60%;
+
+}
+
+.lecture-units-div {
+    width: 30%;
+
+}
+
+.grade-input-div {
+    width: 20%;
+
+}
+
+.grade-input-div h6 {
+    font-size: 16px;
+    
+}
+
+.grade-input-div input {
+    font-size: 14px;
+    padding: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+    width: 45px;
+    height: 25px;
+    margin-left: 5px;
+    border: 1px solid rgb(124, 124, 124);
+    border-radius: 0;
+}
+
+.file-input {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.file-input label {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 9px;
+    margin-right: 3px;
+}
+
+.file-input .form-control {
+    padding: 5px;
+    font-size: 14px;
+    height: fit-content;
+    width: 25%;
+    margin-top: 0;
+}
+
+.third_step {
+    width: 70%;
+}
+
+.third_step h3 {
+    margin-top: 5%;
+}
+
+.table {
+    margin-top: 5%;
+    font-size: 14px;
+}
+
+.third_step tbody mark {
+    background-color: rgb(247, 218, 57);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.mainContent .modal-body {
+    font-size: 12px;
+    padding: 30px;
+    text-align: center;
+}
+
+.mainContent .modal-header {
+    padding: 10px;
+    background-color: #107869;
+    color: white;
+    font-size: 16px;
+}
+
+.mainContent .modal-header h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 2%;
+}
+
+.mainContent .modal-body .closeBtn {
+    margin-top: 5%;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 14px;
+}
