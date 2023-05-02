@@ -62,7 +62,7 @@
                   <strong> COLLEGE OF COMPUTING STUDIES</strong> <br>
                   Department of Computer Science <br>
                   Zamboanga City
-                  Testing again and again
+                 
                 </small>
               </div>
             </div>
