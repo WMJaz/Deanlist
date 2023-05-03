@@ -76,7 +76,6 @@ if(isset($_POST['submit'])){
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-
     <title>Curriculum | CCS</title>
     <link rel="icon" href="../img/ccslogo.png" type="image/icon type">
 </head>
@@ -395,100 +394,95 @@ if(isset($_POST['submit'])){
             ?>
                 <div class="table-container course-select" style="width: 100%; height: 600px; background-color: white">
                     <div class="header-program d-flex flex-row">
-                        <h1 class=" text-center" style="margin: 0; margin-left: 100px;font-weight: bold; font-size: 28px; width: 100%">CCS COURSES</h1>
-                        
+                        <h1 class=" text-center" style="margin: 0; margin-left: 100px;font-weight: bold; font-size: 28px; width: 100%">PLEASE SELECT A CCS COURSE</h1>
                     </div>
                     <div class="course-container d-flex flex-wrap flex-row justify-content-center" style="overflow: auto; width: 100%; padding-top: 20px; padding-bottom: 20px; height: 90%">
-                        <a href="curriculum.php?course=BSCS" style="text-decoration: none;">
-                            <button class="course-box d-flex justify-content-center align-items-center">
-                                BSCS
-                            </button>
-                        </a>
-
-                        <a href="curriculum.php?course=BSIT" style="text-decoration: none;">
-                            <button class="course-box d-flex justify-content-center align-items-center">
-                                BSIT
-                            </button>
-                        </a>
-
-
-
+                        <?php
+                            require_once '../class/program.class.php';
+                            $program = new Program();
+            
+                            foreach ($program->GetAllCourse() as $value) {
+                        ?>
+                            <a href="curriculum.php?course=<?php echo $value['course_name'];?>" style="text-decoration: none;">
+                                <button class="course-box d-flex justify-content-center align-items-center">
+                                <div class="form-group">
+                                    <div class="text"><h1><?php echo $value['course_name']; ?></h1></div>
+                                    <p class="text-secondary"><?php echo $value['course_fullname']; ?></p>
+                                </div>      
+                                </button>
+                            </a>
+                        <?php
+                            }
+                        ?>
                     </div>
-                    <h5 style="font-size: 20px; width: 100%; text-align:center">Select Department</h5>
                 </div>
             <?php
             }
             ?>
-            <div class="modal" tabindex="=-1" id="add-curr">
-                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" style="min-width: 1000px">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" style="font-size: 20px !important">Add New Curriculum</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form action="curriculum.php" method="post">
-                            <input value="<?php echo $_GET['course'] ?>" hidden name="course">
-                            <div class="modal-body" style="min-height: 600px; padding: 15px">
-                                <div class="select-div d-flex flex-row" style="width: 45%">
-                                    <input class="form-control" type="text" placeholder="School Year" style="width: 33%; margin-right: 10px; font-size: 15px !important" name="sy" required>
-
-                                    <select class="form-select sem-select" style="height: 40px; width: 33%; font-size: 15px !important; margin-right: 10px" name="sem" aria-label="semester" required>
-                                        <option value="1">1st Semester</option>
-                                        <option value="2">2nd Semester</option>
-                                    </select>
-
-
-                                    <select class="form-select year-select" style="height: 40px; width: 33%; font-size: 15px !important" name="yearlevel" aria-label="yearlevel" required>
-                                        <option value="1">1st year</option>
-                                        <option value="2">2nd year</option>
-                                        <option value="3">3rd year</option>
-                                        <option value="4">4th year</option>
-                                    </select>
-                                </div>
-                                <table class="table" id="inputTable" style="margin: 15px 0 15px 0">
-                                    <thead>
-                                        <tr>
-                                            <th style="font-size: 16px">Subject Code</th>
-                                            <th style="font-size: 16px">Subject Name</th>
-                                            <th style="font-size: 16px">Lec</th>
-                                            <th style="font-size: 16px">Lab</th>
-                                            <th style="font-size: 16px">Pre-requisite</th>
-                                            <th style="font-size: 16px"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="subjtable">
-
-                                        <tr>
-                                            <!-- always use echo to output PHP values -->
-                                            <td style="font-size: 16px; width: 20%"><input class="form-control" type="text" placeholder="Subject Code" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjcode[]" required></td>
-                                            <td style="font-size: 16px; width: 30%"><input class="form-control" type="text" placeholder="Subject Name" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjname[]" required></td>
-                                            <td style="font-size: 16px; width: 7%"><input class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="lecunit[]" id="lecunit" required></td>
-                                            <td style="font-size: 16px; width: 7%"><input class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="labunit[]" id="labunit" required></td>
-                                            <td style="font-size: 16px"><input class="form-control" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]" required></td>
-                                            <td style="font-size: 16px; width: 7%"><button onclick="deleteTableRow(this)" type="button" class="btn btn-danger" style="margin-top: 4px; margin-left: 10px">X</button></td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <button type="button" onclick="createRow()" class="btn btn-success">Add New Subject</button>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" name="submit">Add Curriculum</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
-
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <div class="modal" tabindex="-1" id="add-curr">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-dialog-scrollable">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="font-size: 20px !important">Add New Curriculum</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="curriculum.php" method="post">
+                    <input value="<?php echo $_GET['course'] ?>" hidden name="course">
+                    <div class="modal-body" style="min-height: 600px; padding: 15px">
+                        <div class="select-div d-flex flex-row" style="width: 45%">
+                            <input class="form-control" type="text" placeholder="School Year" style="width: 33%; margin-right: 10px; font-size: 15px !important" name="sy" required>
+                            <select class="form-select sem-select" style="height: 40px; width: 33%; font-size: 15px !important; margin-right: 10px" name="sem" aria-label="semester" required>
+                                <option value="1">1st Semester</option>
+                                <option value="2">2nd Semester</option>
+                            </select>
+                            <select class="form-select year-select" style="height: 40px; width: 33%; font-size: 15px !important" name="yearlevel" aria-label="yearlevel" required>
+                                <option value="1">1st year</option>
+                                <option value="2">2nd year</option>
+                                <option value="3">3rd year</option>
+                                <option value="4">4th year</option>
+                            </select>
+                        </div>
+                        <table class="table" id="inputTable" style="margin: 15px 0 15px 0">
+                            <thead>
+                                <tr>
+                                    <th style="font-size: 16px">Subject Code</th>
+                                    <th style="font-size: 16px">Subject Name</th>
+                                    <th style="font-size: 16px">Lec</th>
+                                    <th style="font-size: 16px">Lab</th>
+                                    <th style="font-size: 16px">Pre-requisite</th>
+                                    <th style="font-size: 16px"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="subjtable">
 
+                                <tr>
+                                    <!-- always use echo to output PHP values -->
+                                    <td style="font-size: 16px; width: 20%"><input class="form-control" type="text" placeholder="Subject Code" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjcode[]" required></td>
+                                    <td style="font-size: 16px; width: 30%"><input class="form-control" type="text" placeholder="Subject Name" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjname[]" required></td>
+                                    <td style="font-size: 16px; width: 7%"><input class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="lecunit[]" id="lecunit" required></td>
+                                    <td style="font-size: 16px; width: 7%"><input class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="labunit[]" id="labunit" required></td>
+                                    <td style="font-size: 16px"><input class="form-control" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]" required></td>
+                                    <td style="font-size: 16px; width: 7%"><button onclick="deleteTableRow(this)" type="button" class="btn btn-danger" style="margin-top: 4px; margin-left: 10px">X</button></td>
+                                </tr>
 
+                            </tbody>
+                        </table>
+                        <button type="button" onclick="createRow()" class="btn btn-success">Add New Subject</button>
+                        <!-- <button type="button" class="btn btn-success" id="subject-find">Re-Use Subject</button> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="submit">Add Curriculum</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
 <script>
     function createRow() {
         var row = document.createElement('tr'); // create row node

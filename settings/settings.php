@@ -375,20 +375,25 @@ if (isset($_POST["submitStatus"])) {
                 <div class="table-container course-select" style="width: 100%; height: 600px; background-color: white">
                     <div class="header-program d-flex flex-row">
                     <h1 class=" text-center" style="margin: 0; margin-left: 100px;font-weight: bold; font-size: 28px; width: 100%">CCS COURSES</h1>
-                        
                     </div>
                     <div class="course-container d-flex flex-wrap flex-row justify-content-center" style="overflow: auto; width: 100%; padding-top: 20px; padding-bottom: 20px; height: 90%">
-                        <a href="settings.php?course=BSCS" style="text-decoration: none;">
-                            <button class="course-box d-flex justify-content-center align-items-center">
-                                BSCS
-                            </button>
-                        </a>
-
-                        <a href="settings.php?course=BSIT" style="text-decoration: none;">
-                            <button class="course-box d-flex justify-content-center align-items-center">
-                                BSIT
-                            </button>
-                        </a>
+                        <?php
+                            require_once '../class/program.class.php';
+                            $program = new Program();
+            
+                            foreach ($program->GetAllCourse() as $value) {
+                        ?>
+                            <a href="settings.php?course=<?php echo $value['course_name'];?>" style="text-decoration: none;">
+                                <button class="course-box d-flex justify-content-center align-items-center">
+                                <div class="form-group">
+                                    <div class="text"><h1><?php echo $value['course_name']; ?></h1></div>
+                                    <p class="text-secondary"><?php echo $value['course_fullname']; ?></p>
+                                </div>      
+                                </button>
+                            </a>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <h5 style="font-size: 20px; width: 100%; text-align:center">Select Department</h5>
                 </div>

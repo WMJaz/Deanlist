@@ -429,15 +429,11 @@ if(isset($_POST['secondStepSubmit'])) {
             }
         </script>
         <!-- NAVBAR -->
-
         <div class="home-content">
             <?php 
                 include '../apply/apply-new.php';
             ?>
-
+        </div>
     </section>
-
-
 </body>
-
 </html>

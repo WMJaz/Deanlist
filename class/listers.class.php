@@ -67,7 +67,6 @@ class Listers{
             $data = $query->fetchAll();
         }
         return $data;
-        
     }
 
     function GetDeanListers_OrderByRank(){
@@ -77,6 +76,31 @@ class Listers{
             $data = $query->fetchAll();
         }
         return $data;
+    }
+
+    function Approved_Deanlist($record_id){
+        $sql = "UPDATE deanslist_applicants SET app_status = 'Accepted', adviser_status = 'Accepted' WHERE id = :ID";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function Decline_Deanlist($record_id,$feedback){
+        $sql = "UPDATE deanslist_applicants SET app_status = 'Declined', adviser_status = 'Declined', feedback = :feed WHERE id = :ID";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        $query->bindParam(':feed', $feedback);
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     function show(){

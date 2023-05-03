@@ -309,7 +309,6 @@ if (isset($_GET["file"])) {
                                             <th scope="col" style="width: 11%">Curriculum</th>
                                             <th scope="col" style="width: 9%">Section</th>
                                             <th scope="col" style="width: 11%">Total GPA</th>
-                                            <th scope="col" style="width: 11%">Email Address</th>
                                             <th scope="col" style="width: 14%">Adviser Status</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -330,12 +329,12 @@ if (isset($_GET["file"])) {
                                                     $suffix = "th";
                                                 }
                                                 $user_id = $row["id"];
-                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td><td>" . $row["email"] . "</td>" . "<td>" . $row["adviser_status"] . "</td>" . '<td>
+                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td><td>" . $row["adviser_status"] . "</td>" . '<td>
                                                         <form action="update.php" method="post">
-                                                            <button type="button" name="view" class="btn btn-warning view" data-bs-toggle="modal" data-bs-target="#viewModal" style="color: white">View</button><br>
-                                                            <button type="button" name="accept" class="btn btn-success accept" data-bs-toggle="modal" data-bs-target="#confirmModal">Approve</button><br>
+                                                            <button type="button" name="view" class="btn btn-warning view" style="color: white">View</button><br>
+                                                            <button type="button" name="accept" class="btn btn-success accept">Approve</button><br>
                                                             <button type="button" name="decline" class="btn btn-danger decline" data-bs-toggle="modal" data-bs-target="#declineModal">Decline</button>
-                                                            <input type="hidden" name="app_id" value="' . $user_id . '">
+                                                            <input type="hidden" name="app_id" value="'.$user_id.'">
                                                         </form></td>' . "</tr>";
                                             }
                                         }
@@ -353,28 +352,14 @@ if (isset($_GET["file"])) {
                                                                         <h1 class="text-left" style="margin: 0; width: 85%; font-weight: bold">Subject Name</h1>
                                                                         <h1 class="text-center" style="margin: 0; width: 20%; font-weight: bold">Grade</h1>
                                                                     </div>
-                                                                    <div class="grades-table-body d-flex flex-column" style="width: 100%; margin-top: 5px">
-                                                                        <?php
-                                                                        $sql2 = "SELECT * FROM grades_list WHERE applicant_id = " . $user_id;
-                                                                        $result = mysqli_query($conn, $sql2);
-                                                                        if (mysqli_num_rows($result) > 0) {
-                                                                            while ($row2 = mysqli_fetch_assoc($result)) {
-                                                                        ?>
-                                                                                <div class="grades-table-row d-flex flex-row" style="width: 100%; margin-bottom: 5px; border-bottom: 1px grey solid; padding-bottom: 3px">
-                                                                                    <h4 class="text-left" style="margin: 0; width: 80%"><?php echo $row2['subject_name'] ?></h4>
-                                                                                    <h4 class="text-center" style="margin: 0; width: 20%"><?php echo $row2['grade'] ?></h4>
-                                                                                </div>
-                                                                        <?php
-                                                                            }
-                                                                        }
-                                                                        ?>
-
+                                                                    <div class="grades-table-body d-flex flex-column" style="width: 100%; margin-top: 5px" id="viewModal-grade-list">
+                                                                        
                                                                     </div>
                                                                     <div class="grades-table-bottom-div d-flex flex-row justify-content-between" style="width: 100%; margin-top: 10px">
-                                                                        <a target="_blank" href="documents/<?php echo $row['app_file'] ?>">
+                                                                        <a target="_blank" href="documents/samplefilename" id="viewModal-grade-imglink">
                                                                             <h5 style="margin-top: 0;">View Proof</h5>
                                                                         </a>
-                                                                        <h5 >GPA: <?php echo $row['gpa'] ?></h5>
+                                                                        <h5 >GPA: <span id="viewModal-grade-gpa"></span></h5>
                                                                     </div>
                                                                 </div>
 
@@ -397,17 +382,11 @@ if (isset($_GET["file"])) {
                                                             <div class="modal-body text-center">
                                                                 <h1>By clicking "Approve", you are now permitting the student to be in the Dean's List.</h1>
                                                                 <div class="modal-btn-div">
-                                                                    <form action="update.php" method="post">
-                                                                        <button type="submit" name="accept" class="btn btn-success confirmBtn">Confirm</button>    
-                                                                        <input hidden name="app_id" value="<?php echo $row['id'] ?>">  
-                                                                        <input hidden name="fullname" value="<?php echo $row['user_name'] ?>">  
-                                                                        <input hidden name="gpa" value="<?php echo $row['gpa'] ?>">  
-                                                                        <input hidden name="department" value="<?php echo $row['curriculum'] ?>">  
-                                                                        <input hidden name="year_level" value="<?php echo $row['year_level'] ?>">  
+                                                                    <form method="post" id="confirm-form">
+                                                                        <button type="submit" class="btn btn-success confirmBtn">Confirm</button>
                                                                     </form>
                                                                     <button type="button" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">Cancel</button>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -422,23 +401,16 @@ if (isset($_GET["file"])) {
                                                             <div class="modal-body text-center">
                                                                 <h1>Are you sure to decline this application? Please make a feeback about the application.</h1>
                                                                 <div class="modal-btn-div">
-                                                                    <form action="update.php" method="post">
+                                                                    <form method="post" id="decline-form">
                                                                         <div class="form-group">
-                                                                            <label for="message-text" class="col-form-label">Message:</label>
-                                                                            <textarea class="form-control" name="decline-text"  rows="6"></textarea>
+                                                                            <label for="decline-form-text" class="col-form-label">Message:</label>
+                                                                            <textarea class="form-control" id="decline-form-text" rows="6"></textarea>
                                                                         </div>
                                                                         <div class="form-group mt-4">
-                                                                            <button type="submit" name="decline" class="btn btn-success confirmBtn">Decline</button>  
+                                                                            <button type="submit" class="btn btn-success confirmBtn">Decline</button>  
                                                                             <button type="button" class="btn btn-danger cancelBtn " data-bs-dismiss="modal">Cancel</button> 
                                                                         </div>
-                                                                         
-                                                                        <input hidden name="app_id" value="<?php echo $row['id'] ?>">  
-                                                                        <input hidden name="fullname" value="<?php echo $row['user_name'] ?>">  
-                                                                        <input hidden name="gpa" value="<?php echo $row['gpa'] ?>">  
-                                                                        <input hidden name="department" value="<?php echo $row['curriculum'] ?>">  
-                                                                        <input hidden name="year_level" value="<?php echo $row['year_level'] ?>">  
                                                                     </form>
-                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -473,7 +445,6 @@ if (isset($_GET["file"])) {
                                             <th scope="col" style="min-width: 11%">Curriculum</th>
                                             <th scope="col" style="min-width: 9%">Section</th>
                                             <th scope="col" style="min-width: 11%">Total GPA</th>
-                                            <th scope="col" style="min-width: 25%">Email Address</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -500,8 +471,7 @@ if (isset($_GET["file"])) {
                                                     <td><?php echo $row["year_level"] . $suffix . " Year" ?></td>
                                                     <td><?php echo strtoupper($row["curriculum"]) ?></td>
                                                     <td><?php echo "Section " . $row["section"] ?></td>
-                                                    <td><?php echo $row["gpa"] ?></td>
-                                                    <td><?php echo $row["email"] ?></td>
+                                                    <td><?php echo $row["gpa"] ?></td>  
                                                 </tr>
 
                                         <?php
@@ -542,7 +512,7 @@ if (isset($_GET["file"])) {
                                             <th scope="col" style="min-width: 11%">Curriculum</th>
                                             <th scope="col" style="min-width: 9%">Section</th>
                                             <th scope="col" style="min-width: 11%">Total GPA</th>
-                                            <th scope="col" style="min-width: 25%">Email Address</th>
+                                            <th scope="col" style="min-width: 11%">Feedback</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -559,7 +529,7 @@ if (isset($_GET["file"])) {
                                                     $suffix = "th";
                                                 }
                                                 $user_id = $row["user_id"];
-                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>BS" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td><td>" . $row["email"] . "</td></tr>";
+                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>BS" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td><td>" . $row["feedback"] . "</td></tr>";
                                             }
                                         }
                                         ?>
@@ -602,9 +572,6 @@ if (isset($_GET["file"])) {
             {
                 "width": "12%"
             },
-            {
-                "width": "18%"
-            },
         ],
         "autoWidth": false
     });
@@ -625,9 +592,6 @@ if (isset($_GET["file"])) {
             },
             {
                 "width": "11%"
-            },
-            {
-                "width": "25%"
             }
         ],
         "autoWidth": false
@@ -668,8 +632,86 @@ if (isset($_GET["file"])) {
         ],
         "autoWidth": false
     });
+
+    function GetStudentGrades($ID){
+        $.ajax({
+            type: 'POST',
+            url: '../class/control.php',
+            dataType: "json",
+            data: {"call": "GetCertainStudentGrades", "ID" : $ID},
+            success: function(result){
+                var data = result;
+                $("#viewModal-grade-list").empty();
+                $("#viewModal-grade-gpa").empty();
+                $("#viewModal-grade-imglink").attr("href", "#");
+                for (var i=0; i<data.length; i++) {
+                    $("#viewModal-grade-list").append('<div class="grades-table-row d-flex flex-row" style="width: 100%; margin-bottom: 5px; border-bottom: 1px grey solid; padding-bottom: 3px">' +
+                                                    '<h4 class="text-left" style="margin: 0; width: 80%">'+ data[i]["Subject_Name"] +'</h4>' +
+                                                    '<h4 class="text-center" style="margin: 0; width: 20%">'+ data[i]["Grades"] +'</h4>' +
+                                                 '</div>');
+                }
+                $("#viewModal-grade-gpa").append(data[0]["GPA"]);
+                $("#viewModal-grade-imglink").attr("href", "documents/"+data[0]["Img_File"]);
+                $("#viewModal").modal("show");
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.responseText);
+            }
+        });
+    }
+
     $(function($) {
-       
+        $("button[name='view']").click(function(){ 
+            var index = $(this).closest("form").find("input[name='app_id']").val();
+            GetStudentGrades(index);
+        });
+
+        $("button[name='accept']").click(function() {
+            var index = $(this).closest("form").find("input[name='app_id']").val();
+            $("#confirmModal").modal("show");
+            $("#confirm-form").unbind();
+            $("#confirm-form").submit(function(event){
+                event.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '../class/control.php',
+                    dataType: "json",
+                    data: {"call": "ApproveDeanlist", "ID" : index},
+                    success: function(result){
+                        if(result == 1){
+                            location.reload();
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.responseText);
+                    }
+                });
+            });
+        });
+
+        $("button[name='decline']").click(function(){ 
+            var index = $(this).closest("form").find("input[name='app_id']").val();
+            $("#declineModal").modal("show");
+            $("#decline-form").unbind();
+            $("#decline-form").submit(function(event){
+                event.preventDefault();
+                var feedback = $("#decline-form-text").val();
+                $.ajax({
+                    type: 'POST',
+                    url: '../class/control.php',
+                    dataType: "json",
+                    data: {"call": "DeclineDeanlist", "ID" : index, "Feedback" : feedback},
+                    success: function(result){
+                        if(result == 1){
+                            location.reload();
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.responseText);
+                    }
+                });
+            });
+        });
     });
 </script>
 </html>

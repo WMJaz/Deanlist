@@ -27,14 +27,12 @@ require_once '../class/database.php';
         $program->level = $_POST['level'];
       
         if(validate_add_program($_POST)){
-            if($program->add()){
+            if($program->add() && $program->addCourse()){
                 //redirect user to program page after saving
                 header('location: programs.php');
             }
         }
     }
-
-   
 ?>
 <!DOCTYPE html>
 <html lang="en">

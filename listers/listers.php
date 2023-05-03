@@ -286,7 +286,7 @@
                                     <td>
                                         <div class="action">
                                             <a class="action-edit" href="editlisters.php?id=<?php echo $value['id'] ?>">Edit</a>
-                                           <a class="action-delete" href="deletelisters.php?id=<?php echo $value['id'] ?>">Remove</a>
+                                            <a class="action-delete" href="deletelisters.php?id=<?php echo $value['id'] ?>">Remove</a>
                                         </div>
                                     </td>
                                 <?php
