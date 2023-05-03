@@ -254,7 +254,7 @@
 
                         <div class="box">
                                 <div class="right-side">
-                                    <div class="box-topic">Dean's Listers</div>
+                                    <div class="box-topic"> <h6> Dean's Listers</h6></div>
                                     <div class="number"><span id="dashboard_deanlister_count"></div>
                                     <div class="indicator">
                                         
@@ -264,11 +264,40 @@
                                 <i class='bx bx-list-check'></i>
                         </div>
 
-                </div>
-                <div class="">
+                        <div class="col-12 mt-5">
+                            <h4><strong>TOP 3 STUDENTS</strong></h4>
+                        </div>
+                        
+                        <div class="box">
+                            <i class="fa-solid fa-trophy"></i>
+
+                            <div class="right-side">
+                                <div class="box-topic">Student</div>
+                                <div class="number"><span>GPE</span></div>
+                            </div>        
+                        </div>
+
+                        <div class="box">
+                            <i class="fa-solid fa-trophy"></i>
+
+                            <div class="right-side">
+                                <div class="box-topic">Student</div>
+                                <div class="number"><span>GPE</span></div>
+                            </div>        
+                        </div>
+
+                        <div class="box">
+                            <i class="fa-solid fa-trophy"></i>
+
+                            <div class="right-side">
+                                <div class="box-topic">Student</div>
+                                <div class="number"><span>GPE</span></div>
+                            </div>        
+                        </div>
 
                 </div>
         </div>
+
     </section>
     <script src="dashboard.js"></script>
 </body>
