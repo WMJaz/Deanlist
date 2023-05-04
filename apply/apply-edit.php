@@ -55,46 +55,50 @@
                             <h6 class="fs-5" style="margin-left:40px; font-weight: bold; font-size: 100px">NAME: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['user_firstname'] . ' ' . $_SESSION['user_lastname'] . '</span>'; ?></h6>
                             <h6 class="fs-5" style="margin-left:10px; font-weight: bold; font-size: 100px">COURSE: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['curriculum'] . '</span>'; ?></h6>
                         </div>
+                        <div class="col-12 d-flex flex-row justify-content-between" style="width: 95%">
+                            <h6 class="fs-5" style="margin-left:40px; font-weight: bold; font-size: 100px">Email: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['user_email'] . '</span>'; ?></h6>
+                        </div>
                     </div>
                     <!-- Application UI -->
-                    <div class="table-div d-flex flex-column align-items-center">
-                        <div class="table-header d-flex flex-row">
-                            <h6>Subjects</h6>
-                        </div>
-                        <div class="table-body" style="overflow:scroll">
-                            <?php foreach ($listOfSubject as $subject) { ?>
-                                <div class="table-row d-flex flex-row">
-                                    <div class="subject-name-div d-flex flex-row">
-                                        <h6><?php echo $subject['subject_name'] ?></h6>
+                    <form action="application-edit.php?id=<?php echo $_GET["id"]; ?>" method="post" enctype="multipart/form-data" class="firstStepForm d-flex flex-column align-items-center">
+                        <div class="table-div d-flex flex-column align-items-center">
+                            <div class="table-header text-center mb-2">
+                                <h6>List of Grades</h6>
+                            </div>
+                            <div class="table-body" style="overflow:scroll">
+                                <?php foreach ($listOfSubject as $subject) { ?>
+                                    <div class="table-row d-flex flex-row">
+                                        <div class="subject-name-div d-flex flex-row">
+                                            <h6><?php echo $subject['subject_name'] ?></h6>
+                                        </div>
+                                        <div class="lecture-units-div d-flex flex-row">
+                                            <h6>Units: <?php echo $subject['lec_units'] + $subject['lab_units'] ?></h6>
+                                        </div>
+                                        <div class="grade-input-div d-flex flex-row">
+                                            <h6>Grade: </h6>
+                                            <input type="number" min="1" max="3.0" step=".25" name="grade[]" class="grade form-control" required value="<?php echo $subject['grade'] ?>">
+                                            <input type="hidden" name="subjectId[]" value="<?php echo $subject['id'] ?>">
+                                        </div>
                                     </div>
-                                    <div class="lecture-units-div d-flex flex-row">
-                                        <h6>Units: <?php echo $subject['lec_units'] + $subject['lab_units'] ?></h6>
+                                <?php
+                                }
+                                ?>
+                                <!-- Add more rows as needed -->
+                            </div>
+                            <p style="margin-left: 525px" class="totalGrade"><?php echo isset($average) ? $average : "GPA:" ?></p>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <input type="submit" class="btn rounded text-light" name="calculate" value="calculate" style="background-color:#107869; margin-left: 500px">
                                     </div>
-                                    <div class="grade-input-div d-flex flex-row">
-                                        <h6>Grade: </h6>
-                                        <input type="number" min="1" max="3.0" step=".25" name="grade[]" class="grade form-control" required value="<?php echo $subject['grade'] ?>">
-                                        <input type="hidden" name="subjectId[]" value="<?php echo $subject['id'] ?>">
-                                    </div>
-                                </div>
-                            <?php
-                            }
-                            ?>
-
-                            <!-- Add more rows as needed -->
-                        </div>
-                        <p style="margin-left: 525px" class="totalGrade"><?php echo isset($average) ? $average : "GPA:" ?></p>
-                        <div class="row">
-                            <div class="col">
-                                <div class="d-flex justify-content-end">
-                                    <input type="submit" class="btn rounded text-light" name="calculate" value="calculate" style="background-color:#107869; margin-left: 500px">
                                 </div>
                             </div>
+                            <div class="submit-container d-flex flex-row justify-content-between">
+                                <a href="application-new.php"><button type="button" name="backBtn" class="btn btn-secondary backBtn">Cancel</button></a>
+                                <button type="submit" class="btn btn-success nxtBtn">Save</button>
+                            </div>
                         </div>
-                        <div class="submit-container d-flex flex-row justify-content-between">
-                            <a href="application-new.php"><button type="button" name="backBtn" class="btn btn-secondary backBtn">Cancel</button></a>
-                            <button type="button" class="btn btn-success nxtBtn">Save</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

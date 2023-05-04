@@ -85,6 +85,9 @@
                             <h6 class="fs-5" style="margin-left:40px; font-weight: bold; font-size: 100px">NAME: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['user_firstname'] . ' ' . $_SESSION['user_lastname'] . '</span>'; ?></h6>
                             <h6 class="fs-5" style="margin-left:10px; font-weight: bold; font-size: 100px">COURSE: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['curriculum'] . '</span>'; ?></h6>
                         </div>
+                        <div class="col-12 d-flex flex-row justify-content-between" style="width: 95%">
+                            <h6 class="fs-5" style="margin-left:40px; font-weight: bold; font-size: 100px">Email: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['user_email'] . '</span>'; ?></h6>
+                        </div>
                     </div>
                     <form action="application-new.php" method="post" enctype="multipart/form-data" class="firstStepForm d-flex flex-column align-items-center">
                         <!-- Logic is:
@@ -112,7 +115,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col" class="table-name">#</th>
-                                            <th scope="col">Email</th>
+                                            <th scope="col">Feedback</th>
                                             <th scope="col" class="academic-rank">Academic Rank</th>
                                             <th scope="col">Year</th>
                                             <th scope="col">Sem</th>
@@ -129,7 +132,7 @@
                                         ?>
                                         <tr>
                                             <td><?php echo '<span class="admin-name">' . $row["user_id"] . '</span>'; ?></td>
-                                            <td><?php echo '<span class="admin-name">' . $row["email"] . '</span>'; ?></td>
+                                            <td><?php echo '<span class="admin-name">' . $row["feedback"] . '</span>'; ?></td>
                                             <td><?php echo '<span class="admin-name">Student</span>'; ?></td>
                                             <td><?php echo strtoupper($row["year_level"])  ?></td>
                                             <td><?php echo strtoupper($row["semester"])  ?></td>

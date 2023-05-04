@@ -302,9 +302,32 @@ class Listers{
         else{
             return false;
         }
-
     }
     
+    function updateGradesPerSubject($app_id, $subject_id, $grade){
+        $sql = "UPDATE applicants_grades SET grade= :subgrade WHERE (applicant_id = :appid AND subject_id = :subjectid);";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':appid', $app_id);
+        $query->bindParam(':subjectid', $subject_id);
+        $query->bindParam(':subgrade', $grade);
+        if($query->execute())
+            return true;
+        else
+            return false;
+    }
+
+    function updateApplicantGPA($id, $gpa){
+        $sql = "UPDATE `deanslist_applicants` SET gpa = :gpa WHERE id = :appid";
+        $query=$this->db->connect()->prepare($sql);
+        $finalGPA = round($gpa, 2);
+        $query->bindParam(':appid', $id);
+        $query->bindParam(':gpa', $finalGPA);
+        if($query->execute())
+            return true;
+        else
+            return false;
+    }
+
     function recordGradesPerSubject($app_id, $subject_id, $grade){
         $sql = "INSERT INTO applicants_grades (applicant_id, subject_id, grade) VALUES (:appid, :subjectid, :subgrade)";
         $query=$this->db->connect()->prepare($sql);
@@ -313,8 +336,7 @@ class Listers{
         $query->bindParam(':subjectid', $subject_id);
         $query->bindParam(':subgrade', $grade);
 
-        $query->execute();
-
+        return $query->execute();
     }
 
     function get_submitted_grades($app_id){

@@ -38,7 +38,6 @@ if (isset($_POST['firstStepSubmit'])) {
     $semtocheck = false;
     // ADD A NEW APPLICANT WHEN FIRST STEP DONE
     $fullname = $_SESSION['user_firstname'] . " " . $_SESSION['user_lastname'];
-
     $currentDate = date("Y-m-d");
 
     foreach ($programs->year_application($_POST['schoolyear']) as $yearapp) {
@@ -150,6 +149,10 @@ if(isset($_POST['secondStepSubmit'])) {
     }
 
     // FINISH APPLICATION!!!
+
+
+
+    
 	/*
     // 1. Insert data to tlb_applicant
 	// 1.1 CREATE A FUNCTION THAT WILL INSERT DATA TO tlb_applicant

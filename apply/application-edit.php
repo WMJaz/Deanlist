@@ -1,6 +1,15 @@
 <?php
 if(!isset($_GET["id"])){
-    header('location: application-new.php');
+    if (isset($_SESSION['user_type'])){
+        if (strtolower($_SESSION['user_type']) == 'admin')
+            header('location: admin-application.php');
+        else if (strtolower($_SESSION['user_type']) == 'student')
+            header('location: application-new.php');
+        else if (strtolower($_SESSION['user_type']) == 'adviser')
+            header('location: adviser-application.php');
+        else
+            header('location: dashboard.php');
+    }
 }
 $conn = mysqli_connect('localhost', 'root', '', 'deanslist');
 $path = "../";
@@ -28,15 +37,30 @@ $listOfSubject = $subject->GetCertainApplicationSubjects($_GET["id"]);
 $semtocheck = false;
 // ADD A NEW APPLICANT WHEN FIRST STEP DONE
 $fullname = $_SESSION['user_firstname'] . " " . $_SESSION['user_lastname'];
-
 $currentDate = date("Y-m-d");
 
-$grades = $_POST['grade'];
-$subjectIDs = $_POST['subjectId'];
 
-foreach($subjectIDs as $key => $n ) {
-    $applicant->recordGradesPerSubject($_SESSION['tableid'], $n, $grades[$key]);
+if (isset($_POST['grade'])){
+    $grades = $_POST['grade'];
+    $subjectIDs = $_POST['subjectId'];
+    $appID = $_GET["id"];
+    
+    $initialGrade = 0;
+    $count = 0;
+
+    foreach($grades as $grade){
+        $initialGrade += floatval($grade);
+        $count++;
+    }
+    $average = $initialGrade / $count;
+
+    foreach($subjectIDs as $key => $n ) {
+        if ($applicant->updateGradesPerSubject($appID, $n, $grades[$key]) && $applicant->updateApplicantGPA($appID,$average)){
+            header('location: application-new.php');
+        }
+    }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
