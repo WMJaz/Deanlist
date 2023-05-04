@@ -103,6 +103,31 @@ class Listers{
         }
     }
 
+    function ReApply($record_id){
+        $sql = "UPDATE deanslist_applicants SET accept_reapplication = 1 
+                WHERE user_id = :ID AND (app_status != 'Pending')";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    function CancelPending($record_id){
+        $sql = "DELETE FROM deanslist_applicants WHERE user_id = :ID AND (app_status = 'Pending')";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
     function show(){
         $sql = "SELECT * FROM deans_listers ORDER BY GPA ASC;";
         $query=$this->db->connect()->prepare($sql);
@@ -122,7 +147,7 @@ class Listers{
     }
 
     function GetAllDeanlistApplicants_ExeptDupicate(){
-        $sql = "SELECT * FROM deanslist_applicants where id not in (SELECT app_id from deans_listers);";
+        $sql = "SELECT * FROM deanslist_applicants WHERE (app_status = 'Accepted' AND adviser_status = 'Accepted') AND id not in (SELECT app_id from deans_listers);";
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
             $data = $query->fetchAll();
@@ -263,7 +288,7 @@ class Listers{
     }
 
     function updateApplicant($id, $gpa, $appstatus, $fileName){
-        $sql = "UPDATE deanslist_applicants SET gpa=:gpa, app_status=:appstatus, app_file=:appfilename WHERE id = :appid;";
+        $sql = "UPDATE deanslist_applicants SET gpa=:gpa, app_status=:appstatus, app_file=:appfilename WHERE  (app_status= 'Incomplete' AND id = :appid);";
         $query=$this->db->connect()->prepare($sql);
 
         $query->bindParam(':appid', $id);

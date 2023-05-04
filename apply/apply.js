@@ -18,3 +18,5 @@ document.querySelector("input[name='calculate']").addEventListener("click", func
     else
         document.querySelector(".totalGrade").textContent = "Please fill up all the grades";
 });
+
+

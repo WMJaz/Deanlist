@@ -1,4 +1,7 @@
 <?php
+if(!isset($_GET["id"])){
+    header('location: application-new.php');
+}
 $conn = mysqli_connect('localhost', 'root', '', 'deanslist');
 $path = "../";
 
@@ -19,204 +22,22 @@ $listOfSubject = [];
 
 $programs = new Program();
 
-// button for form of selecting subjects
-if (isset($_POST['firstStepSubmit'])) {
-    // GET data from dtbase
-    $subject->schoolyear = $_POST['schoolyear'];
-    $subject->sem = $_POST['semester'];
-    $subject->curriculum = $_POST['curriculum'];
-    $subject->year_level = $_POST['yearlevel'];
-    $subject->section = $_POST['section'];
+// GET data from dtbase
+$listOfSubject = $subject->GetCertainApplicationSubjects($_GET["id"]);
 
-    $sy = $_POST['schoolyear'];
-    $sem = $_POST['semester'];
-    $yearlevel = $_POST['yearlevel'];
-    $section = $_POST['section'];
+$semtocheck = false;
+// ADD A NEW APPLICANT WHEN FIRST STEP DONE
+$fullname = $_SESSION['user_firstname'] . " " . $_SESSION['user_lastname'];
 
-    $listOfSubject = $subject->getSubjects();
-    
-    $semtocheck = false;
-    // ADD A NEW APPLICANT WHEN FIRST STEP DONE
-    $fullname = $_SESSION['user_firstname'] . " " . $_SESSION['user_lastname'];
+$currentDate = date("Y-m-d");
 
-    $currentDate = date("Y-m-d");
+$grades = $_POST['grade'];
+$subjectIDs = $_POST['subjectId'];
 
-    foreach ($programs->year_application($_POST['schoolyear']) as $yearapp) {
-        if($sem == 1){
-            $semstart = date("Y-m-d", strtotime($yearapp['1st_sem_start']));
-            $semend = date("Y-m-d", strtotime($yearapp['1st_sem_end']));
-            if($yearapp['1st_sem_start'] != null){
-
-                if(strtotime($currentDate) >= strtotime($semstart) && strtotime($currentDate) <= strtotime($semend)){
-                    $semtocheck = false;
-                }
-                else {
-                    $semtocheck = true;
-                }
-            }
-            else {
-                $semtocheck = ($yearapp['1st_sem'] == 0) ? true : false;
-            }
-            
-        } elseif($sem == 2) {
-            $semstart = date("Y-m-d", strtotime($yearapp['2nd_sem_start']));
-            $semend = date("Y-m-d", strtotime($yearapp['2nd_sem_end']));
-            if($yearapp['2nd_sem_start'] != null){
-                if(strtotime($currentDate) >= strtotime($semstart) && strtotime($currentDate) <= strtotime($semend)){
-                    $semtocheck = false;
-                }
-                else {
-                    $semtocheck = true;
-                }
-            }
-            else {
-                $semtocheck = ($yearapp['2nd_sem'] == 0) ? true : false;
-            }
-        }
-
-
-        if($semtocheck){
-            ?>
-            <script>
-                window.alert('Application is closed for this semester!');
-                window.location.href='application-new.php';
-            </script>
-            <?php
-        } else {
-            $applicant->addApplicant($_SESSION['user_id'], $fullname, $_SESSION['user_email'], $_SESSION['curriculum'], $sem, $yearlevel, $section, $sy, 0, "Incomplete", '', $_POST['adviser'], "Pending");
-        }
-    }
+foreach($subjectIDs as $key => $n ) {
+    $applicant->recordGradesPerSubject($_SESSION['tableid'], $n, $grades[$key]);
 }
- 
-if(isset($_POST['secondStepSubmit'])) {
-    // 1. CALCULATE FOR GPA
-    // Code to calculate for GPA
-    // Formula I used: (SUM OF GRADES) / (NUMBER OF GRADES)
-    // If wrong, adjust accordingly
-    $_sem = null;
-    $_sy = null;
-
-    if(isset($_POST['_sem'])) {
-        $_sem = $_POST['_sem'];
-    }
-    if(isset($_POST['_sy'])) {
-        $_sem = $_POST['_sy'];
-    }
-    
-    $initialGrade = 0;
-    $count = 0;
-
-    foreach($_POST['grade'] as $grade){
-        $initialGrade += floatval($grade);
-        $count++;
-    }
-
-    $average = $initialGrade / $count;
-    // End of Code
-
-    // 2. UPDATE CURRENT APPLICANT
-    // File Handling
-    $doc_type = "Document";
-    $fileName = $_FILES['formFile']['name'];
-    $fileTmpName = $_FILES['formFile']['tmp_name'];
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
-    $allowed = array('pdf', 'jpeg', 'jpg', 'png'); // Allowed File Types. 
-
-    if(in_array($fileActualExt, $allowed)){
-
-        $fileNameNew = $fileName;
-        $filesDestination = 'documents/'.$fileNameNew;
-
-        if($applicant->updateApplicant($_SESSION['tableid'], $average, "Pending", $fileNameNew)){
-            move_uploaded_file($fileTmpName, $filesDestination);
-        }
-    }
-    else {
-        ?>
-            <script>
-                alert("File Format is Not Acceptable!");
-                window.location.href="application-new.php";
-            </script>
-        <?php
-    }
-
-    // 3. ADD TO DATABASE THE GRADES PER SUBJECT
-    $grades = $_POST['grade'];
-    $subjectIDs = $_POST['subjectId'];
-
-    foreach($subjectIDs as $key => $n ) {
-        $applicant->recordGradesPerSubject($_SESSION['tableid'], $n, $grades[$key]);
-    }
-
-    // FINISH APPLICATION!!!
-	/*
-    // 1. Insert data to tlb_applicant
-	// 1.1 CREATE A FUNCTION THAT WILL INSERT DATA TO tlb_applicant
-	$subject -> user_id = $_SESSION['user_id'];
-    
-	$result = $subject -> addApplicant();
-	// 1.2 Get applicant_id WHERE userid corresponds sa sino nag login
-	// 1.3
-	// 2. Insert data to tbl_list_grades
-	// 2.1 CRREATE A FUMNCTION THAT WILL INSERT DATA TO tbl_list_grades
-	$applicantInfo = $subject -> getApplicatInfo();
-	$subject -> applicant_id = $applicantInfo['applicant_id'];
-	$subject -> subject_id = $_POST['subjectId'];
-	$subject -> grade = $_POST['grade'];
-
-    // print_r($subject);
-
-	$result = $subject -> addGrades();
-	// 2.1.1 use for loop sa pag insert ng data
-
-
-	$initial = 0;
-	$count = 0;
-	foreach($_POST['grade'] as $grade) {
-		$initial += floatval($grade);
-		$count += 1;
-	}
-
-	$average = $initial / $count;
-    $subject->average = $average;
-
-	// FETCH GRADES IN DATABASE
-	$finalSubjects = $subject -> getGrades();
-
-    $initial = 0;
-
-    foreach($subject -> grade as $grade) {
-        $initial += $grade;
-    }
-    
-    $gradeInAverage = $initial / sizeof($subject -> grade);
-    
-    $string = floatval($gradeInAverage);
-    // Use the number_format function to format the string
-    $gradeInAverage = number_format($string, 2, '.', '');
-    
-    $name = $_SESSION['user_firstname'] . " " . $_SESSION['user_lastname'];
-    $email = $_SESSION['logged-in'];
-    $user_id = $_SESSION['user_id'];
-    $curriculum = $_SESSION['curriculum'];
-    $schoolyear = $_POST['schoolyear'];
-    $year_level = $_POST['yearlevel'];
-    $section = $_POST['section'];
-    
-    
-    $addAplicant = "INSERT INTO `dean_applicants`(`id`, `name`, `email`, `school_year`, `curriculum`, `year_level`, `section`, `status`, `user_id`) 
-    VALUES (NULL, '$name','$email','$schoolyear','$curriculum','$year_level','$section', 'pending', '$user_id')";
-    mysqli_query($conn, $addAplicant);
-    
-    $updateGPA = "UPDATE dean_applicants SET total_gpa='$average' AND user_id = '1' WHERE name='$name'w ";
-    mysqli_query($conn, $updateGPA);*/
-}   
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -431,7 +252,7 @@ if(isset($_POST['secondStepSubmit'])) {
         <!-- NAVBAR -->
         <div class="home-content">
             <?php 
-                include '../apply/apply-new.php';
+                include '../apply/apply-edit.php';
             ?>
         </div>
     </section>

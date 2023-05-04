@@ -28,15 +28,23 @@
         $programs = new Program();
 
         $existing = false;
+        $withPending = false;
+
         $userid = $_SESSION['user_id'];
 
-
         $conn = mysqli_connect('localhost', 'root', '', 'deanslist');
-        $sql = "SELECT * FROM deanslist_applicants WHERE user_id = '$userid' AND (app_status = 'Pending' OR app_status = 'Accepted' OR app_status = 'Declined')";
+        $sql = "SELECT * FROM deanslist_applicants WHERE (app_status = 'Pending' OR app_status = 'Accepted' OR app_status = 'Declined') AND (accept_reapplication = 0) AND user_id = '$userid'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             $existing = true;
         }
+
+        $sqlReApply = "SELECT * FROM `deanslist_applicants` WHERE (app_status = 'Pending' AND  user_id = $userid);";
+        $resultReApply = mysqli_query($conn, $sqlReApply);
+        if (mysqli_num_rows($resultReApply) > 0) {
+            $withPending = true;
+        }
+
         ?>
         <div class="card" style="overflow: hidden;">
             <div class="card-body">
@@ -78,9 +86,6 @@
                             <h6 class="fs-5" style="margin-left:10px; font-weight: bold; font-size: 100px">COURSE: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['curriculum'] . '</span>'; ?></h6>
                         </div>
                     </div>
-
-
-
                     <form action="application-new.php" method="post" enctype="multipart/form-data" class="firstStepForm d-flex flex-column align-items-center">
                         <!-- Logic is:
                                 Checks first if user has clicked the "Submit" button on the Application UI.
@@ -89,13 +94,11 @@
                                 If user have not clicked the "Submit" button then proceed to the first step: Student Info UI
                                 on the Student Info UI, if user clicks the "Next" button,
                                 proceeds to the Application UI, where user can input grades.
-
                                 After clicking the "Submit" on Application UI, proceed to the Assessment UI
                         -->
 
                         <?php
                         /* Check if user has already clicked "Submit" button or has existing application */
-
                         if (isset($_POST['secondStepSubmit']) || $existing) {
                             $sql = "SELECT * FROM deanslist_applicants WHERE user_id = '$userid' AND (app_status = 'Pending' OR app_status = 'Accepted' OR app_status = 'Declined');";
                             $result = mysqli_query($conn, $sql);
@@ -111,8 +114,8 @@
                                             <th scope="col" class="table-name">#</th>
                                             <th scope="col">Email</th>
                                             <th scope="col" class="academic-rank">Academic Rank</th>
-
                                             <th scope="col">Year</th>
+                                            <th scope="col">Sem</th>
                                             <th scope="col">GPA</th>
                                             <th scope="col">Status</th>
                                         </tr>
@@ -129,6 +132,7 @@
                                             <td><?php echo '<span class="admin-name">' . $row["email"] . '</span>'; ?></td>
                                             <td><?php echo '<span class="admin-name">Student</span>'; ?></td>
                                             <td><?php echo strtoupper($row["year_level"])  ?></td>
+                                            <td><?php echo strtoupper($row["semester"])  ?></td>
                                             <td>
                                                 <p><?php echo $row["gpa"] ?></p>
                                             </td>
@@ -348,16 +352,19 @@
 
                         <?php
                         if ($existing) {
-
                         ?>
                             <div class="submit-container d-flex flex-row justify-content-between">
-                                <a href="../dashboard/dashboard.php"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Back to Homepage</button></a>
-                                <a href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
-                          
+                                <a class ="m-2" href="../dashboard/dashboard.php"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Back to Homepage</button></a>
+                                <a class ="m-2" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
+                                <?php if (!$withPending){ ?>
+                                <a class ="m-2" href="reapply.php?idx=<?php echo $userid; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Apply New</button></a>
+                                <?php }else{?>
+                                    <a class ="m-2" href="application-edit.php?id=<?php echo $applicantID; ?>" id="edit-grades"><button type="button" class="btn btn-secondary homeBtn">Edit</button></a>
+                                    <a class ="m-2" href="reapply.php?idy=<?php echo $userid; ?>"><button type="button" name="homeBtn" class="btn btn-danger homeBtn">Cancel</button></a>
+                                <?php }?>
                             </div> 
                                 
                             <?php
-
                         } else {
                             if (!isset($_POST['secondStepSubmit'])) {
                             ?>
@@ -411,7 +418,16 @@
         </div>
 
     </div>
+
+    
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+<script >
+    $(function($) {
+        $("#edit-grades").click(function(){ 
+            var index = $(this).closest("form").find("input[name='app_id']").val();
+            GetStudentGrades(index);
+        });        
+    });
+</script>
 </html>

@@ -456,7 +456,6 @@ if(isset($_POST['submit'])){
                                 </tr>
                             </thead>
                             <tbody id="subjtable">
-
                                 <tr>
                                     <!-- always use echo to output PHP values -->
                                     <td style="font-size: 16px; width: 20%"><input class="form-control" type="text" placeholder="Subject Code" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjcode[]" required></td>

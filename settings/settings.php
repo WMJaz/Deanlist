@@ -330,9 +330,6 @@ if (isset($_POST["submitStatus"])) {
                 <div class="table-container course-select" style="width: 100%; height: 600px; background-color: white">
                     <div class="header-program d-flex flex-row">
                         <h1 class=" text-center" style="margin: 0; margin-left: 100px;font-weight: bold; font-size: 28px; width: 100%"><?php echo $_GET['course'] ?> CURRICULUMS</h1>
-                        <button type="button" name="add-curr" class="btn btn-success add-course-btn d-flex flex-row" data-bs-toggle="modal" data-bs-target="#add-curr"><i class='bx bx-plus'></i>
-                            <p class="add-text" style="margin-top: 0 !important">Add New</p>
-                        </button>
                     </div>
                     <div class="curriculum-container" style="overflow: auto; width: 100%; height: 90%; border: 1px gray solid">
                         <table class="table" id="syTable" style="margin: 0">

@@ -284,17 +284,17 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                 <div class="content-table-container">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <a class="pending nav-link d-flex flex-row active" aria-current="page" href="#pending" data-bs-toggle="tab">Pending <div class="number-pending d-flex flex-row justify-content-center align-items-center" style="background-color: red; padding: 2px; border-radius: 5px; font-size: 12px; width: 15px ;height: 20px; padding: 3px; color: white; margin-left: 4px"><?php $sql = "SELECT * FROM deanslist_applicants WHERE app_status = 'Pending' AND adviser_status='Pending' AND adviser_id=" . $adviser_id['id'];
+                            <a class="pending nav-link d-flex flex-row active" aria-current="page" href="#pending" data-bs-toggle="tab">Pending <div class="number-pending d-flex flex-row justify-content-center align-items-center" style="background-color: red; padding: 2px; border-radius: 5px; font-size: 12px; width: 15px ;height: 20px; padding: 3px; color: white; margin-left: 4px"><?php $sql = "SELECT * FROM deanslist_applicants WHERE adviser_status='Pending' AND adviser_id=" . $adviser_id['id'];
                                                                                                                                                                                                                                                                                                                                                                                                 $result = mysqli_query($conn, $sql);
                                                                                                                                                                                                                                                                                                                                                                                                 echo mysqli_num_rows($result) ?></div> </a>
                         </li>
                         <li class="nav-item">
-                            <a class="accepted nav-link d-flex flex-row" href="#accepted" data-bs-toggle="tab">Accepted <div class="number-pending d-flex flex-row justify-content-center align-items-center" style="background-color: red; padding: 2px; border-radius: 5px; font-size: 12px; width: 15px ;height: 20px; padding: 3px; color: white; margin-left: 4px"><?php $sql = "SELECT * FROM deanslist_applicants WHERE app_status = 'Accepted' AND adviser_status='Accepted' AND adviser_id=" . $adviser_id['id'];
+                            <a class="accepted nav-link d-flex flex-row" href="#accepted" data-bs-toggle="tab">Accepted <div class="number-pending d-flex flex-row justify-content-center align-items-center" style="background-color: red; padding: 2px; border-radius: 5px; font-size: 12px; width: 15px ;height: 20px; padding: 3px; color: white; margin-left: 4px"><?php $sql = "SELECT * FROM deanslist_applicants WHERE adviser_status='Accepted' AND adviser_id=" . $adviser_id['id'];
                                                                                                                                                                                                                                                                                                                                                                         $result = mysqli_query($conn, $sql);
                                                                                                                                                                                                                                                                                                                                                                         echo mysqli_num_rows($result) ?></div> </a>
                         </li>
                         <li class="nav-item">
-                            <a class="declined nav-link d-flex flex-row" href="#declined" data-bs-toggle="tab">Declined <div class="number-pending d-flex flex-row justify-content-center align-items-center" style="background-color: red; padding: 2px; border-radius: 5px; font-size: 12px; width: 15px ;height: 20px; padding: 3px; color: white; margin-left: 4px"><?php $sql = "SELECT * FROM deanslist_applicants WHERE  app_status = 'Declined' AND adviser_status='Declined' AND adviser_id=" . $adviser_id['id'];
+                            <a class="declined nav-link d-flex flex-row" href="#declined" data-bs-toggle="tab">Declined <div class="number-pending d-flex flex-row justify-content-center align-items-center" style="background-color: red; padding: 2px; border-radius: 5px; font-size: 12px; width: 15px ;height: 20px; padding: 3px; color: white; margin-left: 4px"><?php $sql = "SELECT * FROM deanslist_applicants WHERE adviser_status='Declined' AND adviser_id=" . $adviser_id['id'];
                                                                                                                                                                                                                                                                                                                                                                         $result = mysqli_query($conn, $sql);
                                                                                                                                                                                                                                                                                                                                                                         echo mysqli_num_rows($result) ?></div> </a>
                         </li>
@@ -317,7 +317,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                             </div>
                             <!-- Table for Pending Applicants -->
                             <?php
-                            $sql = "SELECT * FROM deanslist_applicants WHERE app_status = 'Pending' AND adviser_status='Pending' AND adviser_id=" . $adviser_id['id'];
+                            $sql = "SELECT * FROM deanslist_applicants WHERE adviser_status='Pending' AND adviser_id=" . $adviser_id['id'];
                             $result = mysqli_query($conn, $sql);
                             ?>
                             <div class="applicant-table-div">
@@ -329,7 +329,6 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                                             <th scope="col" style="width: 11%">Curriculum</th>
                                             <th scope="col" style="width: 9%">Section</th>
                                             <th scope="col" style="width: 11%">Total GPA</th>
-                                            <th scope="col" style="width: 25%">Email Address</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -347,11 +346,11 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                                                     $suffix = "th";
                                                 }
                                                 $user_id = $row["id"];
-                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td><td>" . $row["email"] . "</td>" . '<td>
+                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td>" . '<td>
                                                 <form action="update.php" method="post">
                                                     <button type="button" name="view" class="btn btn-warning view" data-bs-toggle="modal" data-bs-target="#viewModal' . $row["id"] . '" style="color: white">View</button>
                                                     <button type="button" name="accept" class="btn btn-success accept" data-bs-toggle="modal" data-bs-target="#confirmModal">Accept</button> 
-                                                    <button type="button submit" name="decline" class="btn btn-danger decline">Decline</button>
+                                                    <button type="button" name="decline" class="btn btn-danger decline">Decline</button>
                                                     <input type="hidden" name="app_id" value="' . $user_id . '">
                                                 </form></td>' . "</tr>";
                                         ?>
@@ -462,7 +461,6 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                                             <th scope="col" style="min-width: 11%">Curriculum</th>
                                             <th scope="col" style="min-width: 9%">Section</th>
                                             <th scope="col" style="min-width: 11%">Total GPA</th>
-                                            <th scope="col" style="min-width: 25%">Email Address</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -488,7 +486,6 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                                                     <td><?php echo strtoupper($row["curriculum"]) ?></td>
                                                     <td><?php echo "Section " . $row["section"] ?></td>
                                                     <td><?php echo $row["gpa"] ?></td>
-                                                    <td><?php echo $row["email"] ?></td>
                                                 </tr>
 
                                         <?php
@@ -529,7 +526,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                                             <th scope="col" style="min-width: 11%">Curriculum</th>
                                             <th scope="col" style="min-width: 9%">Section</th>
                                             <th scope="col" style="min-width: 11%">Total GPA</th>
-                                            <th scope="col" style="min-width: 25%">Email Address</th>
+                                            <th scope="col" style="min-width: 25%">Feedback</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -546,7 +543,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                                                     $suffix = "th";
                                                 }
                                                 $user_id = $row["user_id"];
-                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td><td>" . $row["email"] . "</td></tr>";
+                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td><td>" . $row["feedback"] . "</td></tr>";
                                             }
                                         }
                                         ?>
@@ -559,8 +556,30 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                 </div>
             </div>
         </div>
-
-
+        <div class="modal fade" id="declineModal" tabindex="-1" aria-labelledby="declineModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header d-flex justify-content-center">
+                        <h5 class="modal-title">Decline Application</h5>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h1>Are you sure to decline this application? Please make a feeback about the application.</h1>
+                        <div class="modal-btn-div">
+                            <form method="post" id="decline-form">
+                                <div class="form-group">
+                                    <label for="decline-form-text" class="col-form-label">Message:</label>
+                                    <textarea class="form-control" id="decline-form-text" rows="6"></textarea>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <button type="submit" class="btn btn-success confirmBtn">Decline</button>  
+                                    <button type="button" class="btn btn-danger cancelBtn " data-bs-dismiss="modal">Cancel</button> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </body>
 
@@ -584,10 +603,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                 "width": "11%"
             },
             {
-                "width": "25%"
-            },
-            {
-                "width": "18%"
+                "width": "20%"
             },
         ],
         "autoWidth": false
@@ -610,9 +626,6 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
             },
             {
                 "width": "11%"
-            },
-            {
-                "width": "25%"
             }
         ],
         "autoWidth": false
@@ -652,6 +665,32 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
             }
         ],
         "autoWidth": false
+    });
+
+    $(function($) {
+        $("button[name='decline']").click(function(){ 
+            var index = $(this).closest("form").find("input[name='app_id']").val();
+            $("#declineModal").modal("show");
+            $("#decline-form").unbind();
+            $("#decline-form").submit(function(event){
+                event.preventDefault();
+                var feedback = $("#decline-form-text").val();
+                $.ajax({
+                    type: 'POST',
+                    url: '../class/control.php',
+                    dataType: "json",
+                    data: {"call": "DeclineDeanlist", "ID" : index, "Feedback" : feedback},
+                    success: function(result){
+                        if(result == 1){
+                            location.reload();
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.responseText);
+                    }
+                });
+            });
+        });
     });
 </script>
 

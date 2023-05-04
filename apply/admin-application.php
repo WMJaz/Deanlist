@@ -333,89 +333,116 @@ if (isset($_GET["file"])) {
                                                         <form action="update.php" method="post">
                                                             <button type="button" name="view" class="btn btn-warning view" style="color: white">View</button><br>
                                                             <button type="button" name="accept" class="btn btn-success accept">Approve</button><br>
-                                                            <button type="button" name="decline" class="btn btn-danger decline" data-bs-toggle="modal" data-bs-target="#declineModal">Decline</button>
+                                                            <button type="button" name="decline" class="btn btn-danger decline">Decline</button>
                                                             <input type="hidden" name="app_id" value="'.$user_id.'">
                                                         </form></td>' . "</tr>";
                                             }
                                         }
                                         ?>
 
-                                                <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header d-flex justify-content-center">
-                                                                <h5 class="modal-title">Applicant's Info</h5>
+                                        <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header d-flex justify-content-center">
+                                                        <h5 class="modal-title">Applicant's Info</h5>
+                                                    </div>
+                                                    <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                                                        <div class="grades-table" style="width: 80%; margin-top: 10px">
+                                                            <div class="grades-table-header d-flex flex-row" style="width: 100%">
+                                                                <h1 class="text-left" style="margin: 0; width: 85%; font-weight: bold">Subject Name</h1>
+                                                                <h1 class="text-center" style="margin: 0; width: 20%; font-weight: bold">Grade</h1>
                                                             </div>
-                                                            <div class="modal-body d-flex flex-column justify-content-center align-items-center">
-                                                                <div class="grades-table" style="width: 80%; margin-top: 10px">
-                                                                    <div class="grades-table-header d-flex flex-row" style="width: 100%">
-                                                                        <h1 class="text-left" style="margin: 0; width: 85%; font-weight: bold">Subject Name</h1>
-                                                                        <h1 class="text-center" style="margin: 0; width: 20%; font-weight: bold">Grade</h1>
-                                                                    </div>
-                                                                    <div class="grades-table-body d-flex flex-column" style="width: 100%; margin-top: 5px" id="viewModal-grade-list">
-                                                                        
-                                                                    </div>
-                                                                    <div class="grades-table-bottom-div d-flex flex-row justify-content-between" style="width: 100%; margin-top: 10px">
-                                                                        <a target="_blank" href="documents/samplefilename" id="viewModal-grade-imglink">
-                                                                            <h5 style="margin-top: 0;">View Proof</h5>
-                                                                        </a>
-                                                                        <h5 >GPA: <span id="viewModal-grade-gpa"></span></h5>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="modal-btn-div">
-                                                                    <button type="button" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">Close</button>
-                                                                </div>
-
+                                                            <div class="grades-table-body d-flex flex-column" style="width: 100%; margin-top: 5px" id="viewModal-grade-list">
+                                                                
                                                             </div>
+                                                            <div class="grades-table-bottom-div d-flex flex-row justify-content-between" style="width: 100%; margin-top: 10px">
+                                                                <a target="_blank" href="documents/samplefilename" id="viewModal-grade-imglink">
+                                                                    <h5 style="margin-top: 0;">View Proof</h5>
+                                                                </a>
+                                                                <h5 >GPA: <span id="viewModal-grade-gpa"></span></h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-btn-div">
+                                                            <button type="button" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">Close</button>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
 
-                                                <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header d-flex justify-content-center">
-                                                                <h5 class="modal-title">Approve Selected Student?</h5>
-                                                            </div>
-                                                            <div class="modal-body text-center">
-                                                                <h1>By clicking "Approve", you are now permitting the student to be in the Dean's List.</h1>
-                                                                <div class="modal-btn-div">
-                                                                    <form method="post" id="confirm-form">
-                                                                        <button type="submit" class="btn btn-success confirmBtn">Confirm</button>
-                                                                    </form>
-                                                                    <button type="button" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">Cancel</button>
-                                                                </div>
-                                                            </div>
+                                        <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header d-flex justify-content-center">
+                                                        <h5 class="modal-title">Approve Selected Student?</h5>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <h1>By clicking "Approve", you are now permitting the student to be in the Dean's List.</h1>
+                                                        <div class="modal-btn-div">
+                                                            <form method="post" id="confirm-form">
+                                                                <button type="submit" class="btn btn-success confirmBtn">Confirm</button>
+                                                            </form>
+                                                            <button type="button" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">Cancel</button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="modal fade" id="declineModal" tabindex="-1" aria-labelledby="declineModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header d-flex justify-content-center">
-                                                                <h5 class="modal-title">Decline Application</h5>
-                                                            </div>
-                                                            <div class="modal-body text-center">
-                                                                <h1>Are you sure to decline this application? Please make a feeback about the application.</h1>
-                                                                <div class="modal-btn-div">
-                                                                    <form method="post" id="decline-form">
-                                                                        <div class="form-group">
-                                                                            <label for="decline-form-text" class="col-form-label">Message:</label>
-                                                                            <textarea class="form-control" id="decline-form-text" rows="6"></textarea>
-                                                                        </div>
-                                                                        <div class="form-group mt-4">
-                                                                            <button type="submit" class="btn btn-success confirmBtn">Decline</button>  
-                                                                            <button type="button" class="btn btn-danger cancelBtn " data-bs-dismiss="modal">Cancel</button> 
-                                                                        </div>
-                                                                    </form>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="modal fade" id="declineModal" tabindex="-1" aria-labelledby="declineModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header d-flex justify-content-center">
+                                                        <h5 class="modal-title">Decline Application</h5>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <h1>Are you sure to decline this application? Please make a feeback about the application.</h1>
+                                                        <div class="modal-btn-div">
+                                                            <form method="post" id="decline-form">
+                                                                <div class="form-group">
+                                                                    <label for="decline-form-text" class="col-form-label">Message:</label>
+                                                                    <textarea class="form-control" id="decline-form-text" rows="6"></textarea>
                                                                 </div>
-                                                            </div>
+                                                                <div class="form-group mt-4">
+                                                                    <button type="submit" class="btn btn-success confirmBtn">Decline</button>  
+                                                                    <button type="button" class="btn btn-danger cancelBtn " data-bs-dismiss="modal">Cancel</button> 
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="viewModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header d-flex justify-content-center">
+                                                        <h5 class="modal-title">Applicant's Info</h5>
+                                                    </div>
+                                                    <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                                                        <div class="grades-table" style="width: 80%; margin-top: 10px">
+                                                            <div class="grades-table-header d-flex flex-row" style="width: 100%">
+                                                                <h1 class="text-left" style="margin: 0; width: 85%; font-weight: bold">Subject Name</h1>
+                                                                <h1 class="text-center" style="margin: 0; width: 20%; font-weight: bold">Grade</h1>
+                                                            </div>
+                                                            <div class="grades-table-body d-flex flex-column" style="width: 100%; margin-top: 5px" id="viewModal-grade-list">
+                                                                
+                                                            </div>
+                                                            <div class="grades-table-bottom-div d-flex flex-row justify-content-between" style="width: 100%; margin-top: 10px">
+                                                                <a target="_blank" href="documents/samplefilename" id="viewModal-grade-imglink">
+                                                                    <h5 style="margin-top: 0;">View Proof</h5>
+                                                                </a>
+                                                                <h5 >GPA: <span id="viewModal-grade-gpa"></span></h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-btn-div">
+                                                            <button type="button" class="btn btn-danger cancelBtn" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </tbody>
                                 </table>
                             </div>
@@ -665,6 +692,11 @@ if (isset($_GET["file"])) {
             var index = $(this).closest("form").find("input[name='app_id']").val();
             GetStudentGrades(index);
         });
+
+        // $("button[name='edit']").click(function(){ 
+        //     var index = $(this).closest("form").find("input[name='app_id']").val();
+        //     alert("");
+        // });
 
         $("button[name='accept']").click(function() {
             var index = $(this).closest("form").find("input[name='app_id']").val();

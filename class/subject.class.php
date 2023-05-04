@@ -77,6 +77,18 @@ Class subject{
         return $data;
     }
 
+    function GetCertainApplicationSubjects($record_id){
+        $sql = "SELECT * FROM `applicants_grades` as a 
+                JOIN sy_subjects as b on b.id = a.subject_id
+                WHERE a.applicant_id = :id";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
     function addApplicant() {
         $sql = "INSERT INTO `tlb_applicant` (`applicant_id`, `user_id`, `grade_file`)
          VALUES (NULL, :user_id, NULL)";
