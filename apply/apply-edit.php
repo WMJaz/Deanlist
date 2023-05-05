@@ -108,10 +108,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script >
     $(function($) {
-        $("#edit-grades").click(function(){ 
-            var index = $(this).closest("form").find("input[name='app_id']").val();
-            GetStudentGrades(index);
-        });        
+        $("input[name='grade[]'").change(function(){
+            var val = $(this).val();
+            var fixVal = (parseFloat(val)).toFixed(4);
+            $(this).val(fixVal);
+        });
+
+        $("input[name='grade[]'").keypress(function() {
+            //code to not allow any changes to be made to input field
+            return false;
+        });
+
     });
 </script>
 </html>

@@ -114,7 +114,7 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col" class="table-name">#</th>
+                                            <th scope="col" class="table-name">Date</th>
                                             <th scope="col">Feedback</th>
                                             <th scope="col" class="academic-rank">Academic Rank</th>
                                             <th scope="col">Year</th>
@@ -129,9 +129,10 @@
                                             if (mysqli_num_rows($result) > 0) {
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $applicantID = $row["id"];
+                                                    $dte = date_create($row["created_at"]);
                                         ?>
                                         <tr>
-                                            <td><?php echo '<span class="admin-name">' . $row["user_id"] . '</span>'; ?></td>
+                                            <td><?php echo '<span class="admin-name">' . date_format($dte,"M/d") . '</span>'; ?></td>
                                             <td><?php echo '<span class="admin-name">' . $row["feedback"] . '</span>'; ?></td>
                                             <td><?php echo '<span class="admin-name">Student</span>'; ?></td>
                                             <td><?php echo strtoupper($row["year_level"])  ?></td>
@@ -338,12 +339,15 @@
                                                     </div>
                                                 </div>
 
-
                                             </div>
                                             <div class="file-input mb-3 d-flex flex-row justify-content-left">
                                                 <label for="formFile" class="form-label">Portal Screenshot: </label>
                                                 <input class="form-control" type="file" id="formFile" name="formFile" required>
                                             </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <span class="text-center text-danger" id="err-msg"></span>
                                         </div>
 
                         <?php
@@ -378,7 +382,7 @@
                                             if (!isset($_POST['firstStepSubmit'])) {
                                             ?> type="submit" name="firstStepSubmit" <?php
                                                                                 } else {
-                                                                                    ?> type="button" data-bs-toggle="modal" data-bs-target="#successModal" <?php
+                                                                                    ?> type="button" id="submitgrades" <?php
                                                                                                                                                     }
                                                                                                                                                         ?> class="btn btn-success nxtBtn"><?php echo isset($_POST['firstStepSubmit']) ? "Submit" : "Next" ?></button>
 
@@ -427,10 +431,36 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script >
     $(function($) {
-        $("#edit-grades").click(function(){ 
-            var index = $(this).closest("form").find("input[name='app_id']").val();
-            GetStudentGrades(index);
-        });        
+        $("#submitgrades").click(function(){
+            $("#err-msg").empty("");  
+            initial = 0; //Reset Value
+            let grades = document.querySelectorAll(".grade");
+            let totalSubject = parseInt(grades.length);
+            grades.forEach(grade => {
+                initial += parseFloat(grade.value);
+            })
+            let finalCalc = (initial / totalSubject).toFixed(4);
+            if (isNaN(finalCalc)){
+                $("#err-msg").append("Please fill up all the grades");
+            }
+            else if ($('#formFile').get(0).files.length === 0) {
+                $("#err-msg").append("Please attach a file of proof");
+            }
+            else{
+                $("#successModal").modal("show");
+            }
+        });
+
+        $("input[name='grade[]'").change(function(){
+            var val = $(this).val();
+            var fixVal = (parseFloat(val)).toFixed(4);
+            $(this).val(fixVal);
+        });
+
+        $("input[name='grade[]'").keypress(function() {
+            //code to not allow any changes to be made to input field
+            return false;
+        });
     });
 </script>
 </html>

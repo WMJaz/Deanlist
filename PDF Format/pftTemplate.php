@@ -133,7 +133,7 @@
                               <td>'. $grades[$x]['subject_name'] .'</td>
                               <td>'. ($grades[$x]['lec_units'] + $grades[$x]['lab_units']) .'</td>
                               <td>'. $grades[$x]['grade'] .'</td>
-                              <td></td>
+                              <td><textarea style="width:100%; margin:0;border:none;" rows="1"></textarea></td>
                             </tr>';
                     }
                       

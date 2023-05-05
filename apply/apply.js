@@ -12,7 +12,7 @@ document.querySelector("input[name='calculate']").addEventListener("click", func
         
         initial += parseFloat(grade.value);
     })
-    let finalCalc = (initial / totalSubject).toFixed(2);
+    let finalCalc = (initial / totalSubject).toFixed(4);
     if (!isNaN(finalCalc))
         document.querySelector(".totalGrade").textContent = finalCalc;
     else

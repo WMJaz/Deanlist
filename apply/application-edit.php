@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (!isset($_SESSION['logged-in'])) {
+    header('location: ../login/login.php');
+}
 if(!isset($_GET["id"])){
     if (isset($_SESSION['user_type'])){
         if (strtolower($_SESSION['user_type']) == 'admin')
@@ -20,8 +24,6 @@ require_once $path . "class/listers.class.php";
 include_once '../class/program.class.php';
 
 date_default_timezone_set('Asia/Manila');
-
-session_start();
 
 $subject = new subject;
 $applicant = new Listers;
