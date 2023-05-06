@@ -2,11 +2,7 @@
 session_start();
 if (!isset($_SESSION['logged-in'])) {
     header('location: ../login/login.php');
-<<<<<<< HEAD
-}
-=======
    }
->>>>>>> dev
 if(!isset($_GET["id"])){
     if (isset($_SESSION['user_type'])){
         if (strtolower($_SESSION['user_type']) == 'admin')
@@ -29,11 +25,8 @@ include_once '../class/program.class.php';
 
 date_default_timezone_set('Asia/Manila');
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> dev
 $subject = new subject;
 $applicant = new Listers;
 $subject -> applicant_id = $_SESSION['user_id'];

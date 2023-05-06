@@ -360,13 +360,8 @@
                         if ($existing) {
                         ?>
                             <div class="submit-container d-flex flex-row justify-content-between">
-<<<<<<< HEAD
-                                <a class ="m-2" href="../dashboard/dashboard.php"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Back to Homepage</button></a>
-                                <a class ="m-2" target="_blank" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
-=======
                             
                                 <a class ="m-2" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
->>>>>>> dev
                                 <?php if (!$withPending){ ?>
                                 <a class ="m-2" href="reapply.php?idx=<?php echo $userid; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Apply New</button></a>
                                 <?php }else{?>
