@@ -99,7 +99,6 @@
                                 proceeds to the Application UI, where user can input grades.
                                 After clicking the "Submit" on Application UI, proceed to the Assessment UI
                         -->
-
                         <?php
                         /* Check if user has already clicked "Submit" button or has existing application */
                         if (isset($_POST['secondStepSubmit']) || $existing) {
@@ -140,8 +139,8 @@
                                             <td>
                                                 <p><?php echo $row["gpa"] ?></p>
                                             </td>
-                                            <td><mark style="<?php if ($row["app_status"] == 'Accepted') echo "background-color: rgb(181, 247, 57)";
-                                                                elseif ($row["app_status"] == 'Declined') echo "background-color: rgb(238, 115, 32)" ?>"><?php echo ucfirst($row["app_status"]) ?></mark></td>
+                                            <td><a target="_blank" href="../PDF Format/pftTemplate.php?id=<?php echo $row["id"]; ?>"><mark style="<?php if ($row["app_status"] == 'Accepted') echo "background-color: rgb(181, 247, 57)";
+                                                                elseif ($row["app_status"] == 'Declined') echo "background-color: rgb(238, 115, 32)" ?>"><?php echo ucfirst($row["app_status"]) ?></mark></a></td>
                                         </tr>
                                         <?php
                                                 }
@@ -362,7 +361,7 @@
                         ?>
                             <div class="submit-container d-flex flex-row justify-content-between">
                                 <a class ="m-2" href="../dashboard/dashboard.php"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Back to Homepage</button></a>
-                                <a class ="m-2" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
+                                <a class ="m-2" target="_blank" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
                                 <?php if (!$withPending){ ?>
                                 <a class ="m-2" href="reapply.php?idx=<?php echo $userid; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Apply New</button></a>
                                 <?php }else{?>

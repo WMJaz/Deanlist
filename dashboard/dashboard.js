@@ -51,7 +51,7 @@ function GetDashboardData(){
                         '</div>'+
                     '</div>';
             $("#top-student").append(view);
-            tmpGPA == patListDT[i]["GPA"]
+            tmpGPA == patListDT[i]["GPA"];
           }
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -60,7 +60,42 @@ function GetDashboardData(){
     });
 }
 
+function GetNotification(){
+  $.ajax({
+      type: 'POST',
+      url: '../class/control.php',
+      dataType: "json",
+      data: {"call": "GetNotification"},
+      success: function(result){
+        if (!result==0){
+          var notifType = result["NotifCode"];
+          var notifFeedback = result["Feedback"];
+          if (notifType == 1){
+            $.toast({
+                heading: 'Congrats',
+                text: "Your application for dean's lister was approved.",
+                showHideTransition: 'slide',
+                icon: 'success'
+            }); 
+          }else if (notifType == 0){
+            $.toast({
+                heading: 'Sorry',
+                text: "Your application for dean's lister was decline.",
+                showHideTransition: 'slide',
+                icon: 'error'
+            });
+          }
+        } 
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+          alert(xhr.responseText);
+      }
+  });
+}
+
 $(function($) {
   GetDashboardData();
+  GetNotification();
   setInterval(GetDashboardData, 10000);
+ 
 });

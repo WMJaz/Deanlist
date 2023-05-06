@@ -77,6 +77,22 @@
                 else
                     echo 0;
                 break;
+            case "GetNotification":
+                include_once 'listers.class.php';
+                $lister = new Listers;
+                $ID = $_SESSION['user_id'];
+                $data = $lister->GetNotifications($ID);
+                if (!is_null($data)) {
+                    $returnval = array();
+                    $returnval["NotifCode"] = $data["notif"];
+                    $returnval["Feedback"] = $data["feedback"];
+                    echo json_encode($returnval);
+                    $lister->RemoveNotification($ID);
+                }else{
+                    echo 0;
+                }
+                
+                break;
            default:
                echo 0;            
        }

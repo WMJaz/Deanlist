@@ -346,14 +346,46 @@ class Listers{
             return false;
     }
 
+    function ChecKIfExist_GradePerSubject($app_id, $subject_id){
+        $sql = "SELECT id FROM `applicants_grades` WHERE (applicant_id = :appid AND subject_id = :subjectid);";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':appid', $app_id);
+        $query->bindParam(':subjectid', $subject_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+            if (count($data) > 0){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    function RemoveNotification($record_id) {
+        $sql = "UPDATE `deanslist_applicants` SET `notificationseen` = 1 WHERE user_id = :ID";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        $query->execute();
+    }
+
+    function GetNotifications($record_id) {
+        $sql = "SELECT IF(app_status = 'Accepted', 1, 0) as 'notif',feedback FROM `deanslist_applicants` WHERE (notificationseen = 0 AND (app_status = 'Accepted' OR app_status = 'Declined')) AND user_id = :uid ORDER by id DESC LIMIT 1;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':uid', $record_id);
+        if($query->execute()){
+            if ($query->rowCount() > 0){
+                $data = $query->fetch();
+                return $data; 
+            }
+        }
+        return null;
+    }
+
     function recordGradesPerSubject($app_id, $subject_id, $grade){
         $sql = "INSERT INTO applicants_grades (applicant_id, subject_id, grade) VALUES (:appid, :subjectid, :subgrade)";
         $query=$this->db->connect()->prepare($sql);
-
         $query->bindParam(':appid', $app_id);
         $query->bindParam(':subjectid', $subject_id);
         $query->bindParam(':subgrade', $grade);
-
         return $query->execute();
     }
 

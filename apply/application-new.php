@@ -146,14 +146,12 @@ if(isset($_POST['secondStepSubmit'])) {
     $subjectIDs = $_POST['subjectId'];
 
     foreach($subjectIDs as $key => $n ) {
-        $applicant->recordGradesPerSubject($_SESSION['tableid'], $n, $grades[$key]);
+        if (!($applicant->ChecKIfExist_GradePerSubject($_SESSION['tableid'], $n))){
+            $applicant->recordGradesPerSubject($_SESSION['tableid'], $n, $grades[$key]);
+        }
     }
 
     // FINISH APPLICATION!!!
-
-
-
-    
 	/*
     // 1. Insert data to tlb_applicant
 	// 1.1 CREATE A FUNCTION THAT WILL INSERT DATA TO tlb_applicant
