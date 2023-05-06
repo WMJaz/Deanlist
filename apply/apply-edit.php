@@ -48,7 +48,7 @@
                 <!-- Progress Bar -->
                 <div class="mainContent">
                     <div class="text-header w-100 text-center" style="margin-top: 2%">
-                        <h6 style="font-weight: bold">Edit Application Grades</h6>
+                        <h6 style="font-weight: bold">Edit Application Form</h6>
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex flex-row justify-content-between" style="width: 95%">
@@ -63,7 +63,7 @@
                     <form action="application-edit.php?id=<?php echo $_GET["id"]; ?>" method="post" enctype="multipart/form-data" class="firstStepForm d-flex flex-column align-items-center">
                         <div class="table-div d-flex flex-column align-items-center">
                             <div class="table-header text-center mb-2">
-                                <h6>List of Grades</h6>
+                                <h6>List of Subjects and Grades</h6>
                             </div>
                             <div class="table-body" style="overflow:scroll">
                                 <?php foreach ($listOfSubject as $subject) { ?>

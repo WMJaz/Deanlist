@@ -146,8 +146,15 @@ if (isset($_POST["submitStatus"])) {
             </li>
 
             <li>
+                <a href="../subject/index.php">
+                <i class='bx bxs-file-plus'></i>
+                    <span class="links-name">Subjects</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="../users/index.php">
-                    <i class='bx bx-cog'></i>
+                <i class='bx bxs-user-account'></i>
                     <span class="links-name">Users</span>
                 </a>
             </li>

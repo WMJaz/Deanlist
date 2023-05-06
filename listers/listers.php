@@ -117,8 +117,15 @@
             </li>
 
             <li>
+                <a href="../subject/index.php">
+                <i class='bx bxs-file-plus'></i>
+                    <span class="links-name">Subjects</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="../users/index.php">
-                    <i class='bx bx-cog'></i>
+                    <i class='bx bxs-user-account'></i>
                     <span class="links-name">Users</span>
                 </a>
             </li>
@@ -233,13 +240,7 @@
             <div class="table-container">
                 <div class="table-heading">
                     <h3 class="table-title">Dean's Listers</h3>
-                    <?php
-                        if($_SESSION['user_type'] == 'admin'){ 
-                    ?>
-                        <a id="addBtn" href="#" class="button" style="color:white"><center>Add New Dean's Lister</center></a>
-                    <?php
-                        }
-                    ?>
+                    
                 </div>
                 <br>
                 <?php

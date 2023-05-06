@@ -78,7 +78,7 @@
 
                 <div class="mainContent">
                     <div class="text-header w-100 text-center" style="margin-top: 2%">
-                        <h6 style="font-weight: bold">APPLICATION FOR DEAN LIST</h6>
+                        <h6 style="font-weight: bold">APPLICATION FOR DEAN'S LIST</h6>
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex flex-row justify-content-between" style="width: 95%">
@@ -360,8 +360,13 @@
                         if ($existing) {
                         ?>
                             <div class="submit-container d-flex flex-row justify-content-between">
+<<<<<<< HEAD
                                 <a class ="m-2" href="../dashboard/dashboard.php"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Back to Homepage</button></a>
                                 <a class ="m-2" target="_blank" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
+=======
+                            
+                                <a class ="m-2" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
+>>>>>>> dev
                                 <?php if (!$withPending){ ?>
                                 <a class ="m-2" href="reapply.php?idx=<?php echo $userid; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Apply New</button></a>
                                 <?php }else{?>

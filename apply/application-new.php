@@ -1,8 +1,18 @@
 <?php
+<<<<<<< HEAD
 session_start();
 if (!isset($_SESSION['logged-in'])) {
     header('location: ../login/login.php');
 }
+=======
+//if (!isset($_SESSION['logged-in'])) {
+ //   header('location: ../login/login.php');
+//}
+session_start();
+if (!isset($_SESSION['logged-in'])) {
+    header('location: ../login/login.php');
+   }
+>>>>>>> dev
 $conn = mysqli_connect('localhost', 'root', '', 'deanslist');
 $path = "../";
 
@@ -12,6 +22,12 @@ require_once $path . "class/listers.class.php";
 include_once '../class/program.class.php';
 
 date_default_timezone_set('Asia/Manila');
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> dev
 $subject = new subject;
 $applicant = new Listers;
 $subject -> applicant_id = $_SESSION['user_id'];

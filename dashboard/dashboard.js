@@ -51,7 +51,11 @@ function GetDashboardData(){
                         '</div>'+
                     '</div>';
             $("#top-student").append(view);
+<<<<<<< HEAD
             tmpGPA == patListDT[i]["GPA"];
+=======
+            tmpGPA == patListDT[i]["GPA"]
+>>>>>>> dev
           }
         },
         error: function (xhr, ajaxOptions, thrownError) {

@@ -115,8 +115,15 @@
             </li>
 
             <li>
+                <a href="../subject/index.php">
+                <i class='bx bxs-file-plus'></i>
+                    <span class="links-name">Subjects</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="../users/index.php">
-                    <i class='bx bx-cog'></i>
+                <i class='bx bxs-user-account'></i>
                     <span class="links-name">Users</span>
                 </a>
             </li>
@@ -234,7 +241,7 @@
                 <?php
                     if($_SESSION['user_type'] == 'admin'){ 
                 ?>
-                    <a href="addprogram.php" class="button"><center>Add Course</center></a>
+                    <a href="addprogram.php" class="button">Add Course</a>
                 <?php
                     }
                 ?>
