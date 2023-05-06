@@ -152,8 +152,15 @@ if (isset($_GET["file"])) {
             </li>
 
             <li>
+                <a href="../subject/index.php">
+                <i class='bx bxs-file-plus'></i>
+                    <span class="links-name">Subjects</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="../users/index.php">
-                    <i class='bx bx-cog'></i>
+                    <i class='bx bxs-user-account'></i>
                     <span class="links-name">Users</span>
                 </a>
             </li>
@@ -285,7 +292,7 @@ if (isset($_GET["file"])) {
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane show active" id="pending">
-                            <div class="filter-div d-flex flex-row ">
+                            <!-- <div class="filter-div d-flex flex-row ">
                                 <p>Type</p>
                                 <select class="form-select type">
                                     <option selected>All</option>
@@ -298,7 +305,7 @@ if (isset($_GET["file"])) {
                                 </select>
                                 <p>Search</p>
                                 <input class="form-control search-bar" type="text" placeholder="Enter Student Name Here">
-                            </div>
+                            </div> -->
                             <!-- Table for Pending Applicants -->
                             <div class="applicant-table-div">
                                 <table class="table" id="pendingTable">
@@ -329,7 +336,7 @@ if (isset($_GET["file"])) {
                                                     $suffix = "th";
                                                 }
                                                 $user_id = $row["id"];
-                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td><td>" . $row["adviser_status"] . "</td>" . '<td>
+                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . round($row["gpa"],4) . "</td><td>" . $row["adviser_status"] . "</td>" . '<td>
                                                         <form action="update.php" method="post">
                                                             <button type="button" name="view" class="btn btn-warning view" style="color: white">View</button><br>
                                                             <button type="button" name="accept" class="btn btn-success accept">Approve</button><br>
@@ -448,7 +455,7 @@ if (isset($_GET["file"])) {
                             </div>
                         </div>
                         <div class="tab-pane" id="accepted">
-                            <div class="filter-div d-flex flex-row ">
+                            <!-- <div class="filter-div d-flex flex-row ">
                                 <p>Type</p>
                                 <select class="form-select type">
                                     <option selected>All</option>
@@ -461,7 +468,7 @@ if (isset($_GET["file"])) {
                                 </select>
                                 <p>Search</p>
                                 <input class="form-control search-bar" type="text" placeholder="Enter Student Name Here">
-                            </div>
+                            </div> -->
                             <!-- Table for Accepted Applicants -->
                             <div class="applicant-table-div">
                                 <table class="table" id="acceptedTable">
@@ -498,7 +505,7 @@ if (isset($_GET["file"])) {
                                                     <td><?php echo $row["year_level"] . $suffix . " Year" ?></td>
                                                     <td><?php echo strtoupper($row["curriculum"]) ?></td>
                                                     <td><?php echo "Section " . $row["section"] ?></td>
-                                                    <td><?php echo $row["gpa"] ?></td>  
+                                                    <td><?php echo round($row["gpa"],4)  ?></td>  
                                                 </tr>
 
                                         <?php
@@ -511,7 +518,7 @@ if (isset($_GET["file"])) {
                             </div>
                         </div>
                         <div class="tab-pane" id="declined">
-                            <div class="filter-div d-flex flex-row ">
+                            <!-- <div class="filter-div d-flex flex-row ">
                                 <p>Type</p>
                                 <select class="form-select type">
                                     <option selected>All</option>
@@ -524,7 +531,7 @@ if (isset($_GET["file"])) {
                                 </select>
                                 <p>Search</p>
                                 <input class="form-control search-bar" type="text" placeholder="Enter Student Name Here">
-                            </div>
+                            </div> -->
                             <?php
                             $sql = "SELECT * FROM deanslist_applicants WHERE app_status = 'Declined'";
                             $result = mysqli_query($conn, $sql);
@@ -556,7 +563,7 @@ if (isset($_GET["file"])) {
                                                     $suffix = "th";
                                                 }
                                                 $user_id = $row["user_id"];
-                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>BS" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . $row["gpa"] . "</td><td>" . $row["feedback"] . "</td></tr>";
+                                                echo "<tr><td>" . $row["user_name"] . "</td><td>" . $row["year_level"] . $suffix . " Year</td><td>BS" . strtoupper($row["curriculum"]) . "</td><td>Section " . $row["section"] . "</td><td>" . round($row["gpa"],4) . "</td><td>" . $row["feedback"] . "</td></tr>";
                                             }
                                         }
                                         ?>
@@ -577,7 +584,7 @@ if (isset($_GET["file"])) {
 <script>
     $('#pendingTable').dataTable({
         "lengthChange": false,
-        "searching": false,
+        "searching": true,
         "columns": [{
                 "width": "15%"
             },
@@ -604,7 +611,7 @@ if (isset($_GET["file"])) {
     });
     $('#acceptedTable').dataTable({
         "lengthChange": false,
-        "searching": false,
+        "searching": true,
         "columns": [{
                 "width": "15%"
             },
@@ -625,7 +632,7 @@ if (isset($_GET["file"])) {
     });
     $('#declinedTable').dataTable({
         "lengthChange": false,
-        "searching": false,
+        "searching": true,
         "columns": [{
                 "width": "15%"
             },

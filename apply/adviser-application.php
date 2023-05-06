@@ -301,7 +301,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane show active" id="pending">
-                            <div class="filter-div d-flex flex-row ">
+                            <!-- <div class="filter-div d-flex flex-row ">
                                 <p>Type</p>
                                 <select class="form-select type">
                                     <option selected>All</option>
@@ -314,7 +314,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                                 </select>
                                 <p>Search</p>
                                 <input class="form-control search-bar" type="text" placeholder="Enter Student Name Here">
-                            </div>
+                            </div> -->
                             <!-- Table for Pending Applicants -->
                             <?php
                             $sql = "SELECT * FROM deanslist_applicants WHERE adviser_status='Pending' AND adviser_id=" . $adviser_id['id'];
@@ -433,7 +433,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                             </div>
                         </div>
                         <div class="tab-pane" id="accepted">
-                            <div class="filter-div d-flex flex-row ">
+                            <!-- <div class="filter-div d-flex flex-row ">
                                 <p>Type</p>
                                 <select class="form-select type">
                                     <option selected>All</option>
@@ -446,7 +446,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                                 </select>
                                 <p>Search</p>
                                 <input class="form-control search-bar" type="text" placeholder="Enter Student Name Here">
-                            </div>
+                            </div> -->
                             <?php
                             $sql = "SELECT * FROM deanslist_applicants WHERE adviser_status='Accepted' AND adviser_id=" . $adviser_id['id'];;
                             $result = mysqli_query($conn, $sql);
@@ -498,7 +498,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                             </div>
                         </div>
                         <div class="tab-pane" id="declined">
-                            <div class="filter-div d-flex flex-row ">
+                            <!-- <div class="filter-div d-flex flex-row ">
                                 <p>Type</p>
                                 <select class="form-select type">
                                     <option selected>All</option>
@@ -511,7 +511,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
                                 </select>
                                 <p>Search</p>
                                 <input class="form-control search-bar" type="text" placeholder="Enter Student Name Here">
-                            </div>
+                            </div> -->
                             <?php
                             $sql = "SELECT * FROM deanslist_applicants WHERE adviser_status='Declined' AND adviser_id=" . $adviser_id['id'];;
                             $result = mysqli_query($conn, $sql);
@@ -586,7 +586,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
 <script>
     $('#pendingTable').dataTable({
         "lengthChange": false,
-        "searching": false,
+        "searching": true,
         "columns": [{
                 "width": "15%"
             },
@@ -611,7 +611,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
     
     $('#acceptedTable').dataTable({
         "lengthChange": false,
-        "searching": false,
+        "searching": true,
         "columns": [{
                 "width": "15%"
             },
@@ -632,7 +632,7 @@ $adviser_id = $faculty->get_loggedin_adviser_id($_SESSION['user_email']);
     });
     $('#declinedTable').dataTable({
         "lengthChange": false,
-        "searching": false,
+        "searching": true,
         "columns": [{
                 "width": "15%"
             },

@@ -126,14 +126,15 @@
             </li>
 
             <li>
-                <a href="../subject/index.php">
+                <a href="../subject/index.php" class="active">
                 <i class='bx bxs-file-plus'></i>
                     <span class="links-name">Subjects</span>
                 </a>
             </li>
 
             <li>
-                <a href="../users/index.php" class="active">
+                <a href="../users/index.php">
+                    
                     <i class='bx bxs-user-account'></i>
                     <span class="links-name">Users</span>
                 </a>
@@ -176,11 +177,11 @@
 	        <div class="home-content">
 	            <div class="table-container">
 	                <div class="table-heading">
-	                    <h3 class="table-title">Users</h3>
+	                    <h3 class="table-title">Subject</h3>
 	                    <?php
 	                        if($_SESSION['user_type'] == 'admin'){ 
 	                    ?>
-	                        <a class="button" style="color:white"  data-bs-toggle="modal" data-bs-target="#addModal">Add User</a>
+	                        <a class="button" style="color:white"  data-bs-toggle="modal" data-bs-target="#addModal">Add Subject</a>
 	                    <?php
 	                        }
 	                    ?>
@@ -196,10 +197,11 @@
 	                    <thead>
 	                        <tr>
 	                            <th>#</th>
-                                <th>Name</th>
-	                            <th>Email</th>
-	                            <th>Role</th>
-	                            <th>Status</th>
+                                <th>Code</th>
+	                            <th>Description</th>
+	                            <th>Sem</th>
+	                            <th>Cur</th>
+	                            <th>Yr Lvl</th>
 	                            <?php
 	                                if($_SESSION['user_type'] == 'admin'){ 
 	                            ?>
@@ -220,10 +222,10 @@
 	    
 	    <?php
 	    
-	        include  '../users/create.php';
-	        include '../users/edit.php';
-	        include '../users/delete.php';
-	        include '../users/script.php';
+	        include '../subject/create.php';
+	        include '../subject/edit.php';
+	        include '../subject/delete.php';
+	        include '../subject/script.php';
 	    ?>
 
 

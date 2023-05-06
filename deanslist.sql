@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2023 at 06:26 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: May 04, 2023 at 06:08 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `applicants_grades` (
   `applicant_id` int(11) NOT NULL,
   `subject_id` int(11) NOT NULL,
   `grade` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `applicants_grades`
@@ -87,15 +87,6 @@ INSERT INTO `applicants_grades` (`id`, `applicant_id`, `subject_id`, `grade`) VA
 (119, 69, 111, 1.5),
 (120, 69, 112, 1.5),
 (121, 69, 113, 1),
-(122, 70, 102, 2),
-(123, 70, 103, 2),
-(124, 70, 104, 2),
-(125, 70, 105, 2),
-(126, 70, 106, 2),
-(127, 70, 107, 2),
-(128, 70, 108, 2),
-(129, 70, 109, 2),
-(130, 70, 110, 2),
 (131, 71, 27, 1.5),
 (132, 71, 28, 1.5),
 (133, 72, 27, 1.5),
@@ -108,7 +99,171 @@ INSERT INTO `applicants_grades` (`id`, `applicant_id`, `subject_id`, `grade`) VA
 (140, 75, 27, 1.5),
 (141, 75, 28, 1.5),
 (142, 76, 27, 2.5),
-(143, 76, 28, 1.5);
+(143, 76, 28, 1.5),
+(847, 100, 39, 1),
+(848, 100, 40, 1),
+(849, 100, 41, 1),
+(850, 100, 42, 1),
+(851, 100, 43, 1),
+(852, 100, 39, 1),
+(853, 100, 40, 1),
+(854, 100, 41, 1),
+(855, 100, 42, 1),
+(856, 100, 43, 1),
+(857, 100, 39, 1),
+(858, 100, 40, 1),
+(859, 100, 41, 1),
+(860, 100, 42, 1),
+(861, 100, 43, 1),
+(862, 100, 39, 1),
+(863, 100, 40, 1),
+(864, 100, 41, 1),
+(865, 100, 42, 1),
+(866, 100, 43, 1),
+(867, 100, 39, 1),
+(868, 100, 40, 1),
+(869, 100, 41, 1),
+(870, 100, 42, 1),
+(871, 100, 43, 1),
+(872, 100, 39, 1),
+(873, 100, 40, 1),
+(874, 100, 41, 1),
+(875, 100, 42, 1),
+(876, 100, 43, 1),
+(877, 100, 39, 1),
+(878, 100, 40, 1),
+(879, 100, 41, 1),
+(880, 100, 42, 1),
+(881, 100, 43, 1),
+(882, 100, 39, 1),
+(883, 100, 40, 1),
+(884, 100, 41, 1),
+(885, 100, 42, 1),
+(886, 100, 43, 1),
+(887, 100, 39, 1),
+(888, 100, 40, 1),
+(889, 100, 41, 1),
+(890, 100, 42, 1),
+(891, 100, 43, 1),
+(892, 100, 39, 1),
+(893, 100, 40, 1),
+(894, 100, 41, 1),
+(895, 100, 42, 1),
+(896, 100, 43, 1),
+(897, 100, 39, 1),
+(898, 100, 40, 1),
+(899, 100, 41, 1),
+(900, 100, 42, 1),
+(901, 100, 43, 1),
+(902, 100, 39, 1),
+(903, 100, 40, 1),
+(904, 100, 41, 1),
+(905, 100, 42, 1),
+(906, 100, 43, 1),
+(907, 100, 39, 1),
+(908, 100, 40, 1),
+(909, 100, 41, 1),
+(910, 100, 42, 1),
+(911, 100, 43, 1),
+(912, 100, 39, 1),
+(913, 100, 40, 1),
+(914, 100, 41, 1),
+(915, 100, 42, 1),
+(916, 100, 43, 1),
+(917, 100, 39, 1),
+(918, 100, 40, 1),
+(919, 100, 41, 1),
+(920, 100, 42, 1),
+(921, 100, 43, 1),
+(922, 100, 39, 1),
+(923, 100, 40, 1),
+(924, 100, 41, 1),
+(925, 100, 42, 1),
+(926, 100, 43, 1),
+(927, 100, 39, 1),
+(928, 100, 40, 1),
+(929, 100, 41, 1),
+(930, 100, 42, 1),
+(931, 100, 43, 1),
+(932, 100, 39, 1),
+(933, 100, 40, 1),
+(934, 100, 41, 1),
+(935, 100, 42, 1),
+(936, 100, 43, 1),
+(937, 100, 39, 1),
+(938, 100, 40, 1),
+(939, 100, 41, 1),
+(940, 100, 42, 1),
+(941, 100, 43, 1),
+(942, 100, 39, 1),
+(943, 100, 40, 1),
+(944, 100, 41, 1),
+(945, 100, 42, 1),
+(946, 100, 43, 1),
+(947, 100, 39, 1),
+(948, 100, 40, 1),
+(949, 100, 41, 1),
+(950, 100, 42, 1),
+(951, 100, 43, 1),
+(952, 100, 39, 1),
+(953, 100, 40, 1),
+(954, 100, 41, 1),
+(955, 100, 42, 1),
+(956, 100, 43, 1),
+(1642, 129, 153, 1),
+(1643, 129, 154, 1),
+(1644, 129, 155, 1),
+(1645, 129, 156, 1),
+(1646, 129, 157, 1),
+(1647, 129, 158, 1),
+(1648, 129, 159, 1),
+(1649, 129, 160, 1),
+(1650, 129, 161, 1),
+(1734, 135, 153, 1),
+(1735, 135, 154, 1),
+(1736, 135, 155, 1),
+(1737, 135, 156, 1),
+(1738, 135, 157, 1),
+(1739, 135, 158, 1),
+(1740, 135, 159, 1),
+(1741, 135, 160, 1),
+(1742, 135, 161, 1),
+(1835, 153, 153, 1),
+(1836, 153, 154, 1),
+(1837, 153, 155, 1),
+(1838, 153, 156, 1),
+(1839, 153, 157, 1),
+(1840, 153, 158, 1),
+(1841, 153, 159, 1),
+(1842, 153, 160, 1),
+(1843, 153, 161, 1),
+(1844, 153, 153, 1),
+(1845, 153, 154, 1),
+(1846, 153, 155, 1),
+(1847, 153, 156, 1),
+(1848, 153, 157, 1),
+(1849, 153, 158, 1),
+(1850, 153, 159, 1),
+(1851, 153, 160, 1),
+(1852, 153, 161, 1),
+(1853, 153, 153, 1),
+(1854, 153, 154, 1),
+(1855, 153, 155, 1),
+(1856, 153, 156, 1),
+(1857, 153, 157, 1),
+(1858, 153, 158, 1),
+(1859, 153, 159, 1),
+(1860, 153, 160, 1),
+(1861, 153, 161, 1),
+(1862, 154, 153, 1),
+(1863, 154, 154, 1),
+(1864, 154, 155, 1),
+(1865, 154, 156, 1),
+(1866, 154, 157, 1),
+(1867, 154, 158, 1),
+(1868, 154, 159, 1.25),
+(1869, 154, 160, 1.5),
+(1870, 154, 161, 1.5);
 
 -- --------------------------------------------------------
 
@@ -120,7 +275,7 @@ CREATE TABLE `course` (
   `id` int(11) NOT NULL,
   `course_name` varchar(255) NOT NULL,
   `course_fullname` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course`
@@ -128,7 +283,9 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`id`, `course_name`, `course_fullname`) VALUES
 (1, 'BSCS', 'Bachelor of Science in Computer Science'),
-(2, 'BSIT', 'Bacher of Science in Information Technology');
+(2, 'BSIT', 'Bacher of Science in Information Technology'),
+(3, 'BSS', 'SAMPLE DESC'),
+(4, 'BSVS', 'BACHELOR OF SCIENCE IN VULCANIZING SHOP');
 
 -- --------------------------------------------------------
 
@@ -140,7 +297,7 @@ CREATE TABLE `course_schoolyear` (
   `id` int(11) NOT NULL,
   `school_year` varchar(255) NOT NULL,
   `course_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course_schoolyear`
@@ -150,7 +307,8 @@ INSERT INTO `course_schoolyear` (`id`, `school_year`, `course_id`) VALUES
 (1, '2022-2023', 1),
 (3, '2021-2022', 1),
 (15, '2022-2023', 2),
-(16, '2023-2024', 2);
+(16, '2023-2024', 2),
+(17, '2023-2024', 3);
 
 -- --------------------------------------------------------
 
@@ -173,32 +331,48 @@ CREATE TABLE `deanslist_applicants` (
   `app_file` varchar(255) NOT NULL,
   `adviser_id` int(11) NOT NULL,
   `adviser_status` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `feedback` varchar(500) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `accept_reapplication` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `deanslist_applicants`
 --
 
-INSERT INTO `deanslist_applicants` (`id`, `user_id`, `user_name`, `email`, `curriculum`, `semester`, `year_level`, `section`, `school_year_id`, `gpa`, `app_status`, `app_file`, `adviser_id`, `adviser_status`, `created_at`) VALUES
-(46, 48, 'test test', 'test123@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Declined', 'score.png', 7, 'Declined', '2023-04-14 13:38:06'),
-(47, 50, 'Daph Nagata', 'daphnagata@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(54, 51, 'Denise Gerzon', 'denisegerzon@wmsu.edu.ph', 'BSCS', '1', '3', 'A', 1, 2, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(55, 52, 'Abdulasis Hamja', 'abdulasis@wmsu.edu.ph', 'BSCS', '2', '3', 'C', 1, 1.35, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(56, 53, 'Josh Yasil', 'joshyasil@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(57, 54, 'Mark Vladimir', 'markvladimir@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.83333, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(60, 55, 'Bushra Adjaluddin', 'bushra@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.25, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(61, 56, 'Juan Dela Cruz', 'juandelacruz@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(66, 64, 'LeBron James', 'lebronjames@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Accepted', 'scorequiz.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(67, 65, 'Aiyayuu Misyu', 'aiyayuu@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.625, 'Accepted', 'male.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(69, 66, 'Lucky Me Maggie', 'maggie@wmsu.edu.ph', 'BSIT', '2', '4', 'A', 15, 1.33333, 'Accepted', 'male.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(70, 67, 'kyrie irving', 'kyrie@wmsu.edu.ph', 'BSCS', '1', '1', 'A', 1, 2, 'Declined', 'ballaho.png', 7, 'Declined', '2023-04-14 13:38:06'),
-(71, 68, 'juan juan', '1@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Accepted', 'male.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(72, 69, 'Two Two', '2@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Declined', 'male.png', 7, 'Declined', '2023-04-14 13:38:06'),
-(73, 70, 'three three', 'three@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.5, 'Declined', 'male.png', 7, 'Declined', '2023-04-14 13:38:06'),
-(74, 71, 'Four Four', 'four@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Accepted', 'male.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(75, 72, 'Hay Payb', 'haypayb@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Pending', 'male.png', 7, 'Accepted', '2023-04-14 16:23:52'),
-(76, 73, 'Up Here', 'uphere@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 2, 'Declined', 'male.png', 8, 'Declined', '2023-04-14 16:25:25');
+INSERT INTO `deanslist_applicants` (`id`, `user_id`, `user_name`, `email`, `curriculum`, `semester`, `year_level`, `section`, `school_year_id`, `gpa`, `app_status`, `app_file`, `adviser_id`, `adviser_status`, `feedback`, `created_at`, `accept_reapplication`) VALUES
+(46, 48, 'test test', 'test123@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Declined', 'score.png', 7, 'Declined', '', '2023-05-03 07:16:38', 0),
+(47, 50, 'Daph Nagata', 'daphnagata@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Declined', 'ccs-logo.png', 7, 'Declined', '', '2023-05-03 07:02:41', 0),
+(54, 51, 'Denise Gerzon', 'denisegerzon@wmsu.edu.ph', 'BSCS', '1', '3', 'A', 1, 2, 'Declined', 'ccs-logo.png', 7, 'Declined', 'sample', '2023-05-03 07:06:59', 0),
+(55, 52, 'Abdulasis Hamja', 'abdulasis@wmsu.edu.ph', 'BSCS', '2', '3', 'C', 1, 1.35, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '', '2023-05-02 15:37:33', 0),
+(56, 53, 'Josh Yasil', 'joshyasil@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '', '2023-05-03 12:39:37', 0),
+(57, 54, 'Mark Vladimir', 'markvladimir@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.83333, 'Pending', 'ccs-logo.png', 7, 'Accepted', '', '2023-05-03 12:39:57', 0),
+(60, 55, 'Bushra Adjaluddin', 'bushra@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.25, 'Declined', 'ccs-logo.png', 7, 'Declined', '', '2023-05-03 05:56:32', 0),
+(61, 56, 'Juan Dela Cruz', 'juandelacruz@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Pending', 'ccs-logo.png', 7, 'Accepted', '', '2023-05-03 12:40:14', 0),
+(66, 64, 'LeBron James', 'lebronjames@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Pending', 'scorequiz.png', 7, 'Accepted', '', '2023-05-03 12:40:16', 0),
+(67, 65, 'Aiyayuu Misyu', 'aiyayuu@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.625, 'Declined', 'male.png', 7, 'Declined', 'SAMPLE FEED yeah!!', '2023-05-03 05:51:35', 0),
+(69, 66, 'Lucky Me Maggie', 'maggie@wmsu.edu.ph', 'BSIT', '2', '4', 'A', 15, 1.33333, 'Pending', 'male.png', 7, 'Accepted', '', '2023-05-03 12:40:42', 0),
+(70, 67, 'kyrie irving', 'kyrie@wmsu.edu.ph', 'BSCS', '1', '1', 'A', 1, 2, 'Pending', 'ballaho.png', 7, 'Accepted', 'sample feedback', '2023-05-03 12:40:45', 0),
+(71, 68, 'juan juan', '1@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Pending', 'male.png', 7, 'Accepted', '', '2023-05-03 12:40:48', 0),
+(72, 69, 'Two Two', '2@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Pending', 'male.png', 7, 'Pending', '', '2023-05-02 15:26:20', 0),
+(73, 70, 'three three', 'three@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.5, 'Declined', 'male.png', 7, 'Declined', 'sample feed\n', '2023-05-04 03:38:36', 0),
+(74, 71, 'Four Four', 'four@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Declined', 'male.png', 7, 'Declined', 'four four sample feedback', '2023-05-03 07:15:18', 0),
+(75, 72, 'Hay Payb', 'haypayb@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Accepted', 'male.png', 7, 'Accepted', '', '2023-05-03 12:35:58', 0),
+(76, 73, 'Up Here', 'uphere@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 2, 'Pending', 'male.png', 8, 'Pending', '', '2023-05-02 15:26:20', 0),
+(78, 74, 'qwe qwe', 'qwe@wmsu.edu.ph', 'BSCS', '1', '1', 'B', 1, 1.19444, 'Pending', 'photo_6217418791567078755_y.jpg', 17, 'Pending', '', '2023-05-02 15:26:20', 0),
+(100, 125, '123 123', 'eh202200295@wmsu.edu.ph', 'BSCS', '2', '3', 'A', 1, 1, 'Declined', 'photo_6217418791567078755_y.jpg', 13, 'Declined', 'sample feedback', '2023-05-02 15:34:15', 0),
+(129, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 1, 'Accepted', 'ss.png', 4, 'Accepted', '', '2023-05-03 13:28:47', 1),
+(134, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 0, 'Incomplete', '', 18, 'Pending', '', '2023-05-04 00:20:12', 1),
+(135, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 1, 'Accepted', 'ss.png', 18, 'Accepted', '', '2023-05-04 00:20:12', 1),
+(136, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 3, 0, 'Incomplete', '', 19, 'Pending', '', '2023-05-04 03:47:58', 1),
+(138, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '2', 'B', 1, 0, 'Incomplete', '', 4, 'Pending', '', '2023-05-04 03:47:58', 1),
+(139, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '2', 'B', 1, 0, 'Incomplete', '', 4, 'Pending', '', '2023-05-04 03:47:58', 1),
+(143, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '2', '1', 'B', 1, 0, 'Incomplete', '', 6, 'Pending', '', '2023-05-04 03:47:58', 1),
+(147, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '2', 'C', 3, 0, 'Incomplete', '', 19, 'Pending', '', '2023-05-04 03:47:58', 1),
+(148, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '3', 'B', 3, 0, 'Incomplete', '', 15, 'Pending', '', '2023-05-04 03:47:58', 1),
+(152, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '2', '2', 'C', 1, 0, 'Incomplete', '', 10, 'Pending', '', '2023-05-04 03:47:58', 1),
+(153, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 1, 'Declined', 'ss.png', 7, 'Declined', 'sample 12234444', '2023-05-04 03:47:58', 1),
+(154, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 1.14, 'Pending', 'ss.png', 19, 'Pending', '', '2023-05-04 03:48:39', 0);
 
 -- --------------------------------------------------------
 
@@ -213,25 +387,17 @@ CREATE TABLE `deans_listers` (
   `gpa` float NOT NULL,
   `department` varchar(255) NOT NULL,
   `yearlevel` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `deans_listers`
 --
 
 INSERT INTO `deans_listers` (`id`, `app_id`, `fullname`, `gpa`, `department`, `yearlevel`) VALUES
-(2, 47, 'Daph Nagata', 1.375, 'BSCS', '4'),
-(3, 54, 'Denise Gerzon', 2, 'BSCS', '3'),
-(4, 55, 'Abdulasis Hamja', 1.35, 'BSCS', '3'),
-(5, 56, 'Josh Yasil', 1.375, 'BSCS', '4'),
-(6, 57, 'Mark Vladimir', 1.83333, 'BSCS', '4'),
-(7, 60, 'Bushra Adjaluddin', 1.25, 'BSCS', '4'),
-(8, 61, 'Juan Dela Cruz', 1.5, 'BSCS', '4'),
-(12, 66, 'LeBron James', 1.375, 'BSCS', '4'),
-(13, 67, 'Aiyayuu Misyu', 1.625, 'BSCS', '4'),
-(14, 69, 'Lucky Me Maggie', 1.33333, 'BSIT', '4'),
-(15, 71, 'juan juan', 1.5, 'BSCS', '4'),
-(16, 74, 'Four Four', 1.5, 'BSCS', '4');
+(9, 55, 'Abdulasis Hamja', 1.35, 'BSCS', '3'),
+(10, 56, 'Josh Yasil', 1.375, 'BSCS', '4'),
+(11, 75, 'Hay Payb', 1.5, 'BSCS', '4'),
+(13, 129, 'John Doe', 1, 'BSCS', '1');
 
 -- --------------------------------------------------------
 
@@ -250,7 +416,7 @@ CREATE TABLE `dean_applicants` (
   `total_gpa` float NOT NULL,
   `status` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `dean_applicants`
@@ -285,47 +451,48 @@ INSERT INTO `dean_applicants` (`id`, `name`, `email`, `school_year`, `curriculum
 
 CREATE TABLE `faculty` (
   `id` int(11) NOT NULL,
-  `img` varchar(75) NULL,
+  `img` varchar(75) DEFAULT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `rank` varchar(100) NULL,
+  `rank` varchar(100) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   `status` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `faculty`
 --
 
-INSERT INTO `faculty` (`id`, `img`, `firstname`, `lastname`, `rank`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'go.png', 'Dr. Roderick', 'P. Go', 'College Dean', 'roderickgo@wmsu.edu.ph', 'Adviser', '2023-01-25 14:03:58', '2023-04-13 14:39:14'),
-(4, 'odon.png', 'Engr. Odon A. ', 'Maravillas, Jr., MSCS', 'Associate Dean', 'odonmaravillas@wmsu.edu.ph', 'Adviser', '2023-01-25 14:05:17', '2023-04-13 14:40:55'),
-(6, 'belamide.png', 'Engr. Gadmar M.', 'Belamide, MEnggEd-ICT', 'College Secretary', 'gadmarbelamide@wmsu.edu.ph', 'Admin', '2023-01-25 14:06:48', '2023-04-13 14:50:20'),
-(7, 'sadiwa.png', 'Ms. Lucy  ', 'Felix-Sadiwa, MSCS', 'CS Department Head', 'lucyfelix@wmsu.edu.ph', 'Adviser', '2023-01-25 14:10:13', '2023-04-13 14:50:46'),
-(8, 'escorialj.png', 'Mr. John Augustus', 'A. Escorial, MIT', 'IT Department Head', 'johnaugustus@wmsu.edu.ph', 'Adviser', '2023-01-25 14:11:18', '2023-04-13 14:51:04'),
-(9, 'escoriala.png', 'Mrs. Aida  ', 'A. Escorial, MIT', 'Graduate Program Chair', 'aidaescorial@wmsu.edu.ph', 'Adviser', '2023-01-25 14:12:48', '2023-04-13 14:50:05'),
-(10, 'aripE.png', 'Engr. Edwip I.  ', 'Arip, MEnggEd-ICT', 'External Studies Unit Technical Associate', 'edwinarip@wmsu.edu.ph', 'None', '2023-01-25 14:13:50', '2023-04-13 14:49:47'),
-(11, 'aripJ.png', 'Mr. John Paul ', ' I. Arip LMS', 'Quality Assurance', 'johpaularip@wmsu.edu.ph', 'None', '2023-01-25 14:14:25', '2023-04-13 14:49:26'),
-(12, 'female.png', 'Mrs. Justin Anne ', ' Albay-Arip', 'Visiting Lecturer', 'justinannearip@wmsu.edu.ph', 'None', '2023-01-25 14:15:02', '2023-04-13 14:48:49'),
-(13, 'ballaho.png', 'Mr. Jaydee  ', 'C. Ballaho', 'LMS Lead Developer', 'jaydeeballaho@wmsu.edu.ph', 'Adviser', '2023-01-25 14:15:37', '2023-04-13 14:47:49'),
-(14, 'catadman.png', 'Mr. Jason', 'A. Catadman ', 'LMS Assistant Developer', 'jasoncatadman@wmsu.edu.ph', 'Adviser', '2023-01-25 14:16:11', '2023-04-13 14:51:27'),
-(15, 'flores.png', 'Engr. Mark L. ', 'Flores, MEnggEd-ICT ', 'Director, Data Protection and Security', 'markflores@wmsu.edu.ph', 'None', '2023-01-25 14:17:53', '2023-04-13 14:52:44'),
-(16, 'gregana.png', 'Ms. Pauleen Jean ', 'E. Gregana ', 'Inactive', 'pauleenjeangregana@wmsu.edu.ph', 'None', '2023-01-25 14:18:37', '2023-04-13 14:54:04'),
-(17, 'female.png', 'Ms. Aradzna ', ' M. Kamman', 'Visiting Lecturer', 'aradznakamman@wmsu.edu.ph', 'None', '2023-01-25 14:19:25', '2023-04-13 14:54:25'),
-(18, 'female.png', 'Ms. Mara ', 'Marie Liao', 'Visiting Lecturer', 'maramarieliao@wmsu.edu.ph', 'Adviser', '2023-01-25 14:20:14', '2023-04-13 14:54:46'),
-(19, 'lines.png', 'Engr. Marvic ', 'A. Lines, MEnggEd-ICT', 'LMS Training and Management', 'marviclines@wmsu.edu.ph', 'Adviser', '2023-01-25 14:21:12', '2023-04-13 14:55:19'),
-(20, 'female.png', 'Ms. Ceed Janelle  ', 'B. Lorenzo', 'Visiting Lecturer', 'ceedjanellelorenzo@wmsu.edu.ph', 'None', '2023-01-25 14:22:11', '2023-04-13 14:55:51'),
-(21, 'lorenzo.png', 'Engr. Ceed Jezreel  ', 'B. Lorenzo, MIT', 'Research Coordinator', 'ceedjezreellorenzo@wmsu.edu.ph', 'None', '2023-01-25 14:23:18', '2023-04-13 14:56:19'),
-(22, 'rojas.png', 'Engr. Marjorie  ', 'A. Rojas', 'Student Affairs and Guidance Coordinator', 'marjorierojas@wmsu.edu.ph', 'Adviser', '2023-01-25 14:24:09', '2023-04-13 14:56:42'),
-(23, 'male.png', 'Mr. Theo Jay ', 'M&#039;lleno Sanson', 'Visiting Lecturer', 'theojaysanson@wmsu.edu.ph', 'None', '2023-01-25 14:24:52', '2023-04-13 14:52:05'),
-(24, 'tahil.png', 'Mr. Salimar B.  ', 'Tahil, MEnggEd-ICT', 'Asst. Director, MISTO', 'salimartahil@wmsu.edu.ph', 'Adviser', '2023-01-25 14:25:31', '2023-04-13 14:57:09'),
-(25, 'timpangco.png', 'Mr. Whesley', 'G. Timpangco ', 'LMS Network Engineer', 'whesleytimpangco@wmsu.edu.ph', 'None', '2023-01-25 14:26:12', '2023-04-13 14:57:25'),
-(26, 'jackaria.png', 'Ms. Alhadzra  ', 'M. Jackaria', 'Laboratory Technician', 'alhadzrajackaria@wmsu.edu.ph', 'None', '2023-01-25 14:26:58', '2023-04-13 14:58:12'),
-(27, 'male.png', 'Mr. John Roy  ', 'S. Velario', 'Administrative Assistant', 'johnroyvelario@wmsu.edu.ph', 'None', '2023-01-25 14:27:34', '2023-04-13 14:57:43'),
-(43, 'male.png', 'LeBron', 'James', 'Goat', 'lebronjames@wmsu.edu.ph', 'None', '2023-04-13 14:59:22', '2023-04-13 14:59:33'),
-(44, 'male.png', 'Mark', 'Vladimir', 'Tampa LeadDev', 'markvladimir@wmsu.edu.ph', 'None', '2023-04-13 14:59:58', '2023-04-13 14:59:58');
+INSERT INTO `faculty` (`id`, `img`, `firstname`, `lastname`, `rank`, `email`, `status`, `created_at`, `updated_at`, `user_id`) VALUES
+(3, '', 'Dr. Roderick', 'P. Go', 'College Dean', 'roderickgo@wmsu.edu.ph', 'Adviser', '2023-01-25 14:03:58', '2023-04-27 10:30:35', 0),
+(4, 'odon.png', 'Engr. Odon A. ', 'Maravillas, Jr., MSCS', 'Associate Dean', 'odonmaravillas@wmsu.edu.ph', 'Adviser', '2023-01-25 14:05:17', '2023-04-13 14:40:55', 0),
+(6, 'belamide.png', 'Engr. Gadmar M.', 'Belamide, MEnggEd-ICT', 'College Secretary', 'gadmarbelamide@wmsu.edu.ph', 'Admin', '2023-01-25 14:06:48', '2023-04-13 14:50:20', 0),
+(7, 'sadiwa.png', 'Ms. Lucy  ', 'Felix-Sadiwa, MSCS', 'CS Department Head', 'lucyfelix@wmsu.edu.ph', 'Adviser', '2023-01-25 14:10:13', '2023-04-13 14:50:46', 0),
+(8, 'escorialj.png', 'Mr. John Augustus', 'A. Escorial, MIT', 'IT Department Head', 'johnaugustus@wmsu.edu.ph', 'Adviser', '2023-01-25 14:11:18', '2023-04-13 14:51:04', 0),
+(9, 'escoriala.png', 'Mrs. Aida  ', 'A. Escorial, MIT', 'Graduate Program Chair', 'aidaescorial@wmsu.edu.ph', 'Adviser', '2023-01-25 14:12:48', '2023-04-13 14:50:05', 0),
+(10, 'aripE.png', 'Engr. Edwip I.  ', 'Arip, MEnggEd-ICT', 'External Studies Unit Technical Associate', 'edwinarip@wmsu.edu.ph', 'None', '2023-01-25 14:13:50', '2023-04-13 14:49:47', 0),
+(11, 'aripJ.png', 'Mr. John Paul ', ' I. Arip LMS', 'Quality Assurance', 'johpaularip@wmsu.edu.ph', 'None', '2023-01-25 14:14:25', '2023-04-13 14:49:26', 0),
+(12, 'female.png', 'Mrs. Justin Anne ', ' Albay-Arip', 'Visiting Lecturer', 'justinannearip@wmsu.edu.ph', 'None', '2023-01-25 14:15:02', '2023-04-13 14:48:49', 0),
+(13, 'ballaho.png', 'Mr. Jaydee  ', 'C. Ballaho', 'LMS Lead Developer', 'jaydeeballaho@wmsu.edu.ph', 'Adviser', '2023-01-25 14:15:37', '2023-04-13 14:47:49', 0),
+(14, 'catadman.png', 'Mr. Jason', 'A. Catadman ', 'LMS Assistant Developer', 'jasoncatadman@wmsu.edu.ph', 'Adviser', '2023-01-25 14:16:11', '2023-04-13 14:51:27', 0),
+(15, 'flores.png', 'Engr. Mark L. ', 'Flores, MEnggEd-ICT ', 'Director, Data Protection and Security', 'markflores@wmsu.edu.ph', 'None', '2023-01-25 14:17:53', '2023-04-13 14:52:44', 0),
+(16, 'gregana.png', 'Ms. Pauleen Jean ', 'E. Gregana ', 'Inactive', 'pauleenjeangregana@wmsu.edu.ph', 'None', '2023-01-25 14:18:37', '2023-04-13 14:54:04', 0),
+(17, 'female.png', 'Ms. Aradzna ', ' M. Kamman', 'Visiting Lecturer', 'aradznakamman@wmsu.edu.ph', 'None', '2023-01-25 14:19:25', '2023-04-13 14:54:25', 0),
+(18, 'female.png', 'Ms. Mara ', 'Marie Liao', 'Visiting Lecturer', 'maramarieliao@wmsu.edu.ph', 'Adviser', '2023-01-25 14:20:14', '2023-04-13 14:54:46', 0),
+(19, 'lines.png', 'Engr. Marvic ', 'A. Lines, MEnggEd-ICT', 'LMS Training and Management', 'marviclines@wmsu.edu.ph', 'Adviser', '2023-01-25 14:21:12', '2023-04-13 14:55:19', 0),
+(20, 'female.png', 'Ms. Ceed Janelle  ', 'B. Lorenzo', 'Visiting Lecturer', 'ceedjanellelorenzo@wmsu.edu.ph', 'None', '2023-01-25 14:22:11', '2023-04-13 14:55:51', 0),
+(21, 'lorenzo.png', 'Engr. Ceed Jezreel  ', 'B. Lorenzo, MIT', 'Research Coordinator', 'ceedjezreellorenzo@wmsu.edu.ph', 'None', '2023-01-25 14:23:18', '2023-04-13 14:56:19', 0),
+(22, 'rojas.png', 'Engr. Marjorie  ', 'A. Rojas', 'Student Affairs and Guidance Coordinator', 'marjorierojas@wmsu.edu.ph', 'Adviser', '2023-01-25 14:24:09', '2023-04-13 14:56:42', 0),
+(23, 'male.png', 'Mr. Theo Jay ', 'M&#039;lleno Sanson', 'Visiting Lecturer', 'theojaysanson@wmsu.edu.ph', 'None', '2023-01-25 14:24:52', '2023-04-13 14:52:05', 0),
+(24, 'tahil.png', 'Mr. Salimar B.  ', 'Tahil, MEnggEd-ICT', 'Asst. Director, MISTO', 'salimartahil@wmsu.edu.ph', 'Adviser', '2023-01-25 14:25:31', '2023-04-13 14:57:09', 0),
+(25, 'timpangco.png', 'Mr. Whesley', 'G. Timpangco ', 'LMS Network Engineer', 'whesleytimpangco@wmsu.edu.ph', 'None', '2023-01-25 14:26:12', '2023-04-13 14:57:25', 0),
+(26, 'jackaria.png', 'Ms. Alhadzra  ', 'M. Jackaria', 'Laboratory Technician', 'alhadzrajackaria@wmsu.edu.ph', 'None', '2023-01-25 14:26:58', '2023-04-13 14:58:12', 0),
+(27, 'male.png', 'Mr. John Roy  ', 'S. Velario', 'Administrative Assistant', 'johnroyvelario@wmsu.edu.ph', 'None', '2023-01-25 14:27:34', '2023-04-13 14:57:43', 0),
+(43, 'male.png', 'LeBron', 'James', 'Goat', 'lebronjames@wmsu.edu.ph', 'None', '2023-04-13 14:59:22', '2023-04-13 14:59:33', 0),
+(44, 'male.png', 'Mark', 'Vladimir', 'Tampa LeadDev', 'markvladimir@wmsu.edu.ph', 'None', '2023-04-13 14:59:58', '2023-04-13 14:59:58', 0);
 
 -- --------------------------------------------------------
 
@@ -346,26 +513,27 @@ CREATE TABLE `grades_list` (
 --
 
 CREATE TABLE `listers` (
+  `id` bigint(20) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `GPA` float NOT NULL,
   `department` varchar(30) NOT NULL,
   `year_level` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `listers`
 --
 
-INSERT INTO `listers` (`firstname`, `lastname`, `GPA`, `department`, `year_level`) VALUES
-('Mark', 'Vladimir', 1.25, 'Computer Science', 3),
-('Pogi', 'Hamja', 1, 'BSCS', 3),
-('hAMJA', 'vLADIMIR', 2, 'BSCS', 4),
-('Nash', 'Sari', 1.5, 'BSCS', 3),
-('Andrei', 'Cafino', 1.75, 'BSIT', 3),
-('Denise', 'Vonn', 1.75, 'BSCS', 3),
-('Jsohua', 'Yasil', 1, 'BSCS', 3),
-('Jenny', 'Vladimir', 1.5, 'BSCS', 3);
+INSERT INTO `listers` (`id`, `firstname`, `lastname`, `GPA`, `department`, `year_level`) VALUES
+(1, 'Mark', 'Vladimir', 1, 'BSCS', 3),
+(2, 'Pogi', 'Hamja', 1, 'BSCS', 3),
+(3, 'hAMJA', 'vLADIMIR', 2, 'BSCS', 4),
+(4, 'Nash', 'Sari', 1.5, 'BSCS', 3),
+(5, 'Andrei', 'Cafino', 1.75, 'BSIT', 3),
+(6, 'Denise', 'Vonn', 1.75, 'BSCS', 3),
+(7, 'Jsohua', 'Yasil', 1, 'BSCS', 3),
+(8, 'Jenny', 'Vladimir', 1.5, 'BSCS', 3);
 
 -- --------------------------------------------------------
 
@@ -381,18 +549,17 @@ CREATE TABLE `programs` (
   `level` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `programs`
 --
 
 INSERT INTO `programs` (`id`, `code`, `description`, `years`, `level`, `created_at`, `updated_at`) VALUES
-(1, 'BSCS', 'Bachelor of Science in Computer Science', 4, 'Bachelor', '2022-11-03 07:10:55', '2023-04-13 13:59:59'),
+(1, 'BSCS', 'Bachelor of Science in Computer Science', 3, 'Bachelor', '2022-11-03 07:10:55', '2023-04-26 20:34:34'),
 (2, 'BSIT', 'Bachelor of Science in Information Technology', 4, 'Bachelor', '2022-11-03 07:24:14', '2023-04-10 12:49:33'),
-(16, 'BSCpE', 'Bachelor of Science in Computer Engineering', 5, 'Bachelor', '2023-04-13 14:02:31', '2023-04-13 14:03:51'),
-(17, 'BSCE', 'Bachelor of Science in Civil Engineering', 5, 'Bachelor', '2023-04-13 14:04:21', '2023-04-13 14:04:21'),
-(19, 'MIT', 'Master in Information Technology', 4, 'Masteral', '2023-04-13 14:05:26', '2023-04-13 14:13:32');
+(21, 'BSS', 'SAMPLE DESC', 2, 'Diploma', '2023-05-03 04:54:31', '2023-05-03 04:54:31'),
+(22, 'BSVS', 'BACHELOR OF SCIENCE IN VULCANIZING SHOP', 2, 'Bachelor', '2023-05-03 05:25:40', '2023-05-03 05:25:40');
 
 -- --------------------------------------------------------
 
@@ -409,7 +576,7 @@ CREATE TABLE `sy_application_time` (
   `1st_sem_end` date DEFAULT NULL,
   `2nd_sem_start` date DEFAULT NULL,
   `2nd_sem_end` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sy_application_time`
@@ -417,9 +584,10 @@ CREATE TABLE `sy_application_time` (
 
 INSERT INTO `sy_application_time` (`id`, `sy_id`, `1st_sem`, `2nd_sem`, `1st_sem_start`, `1st_sem_end`, `2nd_sem_start`, `2nd_sem_end`) VALUES
 (1, 1, 1, 1, NULL, NULL, NULL, NULL),
-(3, 3, 0, 0, NULL, NULL, NULL, NULL),
+(3, 3, 1, 1, NULL, NULL, NULL, NULL),
 (7, 15, 1, 1, NULL, NULL, NULL, NULL),
-(8, 16, 0, 0, NULL, NULL, NULL, NULL);
+(8, 16, 1, 1, NULL, NULL, NULL, NULL),
+(9, 17, 1, 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -438,7 +606,7 @@ CREATE TABLE `sy_subjects` (
   `course_id` int(11) NOT NULL,
   `year_level` int(11) NOT NULL,
   `sy_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sy_subjects`
@@ -503,18 +671,20 @@ INSERT INTO `sy_subjects` (`id`, `subject_code`, `subject_name`, `lec_units`, `l
 (90, 'IT 137', 'Web Systems and Technologies', 3, 3, 'CC 104', 1, 2, 3, 15),
 (91, 'IT 139', 'IT Elective 1', 2, 3, '3rd Year Standing', 1, 2, 3, 15),
 (92, 'CC 105', 'Application Development and Emerging Technologies', 2, 3, 'CC 104', 1, 2, 3, 15),
-(102, 'CC 100', 'Introduction to Computing', 2, 3, 'None', 1, 1, 1, 1),
-(103, 'CC 101', 'Computer Programming 1 ', 3, 3, 'None', 1, 1, 1, 1),
-(104, 'CAS 101', 'Purposive Communication', 3, 0, 'None', 1, 1, 1, 1),
-(105, 'MATH 100', 'Mathematics in the Modern World', 3, 0, 'None', 1, 1, 1, 1),
-(106, 'US 101', 'Understanding the Self', 3, 0, 'None', 1, 1, 1, 1),
-(107, 'FIL 101', 'Komunikasyon sa Akademikong Filipino', 3, 0, 'None', 1, 1, 1, 1),
-(108, 'PE 101', 'Physical Education 1', 2, 0, 'None', 1, 1, 1, 1),
-(109, 'NSTP', 'National Service Training Program 1', 3, 0, 'None', 1, 1, 1, 1),
-(110, 'EUTH A', 'Euthenics A', 2, 0, 'None', 1, 1, 1, 1),
 (111, 'IT 142', 'Systems Administration and Maintenance', 2, 3, 'IT 143', 2, 2, 4, 15),
 (112, 'IT 144', 'Practicum / Industry Immersion', 0, 9, 'Graduating', 2, 2, 4, 15),
-(113, 'IT 123', 'Bulkanizing', 3, 3, 'None', 2, 2, 4, 15);
+(113, 'IT 123', 'Bulkanizing', 3, 3, 'None', 2, 2, 4, 15),
+(123, 'SM 101', 'SAMPLE 101', 3, 0, 'NONE', 1, 3, 1, 17),
+(124, 'SM 102', 'SAMPLE 102', 3, 0, 'NONE', 1, 3, 1, 17),
+(153, 'CC 100', 'Introduction to Computing', 2, 3, 'None', 1, 1, 1, 1),
+(154, 'CC 101', 'Computer Programming 1 ', 3, 3, 'None', 1, 1, 1, 1),
+(155, 'CAS 101', 'Purposive Communication', 3, 0, 'None', 1, 1, 1, 1),
+(156, 'MATH 100', 'Mathematics in the Modern World', 3, 0, 'None', 1, 1, 1, 1),
+(157, 'US 101', 'Understanding the Self', 3, 0, 'None', 1, 1, 1, 1),
+(158, 'FIL 101', 'Komunikasyon sa Akademikong Filipino', 3, 0, 'None', 1, 1, 1, 1),
+(159, 'PE 101', 'Physical Education 1', 2, 0, 'None', 1, 1, 1, 1),
+(160, 'NSTP', 'National Service Training Program 1', 3, 0, 'None', 1, 1, 1, 1),
+(161, 'EUTH A', 'Euthenics A', 2, 0, 'None', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -527,7 +697,7 @@ CREATE TABLE `tbl_list_grades` (
   `subject_id` int(11) NOT NULL,
   `applicant_id` int(11) NOT NULL,
   `grade` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_list_grades`
@@ -1365,7 +1535,7 @@ CREATE TABLE `tbl_subject` (
   `sem` int(11) NOT NULL,
   `curriculum` varchar(50) NOT NULL,
   `year_level` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_subject`
@@ -1484,7 +1654,7 @@ CREATE TABLE `tlb_applicant` (
   `applicant_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `grade_file` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tlb_applicant`
@@ -1615,44 +1785,64 @@ CREATE TABLE `users` (
   `user_firstname` varchar(255) NOT NULL,
   `user_lastname` varchar(255) NOT NULL,
   `user_type` varchar(255) NOT NULL,
-  `curriculum` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `curriculum` varchar(255) NOT NULL,
+  `user_status` varchar(255) NOT NULL,
+  `verify_token` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `user_firstname`, `user_lastname`, `user_type`, `curriculum`) VALUES
-(44, 'johndoe@wmsu.edu.ph', 'password', 'John', 'Doe', 'student', 'BSCS'),
-(45, 'lucyfelix@wmsu.edu.ph', 'password', 'Lucy Felix', 'Sadiwa', 'adviser', 'BSCS'),
-(46, 'janedoe@wmsu.edu.ph', 'password', 'Jane', 'Doe', 'student', 'BSCS'),
-(47, 'gadmarbelamide@wmsu.edu.ph', 'password', 'Gadmar', 'Belamide', 'admin', 'BSCS'),
-(48, 'test123@wmsu.edu.ph', 'password', 'test', 'test', 'student', 'BSCS'),
-(49, 'wadwad@wmsu.edu.ph', 'password', 'wad', 'wad', 'student', 'BSCS'),
-(50, 'daphnagata@wmsu.edu.ph', 'password', 'Daph', 'Nagata', 'student', 'BSCS'),
-(51, 'denisegerzon@wmsu.edu.ph', 'password', 'Denise', 'Gerzon', 'student', 'BSCS'),
-(52, 'abdulasis@wmsu.edu.ph', 'password', 'Abdulasis', 'Hamja', 'student', 'BSCS'),
-(53, 'joshyasil@wmsu.edu.ph', 'password', 'Josh', 'Yasil', 'student', 'BSCS'),
-(54, 'markvladimir@wmsu.edu.ph', 'password', 'Mark', 'Vladimir', 'student', 'BSCS'),
-(55, 'bushra@wmsu.edu.ph', 'password', 'Bushra', 'Adjaluddin', 'student', 'BSCS'),
-(56, 'juandelacruz@wmsu.edu.ph', 'password', 'Juan', 'Dela Cruz', 'student', 'BSCS'),
-(57, 'faberdrive@wmsu.edu.ph', 'password', 'Faber', 'Drive', 'student', 'BSCS'),
-(58, 'aprilboy@wmsu.edu.ph', 'password', 'April', 'Boy', 'student', 'BSCS'),
-(59, 'andreicafino@wmsu.edu.ph', 'password', 'Andrei', 'Cafino', 'student', 'BSIT'),
-(60, 'peejayvidad@wmsu.edu.ph', 'password', 'Peejay', 'Vidad', 'student', 'BSCS'),
-(61, 'shift@wmsu.edu.ph', 'password', 'Shift', 'Na Tayo', 'student', 'BSCS'),
-(62, 'minmax@wmsu.edu.ph', 'password', 'Min', 'Max', 'student', 'BSCS'),
-(63, 'stephencurry@wmsu.edu.ph', 'password', 'Stephen', 'Curry', 'student', 'BSCS'),
-(64, 'lebronjames@wmsu.edu.ph', 'password', 'LeBron', 'James', 'student', 'BSCS'),
-(65, 'aiyayuu@wmsu.edu.ph', 'password', 'Aiyayuu', 'Misyu', 'student', 'BSCS'),
-(66, 'maggie@wmsu.edu.ph', 'password', 'Lucky Me', 'Maggie', 'student', 'BSIT'),
-(67, 'kyrie@wmsu.edu.ph', 'password', 'kyrie', 'irving', 'student', 'BSCS'),
-(68, '1@wmsu.edu.ph', 'passowrd', 'juan', 'juan', 'student', 'BSCS'),
-(69, '2@wmsu.edu.ph', 'passowrd', 'Two', 'Two', 'student', 'BSCS'),
-(70, 'three@wmsu.edu.ph', 'password', 'three', 'three', 'student', 'BSCS'),
-(71, 'four@wmsu.edu.ph', 'password', 'Four', 'Four', 'student', 'BSCS'),
-(72, 'haypayb@wmsu.edu.ph', 'password', 'Hay', 'Payb', 'student', 'BSCS'),
-(73, 'uphere@wmsu.edu.ph', 'password', 'Up', 'Here', 'student', 'BSCS');
+INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `user_firstname`, `user_lastname`, `user_type`, `curriculum`, `user_status`, `verify_token`) VALUES
+(44, 'johndoe@wmsu.edu.ph', 'password', 'John', 'Doe', 'student', 'BSCS', 'Active', ''),
+(45, 'lucyfelix@wmsu.edu.ph', 'password', 'Lucy Felix', 'Sadiwa', 'adviser', 'BSCS', 'Active', ''),
+(46, 'janedoe@wmsu.edu.ph', 'password', 'Jane', 'Doe', 'student', 'BSCS', '', ''),
+(47, 'gadmarbelamide@wmsu.edu.ph', 'password', 'Gadmar', 'Belamide', 'admin', 'BSCS', 'Active', ''),
+(48, 'test123@wmsu.edu.ph', 'password', 'test', 'test', 'student', 'BSCS', '', ''),
+(49, 'wadwad@wmsu.edu.ph', 'password', 'wad', 'wad', 'student', 'BSCS', '', ''),
+(50, 'daphnagata@wmsu.edu.ph', 'password', 'Daph', 'Nagata', 'student', 'BSCS', '', ''),
+(51, 'denisegerzon@wmsu.edu.ph', 'password', 'Denise', 'Gerzon', 'student', 'BSCS', 'Active', ''),
+(52, 'abdulasis@wmsu.edu.ph', 'password', 'Abdulasis', 'Hamja', 'student', 'BSCS', '', ''),
+(53, 'joshyasil@wmsu.edu.ph', 'password', 'Josh', 'Yasil', 'student', 'BSCS', '', ''),
+(54, 'markvladimir@wmsu.edu.ph', 'password', 'Mark', 'Vladimir', 'student', 'BSCS', '', ''),
+(55, 'bushra@wmsu.edu.ph', 'password', 'Bushra', 'Adjaluddin', 'student', 'BSCS', '', ''),
+(56, 'juandelacruz@wmsu.edu.ph', 'password', 'Juan', 'Dela Cruz', 'student', 'BSCS', '', ''),
+(57, 'faberdrive@wmsu.edu.ph', 'password', 'Faber', 'Drive', 'student', 'BSCS', '', ''),
+(58, 'aprilboy@wmsu.edu.ph', 'password', 'April', 'Boy', 'student', 'BSCS', '', ''),
+(59, 'andreicafino@wmsu.edu.ph', 'password', 'Andrei', 'Cafino', 'student', 'BSIT', '', ''),
+(60, 'peejayvidad@wmsu.edu.ph', 'password', 'Peejay', 'Vidad', 'student', 'BSCS', '', ''),
+(61, 'shift@wmsu.edu.ph', 'password', 'Shift', 'Na Tayo', 'student', 'BSCS', '', ''),
+(62, 'minmax@wmsu.edu.ph', 'password', 'Min', 'Max', 'student', 'BSCS', '', ''),
+(63, 'stephencurry@wmsu.edu.ph', 'password', 'Stephen', 'Curry', 'student', 'BSCS', '', ''),
+(64, 'lebronjames@wmsu.edu.ph', 'password', 'LeBron', 'James', 'student', 'BSCS', '', ''),
+(65, 'aiyayuu@wmsu.edu.ph', 'password', 'Aiyayuu', 'Misyu', 'student', 'BSCS', '', ''),
+(66, 'maggie@wmsu.edu.ph', 'password', 'Lucky Me', 'Maggie', 'student', 'BSIT', '', ''),
+(67, 'kyrie@wmsu.edu.ph', 'password', 'kyrie', 'irving', 'student', 'BSCS', '', ''),
+(68, '1@wmsu.edu.ph', 'passowrd', 'juan', 'juan', 'student', 'BSCS', '', ''),
+(69, '2@wmsu.edu.ph', 'passowrd', 'Two', 'Two', 'student', 'BSCS', '', ''),
+(70, 'three@wmsu.edu.ph', 'password', 'three', 'three', 'student', 'BSCS', '', ''),
+(71, 'four@wmsu.edu.ph', 'password', 'Four', 'Four', 'student', 'BSCS', '', ''),
+(72, 'haypayb@wmsu.edu.ph', 'password', 'Hay', 'Payb', 'student', 'BSCS', '', ''),
+(73, 'uphere@wmsu.edu.ph', 'password', 'Up', 'Here', 'student', 'BSCS', '', ''),
+(74, 'qwe@wmsu.edu.ph', '123123', 'qwe', 'qwe', 'student', 'BSCS', 'Active', '439169408fd156f12fcc72a92725125b'),
+(75, 'asd@wmsu.edu.ph', '123456', 'qwe', 'qwe', 'student', 'BSCS', 'Active', 'c427859d63cf5de36812bbdd10f5be86'),
+(76, 'asd@wasd.com', '123123', 'qwe', 'qwe', 'student', 'BSCS', 'Active', 'beefa17837aebd84e2c57d44112507bb'),
+(77, '123@gmail.com', '123123', 'asd', 'asd', 'student', 'BSCS', 'Active', '60b524804ffa5a72f17a32e006de06d3'),
+(78, 'qweqwe@gmail.com', '123123', 'qwe', 'qwe', 'student', 'BSCS', 'Active', 'e427b05b8ca440b38dfd39f335c04b36'),
+(79, 'asdasd@wmsu.edu.ph', '123123', 'asd', 'asd', 'student', 'BSCS', 'Pending', 'fb350a038b9b8100310174cc2d123b26'),
+(80, 'helloworld1@wmsu.edu.ph', '123123', 'zzxc', 'zxccc', 'student', 'BSCS', 'Pending', 'cab9c4ce563b8d8b9bcd7b9c261b4adf'),
+(87, 'xt202002168@wmsu.edu.ph', '123', 'test', 'testtt', 'student', 'BSIT', 'Pending', '329fce9f3431c35b43d7453dfc4690b9'),
+(92, 'a@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Pending', '21e31e6e62402e1522162b5c1473d69f'),
+(93, 'akosidoggie@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Pending', '4336bd48973de497183affa978b586b3'),
+(108, 'eh20220029512@wmsu.edu.ph', '123', 'sample', 'sample', 'student', 'BSCS', 'Pending', 'a62e6c49d35a59b9a4659ca2dfd331cd'),
+(114, 'sample@wmsu.edu.ph', '123', '1234', '1234', 'student', 'BSCS', 'Pending', '9920c81b6b710425a8e49ab8b33b3bf3'),
+(117, 'eh2022002qqww95@wmsu.edu.ph', 'qwqw', 'qwqw', 'qwqw', 'student', 'BSCS', 'Pending', 'ba791d0f06b903d27347dd8bbed48246'),
+(118, 'jascha.mascunana@wmsu.edu.ph', 'chazz123123123', 'Jascha', 'Mascuñana', 'student', 'BSCS', 'Active', '1e4be8c85665d6414df4beba48c6fbd2'),
+(123, 'jaydeeballaho@wmsu.edu.ph', 'password', 'Jaydee', 'Ballaho', 'adviser', 'BSCS', 'Active', '175777eaf8ac5f11304e6dd222836f19'),
+(125, 'eh202200295@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Active', '1caf56e5dbebedb385800587d2184965'),
+(126, 'eh2022002951@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Pending', '7686c85eedf854ce1e5c71f67cc9f2d6'),
+(127, 'sajdnasjjas@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Pending', 'a5057119e4aa32890de1f008a9b2052a');
 
 -- --------------------------------------------------------
 
@@ -1661,7 +1851,7 @@ INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `user_firstname`,
 --
 DROP TABLE IF EXISTS `grades_list`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `grades_list`  AS SELECT `applicants_grades`.`applicant_id` AS `applicant_id`, `sy_subjects`.`subject_name` AS `subject_name`, `applicants_grades`.`grade` AS `grade` FROM (`applicants_grades` join `sy_subjects` on(`sy_subjects`.`id` = `applicants_grades`.`subject_id`)) ;
+CREATE VIEW `grades_list`  AS SELECT `applicants_grades`.`applicant_id` AS `applicant_id`, `sy_subjects`.`subject_name` AS `subject_name`, `applicants_grades`.`grade` AS `grade` FROM (`applicants_grades` join `sy_subjects` on(`sy_subjects`.`id` = `applicants_grades`.`subject_id`)) ;
 
 --
 -- Indexes for dumped tables
@@ -1714,6 +1904,12 @@ ALTER TABLE `dean_applicants`
 -- Indexes for table `faculty`
 --
 ALTER TABLE `faculty`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `listers`
+--
+ALTER TABLE `listers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1771,31 +1967,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applicants_grades`
 --
 ALTER TABLE `applicants_grades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1871;
 
 --
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `course_schoolyear`
 --
 ALTER TABLE `course_schoolyear`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `deanslist_applicants`
 --
 ALTER TABLE `deanslist_applicants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
 -- AUTO_INCREMENT for table `deans_listers`
 --
 ALTER TABLE `deans_listers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `dean_applicants`
@@ -1807,25 +2003,31 @@ ALTER TABLE `dean_applicants`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `listers`
+--
+ALTER TABLE `listers`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `programs`
 --
 ALTER TABLE `programs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `sy_application_time`
 --
 ALTER TABLE `sy_application_time`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `sy_subjects`
 --
 ALTER TABLE `sy_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT for table `tbl_list_grades`
@@ -1843,7 +2045,7 @@ ALTER TABLE `tlb_applicant`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- Constraints for dumped tables

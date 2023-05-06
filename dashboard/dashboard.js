@@ -20,13 +20,39 @@ function GetDashboardData(){
             $("#dashboard_deanlister_count").text(summaryDT["Dean_Lister"]);
             $("span[name='dashboard_asof']").text(summaryDT["AsOf"]);
           }
-
-          //patListDT values ([Student_Name],[GPA],[Department],[Year_Level])
-          //patListDT["Student_Name"];
-          //patListDT["GPA"];
-          //patListDT["Department"];
-          //patListDT["Year_Level"];
-          
+          $("#top-student").empty();
+          var ctr = patListDT.length
+          if (ctr > 3){
+            ctr = 3
+          }
+          var tmpGPA = 0
+          for (var i = 0; i < ctr; i++) {
+            var view = "";
+            if (tmpGPA == patListDT[i]["GPA"]){
+              ctr+=1;
+            }
+            view = '<div class="box card text-center m-4 col-3">'+
+                        '<div class="row mt-3">'+
+                            '<div class="col-3">'+
+                                //'<small class="text"><b>TOP ' +(i+1)+'</b></small>'+ 
+                                '<i class="bx bxs-medal"></i>'+
+                            '</div>'+
+                            '<div class="col-4">'+
+                              '<span><b>' + patListDT[i]["Student_Name"]+'</b></span>'+
+                            '</div>'+
+                            '<div class="col-5">'+
+                                '<span>'+
+                                   "GPA"+
+                                '</span>'+
+                                '<p>'+
+                                   "<b>" + patListDT[i]["GPA"]+"</b>"
+                                '</p>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>';
+            $("#top-student").append(view);
+            tmpGPA == patListDT[i]["GPA"]
+          }
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.responseText);

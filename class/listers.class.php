@@ -60,6 +60,23 @@ class Listers{
         }
     }
 
+    function add2(){
+        $sql = "INSERT INTO deans_listers (app_id,fullname, gpa, department, yearlevel) VALUES
+        (:appid, :fullname, :GPA, :department, :year_level);";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':appid', $this->App_ID);
+        $query->bindParam(':fullname', $this->Fullname);
+        $query->bindParam(':GPA', $this->GPA);
+        $query->bindParam(':department', $this->department);
+        $query->bindParam(':year_level', $this->year_level);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     function GetTopDeanLister_ByValue(){
         $sql = "SELECT * FROM deans_listers ORDER BY GPA ASC LIMIT 5;";
         $query=$this->db->connect()->prepare($sql);
@@ -82,6 +99,7 @@ class Listers{
         $sql = "UPDATE deanslist_applicants SET app_status = 'Accepted', adviser_status = 'Accepted' WHERE id = :ID";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':ID', $record_id);
+        
         if($query->execute()){
             return true;
         }
@@ -290,9 +308,9 @@ class Listers{
     function updateApplicant($id, $gpa, $appstatus, $fileName){
         $sql = "UPDATE deanslist_applicants SET gpa=:gpa, app_status=:appstatus, app_file=:appfilename WHERE  (app_status= 'Incomplete' AND id = :appid);";
         $query=$this->db->connect()->prepare($sql);
-
+        $finalGPA = round($gpa, 4);
         $query->bindParam(':appid', $id);
-        $query->bindParam(':gpa', $gpa);
+        $query->bindParam(':gpa', $finalGPA);
         $query->bindParam(':appstatus', $appstatus);
         $query->bindParam(':appfilename', $fileName);
 
@@ -319,7 +337,7 @@ class Listers{
     function updateApplicantGPA($id, $gpa){
         $sql = "UPDATE `deanslist_applicants` SET gpa = :gpa WHERE id = :appid";
         $query=$this->db->connect()->prepare($sql);
-        $finalGPA = round($gpa, 2);
+        $finalGPA = round($gpa, 4);
         $query->bindParam(':appid', $id);
         $query->bindParam(':gpa', $finalGPA);
         if($query->execute())

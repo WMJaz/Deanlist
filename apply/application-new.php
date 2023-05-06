@@ -1,4 +1,11 @@
 <?php
+//if (!isset($_SESSION['logged-in'])) {
+ //   header('location: ../login/login.php');
+//}
+session_start();
+if (!isset($_SESSION['logged-in'])) {
+    header('location: ../login/login.php');
+   }
 $conn = mysqli_connect('localhost', 'root', '', 'deanslist');
 $path = "../";
 
@@ -9,7 +16,7 @@ include_once '../class/program.class.php';
 
 date_default_timezone_set('Asia/Manila');
 
-session_start();
+
 
 $subject = new subject;
 $applicant = new Listers;

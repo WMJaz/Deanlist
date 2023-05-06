@@ -36,7 +36,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
+  <title>Application Form</title>
+  <link rel="icon" href="../img/ccslogo.png" type="image/icon type">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
@@ -133,7 +135,7 @@
                               <td>'. $grades[$x]['subject_name'] .'</td>
                               <td>'. ($grades[$x]['lec_units'] + $grades[$x]['lab_units']) .'</td>
                               <td>'. $grades[$x]['grade'] .'</td>
-                              <td></td>
+                              <td><textarea style="width:100%; margin:0;border:none;" rows="1"></textarea></td>
                             </tr>';
                     }
                       
@@ -350,7 +352,7 @@
         var elementHTML = document.querySelector("#pdfbody");
         docPDF.html(elementHTML, {
           callback: function(docPDF) {
-            docPDF.save('HTML Linuxhint web page.pdf');
+            docPDF.save('Application Form.pdf');
           },
           x: 15,
           y: 15,

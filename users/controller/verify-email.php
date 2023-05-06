@@ -20,14 +20,14 @@
                 if( mysqli_query($conn, $sql)) {
                     $_SESSION['status'] = 'Your Account has been verified successfully';
                     echo "Your Account has been verified successfully";
-                    header("Location: ../../login/Login.php");
+                    header("Location: ../../login/login.php");
                     exit(0);
 
                 } else {
 
                     $_SESSION['status'] = 'Verification Failed!';
                     echo "Verification Failed";
-                    header("Location: ../../login/Login.php");
+                    header("Location: ../../login/login.php");
                     exit(0);
                 }
 
@@ -35,17 +35,17 @@
 
                 $_SESSION['status'] = 'Email already verified!';
                 echo "Email already verified";
-                header("Location: ../../login/Login.php");
+                header("Location: ../../login/login.php");
             }
             
         } else {
             $_SESSION['status'] = 'This token does not Exists!';
             echo "This token does not Exists";
-            header("Location: ../../login/Login.php");
+            header("Location: ../../login/login.php");
         }
     } else {
         $_SESSION['status'] = 'Not Allowed!';
         echo "Not Allowed";
-        header("Location: ../../login/Login.php");
+        header("Location: ../../login/login.php");
     }
 ?>

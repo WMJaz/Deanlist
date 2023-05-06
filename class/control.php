@@ -49,10 +49,23 @@
                 include_once 'listers.class.php';
                 $lister = new Listers;
                 $ID = $_POST["ID"];
-                if($lister->Approved_Deanlist($ID))
-                    echo 1;
-                else
+                if($lister->Approved_Deanlist($ID)){
+                    $dnlstData = $lister->GetCertainDeanListApplicant($ID);
+                    $lister->App_ID = $dnlstData["tmp_appid"];
+                    $lister->Fullname = $dnlstData["user_name"];
+                    $lister->GPA = round($dnlstData["gpa"],4);
+                    $lister->department = $dnlstData["curriculum"];
+                    $lister->year_level = $dnlstData["year_level"];
+                    if($lister->add2()){
+                        echo 1;
+                    }
+                    else{
+                        echo 0;
+                    }
+                }  
+                else{
                     echo 0;
+                }
                 break;
             case "DeclineDeanlist":
                 include_once 'listers.class.php';

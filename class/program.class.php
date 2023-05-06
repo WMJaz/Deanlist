@@ -184,15 +184,14 @@ Class Program{
         }
     }
 
-    function addSubjects($subjCode, $subjName, $lecunits, $labunits, $prereq, $sem, $courseid, $yearlevel, $syid){
-        $sql = "INSERT INTO sy_subjects (subject_code, subject_name, lec_units, lab_units, pre_req, sem, course_id, year_level, sy_id) 
-        VALUES (:subcode, :subname, :lecunits, :labunits, :prereq, :semester, :courseid, :yearlevel, :syid)";
+    function addSubjects($subjCode, $subjName, $lecunits, $labunits, $sem, $courseid, $yearlevel, $syid){
+        $sql = "INSERT INTO sy_subjects (subject_code, subject_name, lec_units, lab_units, sem, course_id, year_level, sy_id) 
+        VALUES (:subcode, :subname, :lecunits, :labunits, :semester, :courseid, :yearlevel, :syid)";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':subcode', $subjCode);
         $query->bindParam(':subname', $subjName);
         $query->bindParam(':lecunits', $lecunits);
         $query->bindParam(':labunits', $labunits);
-        $query->bindParam(':prereq', $prereq);
         $query->bindParam(':semester', $sem);
         $query->bindParam(':courseid', $courseid);
         $query->bindParam(':yearlevel', $yearlevel);
