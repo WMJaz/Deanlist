@@ -4,7 +4,15 @@
 
 		$sql = 'SELECT * FROM tbl_subject WHERE sem ='.$_POST['sem'].' AND year_level ='.$_POST['yearlevel'].' AND curriculum ="'. $_POST['curriculum'].'" ';
 
-		$result = $conn->query($sql);
+		try {
+			
+			$result = $conn->query($sql);
+		} catch (\Throwable $th) {
+	?>
+		<td>  Please Choose Semester and Year</td>
+
+	<?php
+		}
 		$i = 1;
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
@@ -40,7 +48,6 @@
 		} else {
 	?>
 	
-		<td>  Please Add Subject </td>
 		
 	<?php
 		}

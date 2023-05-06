@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2023 at 05:04 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Generation Time: May 06, 2023 at 05:31 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -87,15 +87,6 @@ INSERT INTO `applicants_grades` (`id`, `applicant_id`, `subject_id`, `grade`) VA
 (119, 69, 111, 1.5),
 (120, 69, 112, 1.5),
 (121, 69, 113, 1),
-(122, 70, 102, 2),
-(123, 70, 103, 2),
-(124, 70, 104, 2),
-(125, 70, 105, 2),
-(126, 70, 106, 2),
-(127, 70, 107, 2),
-(128, 70, 108, 2),
-(129, 70, 109, 2),
-(130, 70, 110, 2),
 (131, 71, 27, 1.5),
 (132, 71, 28, 1.5),
 (133, 72, 27, 1.5),
@@ -108,7 +99,171 @@ INSERT INTO `applicants_grades` (`id`, `applicant_id`, `subject_id`, `grade`) VA
 (140, 75, 27, 1.5),
 (141, 75, 28, 1.5),
 (142, 76, 27, 2.5),
-(143, 76, 28, 1.5);
+(143, 76, 28, 1.5),
+(847, 100, 39, 1),
+(848, 100, 40, 1),
+(849, 100, 41, 1),
+(850, 100, 42, 1),
+(851, 100, 43, 1),
+(852, 100, 39, 1),
+(853, 100, 40, 1),
+(854, 100, 41, 1),
+(855, 100, 42, 1),
+(856, 100, 43, 1),
+(857, 100, 39, 1),
+(858, 100, 40, 1),
+(859, 100, 41, 1),
+(860, 100, 42, 1),
+(861, 100, 43, 1),
+(862, 100, 39, 1),
+(863, 100, 40, 1),
+(864, 100, 41, 1),
+(865, 100, 42, 1),
+(866, 100, 43, 1),
+(867, 100, 39, 1),
+(868, 100, 40, 1),
+(869, 100, 41, 1),
+(870, 100, 42, 1),
+(871, 100, 43, 1),
+(872, 100, 39, 1),
+(873, 100, 40, 1),
+(874, 100, 41, 1),
+(875, 100, 42, 1),
+(876, 100, 43, 1),
+(877, 100, 39, 1),
+(878, 100, 40, 1),
+(879, 100, 41, 1),
+(880, 100, 42, 1),
+(881, 100, 43, 1),
+(882, 100, 39, 1),
+(883, 100, 40, 1),
+(884, 100, 41, 1),
+(885, 100, 42, 1),
+(886, 100, 43, 1),
+(887, 100, 39, 1),
+(888, 100, 40, 1),
+(889, 100, 41, 1),
+(890, 100, 42, 1),
+(891, 100, 43, 1),
+(892, 100, 39, 1),
+(893, 100, 40, 1),
+(894, 100, 41, 1),
+(895, 100, 42, 1),
+(896, 100, 43, 1),
+(897, 100, 39, 1),
+(898, 100, 40, 1),
+(899, 100, 41, 1),
+(900, 100, 42, 1),
+(901, 100, 43, 1),
+(902, 100, 39, 1),
+(903, 100, 40, 1),
+(904, 100, 41, 1),
+(905, 100, 42, 1),
+(906, 100, 43, 1),
+(907, 100, 39, 1),
+(908, 100, 40, 1),
+(909, 100, 41, 1),
+(910, 100, 42, 1),
+(911, 100, 43, 1),
+(912, 100, 39, 1),
+(913, 100, 40, 1),
+(914, 100, 41, 1),
+(915, 100, 42, 1),
+(916, 100, 43, 1),
+(917, 100, 39, 1),
+(918, 100, 40, 1),
+(919, 100, 41, 1),
+(920, 100, 42, 1),
+(921, 100, 43, 1),
+(922, 100, 39, 1),
+(923, 100, 40, 1),
+(924, 100, 41, 1),
+(925, 100, 42, 1),
+(926, 100, 43, 1),
+(927, 100, 39, 1),
+(928, 100, 40, 1),
+(929, 100, 41, 1),
+(930, 100, 42, 1),
+(931, 100, 43, 1),
+(932, 100, 39, 1),
+(933, 100, 40, 1),
+(934, 100, 41, 1),
+(935, 100, 42, 1),
+(936, 100, 43, 1),
+(937, 100, 39, 1),
+(938, 100, 40, 1),
+(939, 100, 41, 1),
+(940, 100, 42, 1),
+(941, 100, 43, 1),
+(942, 100, 39, 1),
+(943, 100, 40, 1),
+(944, 100, 41, 1),
+(945, 100, 42, 1),
+(946, 100, 43, 1),
+(947, 100, 39, 1),
+(948, 100, 40, 1),
+(949, 100, 41, 1),
+(950, 100, 42, 1),
+(951, 100, 43, 1),
+(952, 100, 39, 1),
+(953, 100, 40, 1),
+(954, 100, 41, 1),
+(955, 100, 42, 1),
+(956, 100, 43, 1),
+(1642, 129, 153, 1),
+(1643, 129, 154, 1),
+(1644, 129, 155, 1),
+(1645, 129, 156, 1),
+(1646, 129, 157, 1),
+(1647, 129, 158, 1),
+(1648, 129, 159, 1),
+(1649, 129, 160, 1),
+(1650, 129, 161, 1),
+(1734, 135, 153, 1),
+(1735, 135, 154, 1),
+(1736, 135, 155, 1),
+(1737, 135, 156, 1),
+(1738, 135, 157, 1),
+(1739, 135, 158, 1),
+(1740, 135, 159, 1),
+(1741, 135, 160, 1),
+(1742, 135, 161, 1),
+(1835, 153, 153, 1),
+(1836, 153, 154, 1),
+(1837, 153, 155, 1),
+(1838, 153, 156, 1),
+(1839, 153, 157, 1),
+(1840, 153, 158, 1),
+(1841, 153, 159, 1),
+(1842, 153, 160, 1),
+(1843, 153, 161, 1),
+(1844, 153, 153, 1),
+(1845, 153, 154, 1),
+(1846, 153, 155, 1),
+(1847, 153, 156, 1),
+(1848, 153, 157, 1),
+(1849, 153, 158, 1),
+(1850, 153, 159, 1),
+(1851, 153, 160, 1),
+(1852, 153, 161, 1),
+(1853, 153, 153, 1),
+(1854, 153, 154, 1),
+(1855, 153, 155, 1),
+(1856, 153, 156, 1),
+(1857, 153, 157, 1),
+(1858, 153, 158, 1),
+(1859, 153, 159, 1),
+(1860, 153, 160, 1),
+(1861, 153, 161, 1),
+(1862, 154, 153, 1),
+(1863, 154, 154, 1),
+(1864, 154, 155, 1),
+(1865, 154, 156, 1),
+(1866, 154, 157, 1),
+(1867, 154, 158, 1),
+(1868, 154, 159, 1.25),
+(1869, 154, 160, 1.5),
+(1870, 154, 161, 1.5);
 
 -- --------------------------------------------------------
 
@@ -128,7 +283,9 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`id`, `course_name`, `course_fullname`) VALUES
 (1, 'BSCS', 'Bachelor of Science in Computer Science'),
-(2, 'BSIT', 'Bacher of Science in Information Technology');
+(2, 'BSIT', 'Bacher of Science in Information Technology'),
+(3, 'BSS', 'SAMPLE DESC'),
+(4, 'BSVS', 'BACHELOR OF SCIENCE IN VULCANIZING SHOP');
 
 -- --------------------------------------------------------
 
@@ -150,7 +307,8 @@ INSERT INTO `course_schoolyear` (`id`, `school_year`, `course_id`) VALUES
 (1, '2022-2023', 1),
 (3, '2021-2022', 1),
 (15, '2022-2023', 2),
-(16, '2023-2024', 2);
+(16, '2023-2024', 2),
+(17, '2023-2024', 3);
 
 -- --------------------------------------------------------
 
@@ -173,32 +331,48 @@ CREATE TABLE `deanslist_applicants` (
   `app_file` varchar(255) NOT NULL,
   `adviser_id` int(11) NOT NULL,
   `adviser_status` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `feedback` varchar(500) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `accept_reapplication` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `deanslist_applicants`
 --
 
-INSERT INTO `deanslist_applicants` (`id`, `user_id`, `user_name`, `email`, `curriculum`, `semester`, `year_level`, `section`, `school_year_id`, `gpa`, `app_status`, `app_file`, `adviser_id`, `adviser_status`, `created_at`) VALUES
-(46, 48, 'test test', 'test123@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Declined', 'score.png', 7, 'Declined', '2023-04-14 13:38:06'),
-(47, 50, 'Daph Nagata', 'daphnagata@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(54, 51, 'Denise Gerzon', 'denisegerzon@wmsu.edu.ph', 'BSCS', '1', '3', 'A', 1, 2, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(55, 52, 'Abdulasis Hamja', 'abdulasis@wmsu.edu.ph', 'BSCS', '2', '3', 'C', 1, 1.35, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(56, 53, 'Josh Yasil', 'joshyasil@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(57, 54, 'Mark Vladimir', 'markvladimir@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.83333, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(60, 55, 'Bushra Adjaluddin', 'bushra@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.25, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(61, 56, 'Juan Dela Cruz', 'juandelacruz@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(66, 64, 'LeBron James', 'lebronjames@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Accepted', 'scorequiz.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(67, 65, 'Aiyayuu Misyu', 'aiyayuu@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.625, 'Accepted', 'male.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(69, 66, 'Lucky Me Maggie', 'maggie@wmsu.edu.ph', 'BSIT', '2', '4', 'A', 15, 1.33333, 'Accepted', 'male.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(70, 67, 'kyrie irving', 'kyrie@wmsu.edu.ph', 'BSCS', '1', '1', 'A', 1, 2, 'Declined', 'ballaho.png', 7, 'Declined', '2023-04-14 13:38:06'),
-(71, 68, 'juan juan', '1@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Accepted', 'male.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(72, 69, 'Two Two', '2@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Declined', 'male.png', 7, 'Declined', '2023-04-14 13:38:06'),
-(73, 70, 'three three', 'three@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.5, 'Declined', 'male.png', 7, 'Declined', '2023-04-14 13:38:06'),
-(74, 71, 'Four Four', 'four@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Accepted', 'male.png', 7, 'Accepted', '2023-04-14 13:38:06'),
-(75, 72, 'Hay Payb', 'haypayb@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Pending', 'male.png', 7, 'Accepted', '2023-04-14 16:23:52'),
-(76, 73, 'Up Here', 'uphere@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 2, 'Declined', 'male.png', 8, 'Declined', '2023-04-14 16:25:25');
+INSERT INTO `deanslist_applicants` (`id`, `user_id`, `user_name`, `email`, `curriculum`, `semester`, `year_level`, `section`, `school_year_id`, `gpa`, `app_status`, `app_file`, `adviser_id`, `adviser_status`, `feedback`, `created_at`, `accept_reapplication`) VALUES
+(46, 48, 'test test', 'test123@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Declined', 'score.png', 7, 'Declined', '', '2023-05-03 07:16:38', 0),
+(47, 50, 'Daph Nagata', 'daphnagata@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Declined', 'ccs-logo.png', 7, 'Declined', '', '2023-05-03 07:02:41', 0),
+(54, 51, 'Denise Gerzon', 'denisegerzon@wmsu.edu.ph', 'BSCS', '1', '3', 'A', 1, 2, 'Declined', 'ccs-logo.png', 7, 'Declined', 'sample', '2023-05-03 07:06:59', 0),
+(55, 52, 'Abdulasis Hamja', 'abdulasis@wmsu.edu.ph', 'BSCS', '2', '3', 'C', 1, 1.35, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '', '2023-05-02 15:37:33', 0),
+(56, 53, 'Josh Yasil', 'joshyasil@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Accepted', 'ccs-logo.png', 7, 'Accepted', '', '2023-05-03 12:39:37', 0),
+(57, 54, 'Mark Vladimir', 'markvladimir@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.83333, 'Pending', 'ccs-logo.png', 7, 'Accepted', '', '2023-05-03 12:39:57', 0),
+(60, 55, 'Bushra Adjaluddin', 'bushra@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.25, 'Declined', 'ccs-logo.png', 7, 'Declined', '', '2023-05-03 05:56:32', 0),
+(61, 56, 'Juan Dela Cruz', 'juandelacruz@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Pending', 'ccs-logo.png', 7, 'Accepted', '', '2023-05-03 12:40:14', 0),
+(66, 64, 'LeBron James', 'lebronjames@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.375, 'Pending', 'scorequiz.png', 7, 'Accepted', '', '2023-05-03 12:40:16', 0),
+(67, 65, 'Aiyayuu Misyu', 'aiyayuu@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.625, 'Declined', 'male.png', 7, 'Declined', 'SAMPLE FEED yeah!!', '2023-05-03 05:51:35', 0),
+(69, 66, 'Lucky Me Maggie', 'maggie@wmsu.edu.ph', 'BSIT', '2', '4', 'A', 15, 1.33333, 'Pending', 'male.png', 7, 'Accepted', '', '2023-05-03 12:40:42', 0),
+(70, 67, 'kyrie irving', 'kyrie@wmsu.edu.ph', 'BSCS', '1', '1', 'A', 1, 2, 'Pending', 'ballaho.png', 7, 'Accepted', 'sample feedback', '2023-05-03 12:40:45', 0),
+(71, 68, 'juan juan', '1@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Pending', 'male.png', 7, 'Accepted', '', '2023-05-03 12:40:48', 0),
+(72, 69, 'Two Two', '2@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Pending', 'male.png', 7, 'Pending', '', '2023-05-02 15:26:20', 0),
+(73, 70, 'three three', 'three@wmsu.edu.ph', 'BSCS', '2', '4', 'A', 1, 1.5, 'Declined', 'male.png', 7, 'Declined', 'sample feed\n', '2023-05-04 03:38:36', 0),
+(74, 71, 'Four Four', 'four@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Declined', 'male.png', 7, 'Declined', 'four four sample feedback', '2023-05-03 07:15:18', 0),
+(75, 72, 'Hay Payb', 'haypayb@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 1.5, 'Accepted', 'male.png', 7, 'Accepted', '', '2023-05-03 12:35:58', 0),
+(76, 73, 'Up Here', 'uphere@wmsu.edu.ph', 'BSCS', '1', '4', 'A', 1, 2, 'Pending', 'male.png', 8, 'Pending', '', '2023-05-02 15:26:20', 0),
+(78, 74, 'qwe qwe', 'qwe@wmsu.edu.ph', 'BSCS', '1', '1', 'B', 1, 1.19444, 'Pending', 'photo_6217418791567078755_y.jpg', 17, 'Pending', '', '2023-05-02 15:26:20', 0),
+(100, 125, '123 123', 'eh202200295@wmsu.edu.ph', 'BSCS', '2', '3', 'A', 1, 1, 'Declined', 'photo_6217418791567078755_y.jpg', 13, 'Declined', 'sample feedback', '2023-05-02 15:34:15', 0),
+(129, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 1, 'Accepted', 'ss.png', 4, 'Accepted', '', '2023-05-03 13:28:47', 1),
+(134, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 0, 'Incomplete', '', 18, 'Pending', '', '2023-05-04 00:20:12', 1),
+(135, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 1, 'Accepted', 'ss.png', 18, 'Accepted', '', '2023-05-04 00:20:12', 1),
+(136, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 3, 0, 'Incomplete', '', 19, 'Pending', '', '2023-05-04 03:47:58', 1),
+(138, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '2', 'B', 1, 0, 'Incomplete', '', 4, 'Pending', '', '2023-05-04 03:47:58', 1),
+(139, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '2', 'B', 1, 0, 'Incomplete', '', 4, 'Pending', '', '2023-05-04 03:47:58', 1),
+(143, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '2', '1', 'B', 1, 0, 'Incomplete', '', 6, 'Pending', '', '2023-05-04 03:47:58', 1),
+(147, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '2', 'C', 3, 0, 'Incomplete', '', 19, 'Pending', '', '2023-05-04 03:47:58', 1),
+(148, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '3', 'B', 3, 0, 'Incomplete', '', 15, 'Pending', '', '2023-05-04 03:47:58', 1),
+(152, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '2', '2', 'C', 1, 0, 'Incomplete', '', 10, 'Pending', '', '2023-05-04 03:47:58', 1),
+(153, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 1, 'Declined', 'ss.png', 7, 'Declined', 'sample 12234444', '2023-05-04 03:47:58', 1),
+(154, 44, 'John Doe', 'johndoe@wmsu.edu.ph', 'BSCS', '1', '1', 'C', 1, 1.14, 'Pending', 'ss.png', 19, 'Pending', '', '2023-05-04 03:48:39', 0);
 
 -- --------------------------------------------------------
 
@@ -220,18 +394,10 @@ CREATE TABLE `deans_listers` (
 --
 
 INSERT INTO `deans_listers` (`id`, `app_id`, `fullname`, `gpa`, `department`, `yearlevel`) VALUES
-(2, 47, 'Daph Nagata', 1.375, 'BSCS', '4'),
-(3, 54, 'Denise Gerzon', 2, 'BSCS', '3'),
-(4, 55, 'Abdulasis Hamja', 1.35, 'BSCS', '3'),
-(5, 56, 'Josh Yasil', 1.375, 'BSCS', '4'),
-(6, 57, 'Mark Vladimir', 1.83333, 'BSCS', '4'),
-(7, 60, 'Bushra Adjaluddin', 1.25, 'BSCS', '4'),
-(8, 61, 'Juan Dela Cruz', 1.5, 'BSCS', '4'),
-(12, 66, 'LeBron James', 1.375, 'BSCS', '4'),
-(13, 67, 'Aiyayuu Misyu', 1.625, 'BSCS', '4'),
-(14, 69, 'Lucky Me Maggie', 1.33333, 'BSIT', '4'),
-(15, 71, 'juan juan', 1.5, 'BSCS', '4'),
-(16, 74, 'Four Four', 1.5, 'BSCS', '4');
+(9, 55, 'Abdulasis Hamja', 1.35, 'BSCS', '3'),
+(10, 56, 'Josh Yasil', 1.375, 'BSCS', '4'),
+(11, 75, 'Hay Payb', 1.5, 'BSCS', '4'),
+(13, 129, 'John Doe', 1, 'BSCS', '1');
 
 -- --------------------------------------------------------
 
@@ -301,7 +467,7 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `img`, `firstname`, `lastname`, `rank`, `email`, `status`, `created_at`, `updated_at`, `user_id`) VALUES
-(3, 'go.png', 'Dr. Roderick', 'P. Go', 'College Dean', 'roderickgo@wmsu.edu.ph', 'Adviser', '2023-01-25 14:03:58', '2023-04-13 14:39:14', 0),
+(3, '', 'Dr. Roderick', 'P. Go', 'College Dean', 'roderickgo@wmsu.edu.ph', 'Adviser', '2023-01-25 14:03:58', '2023-04-27 10:30:35', 0),
 (4, 'odon.png', 'Engr. Odon A. ', 'Maravillas, Jr., MSCS', 'Associate Dean', 'odonmaravillas@wmsu.edu.ph', 'Adviser', '2023-01-25 14:05:17', '2023-04-13 14:40:55', 0),
 (6, 'belamide.png', 'Engr. Gadmar M.', 'Belamide, MEnggEd-ICT', 'College Secretary', 'gadmarbelamide@wmsu.edu.ph', 'Admin', '2023-01-25 14:06:48', '2023-04-13 14:50:20', 0),
 (7, 'sadiwa.png', 'Ms. Lucy  ', 'Felix-Sadiwa, MSCS', 'CS Department Head', 'lucyfelix@wmsu.edu.ph', 'Adviser', '2023-01-25 14:10:13', '2023-04-13 14:50:46', 0),
@@ -347,6 +513,7 @@ CREATE TABLE `grades_list` (
 --
 
 CREATE TABLE `listers` (
+  `id` bigint(20) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `GPA` float NOT NULL,
@@ -358,15 +525,15 @@ CREATE TABLE `listers` (
 -- Dumping data for table `listers`
 --
 
-INSERT INTO `listers` (`firstname`, `lastname`, `GPA`, `department`, `year_level`) VALUES
-('Mark', 'Vladimir', 1.25, 'Computer Science', 3),
-('Pogi', 'Hamja', 1, 'BSCS', 3),
-('hAMJA', 'vLADIMIR', 2, 'BSCS', 4),
-('Nash', 'Sari', 1.5, 'BSCS', 3),
-('Andrei', 'Cafino', 1.75, 'BSIT', 3),
-('Denise', 'Vonn', 1.75, 'BSCS', 3),
-('Jsohua', 'Yasil', 1, 'BSCS', 3),
-('Jenny', 'Vladimir', 1.5, 'BSCS', 3);
+INSERT INTO `listers` (`id`, `firstname`, `lastname`, `GPA`, `department`, `year_level`) VALUES
+(1, 'Mark', 'Vladimir', 1, 'BSCS', 3),
+(2, 'Pogi', 'Hamja', 1, 'BSCS', 3),
+(3, 'hAMJA', 'vLADIMIR', 2, 'BSCS', 4),
+(4, 'Nash', 'Sari', 1.5, 'BSCS', 3),
+(5, 'Andrei', 'Cafino', 1.75, 'BSIT', 3),
+(6, 'Denise', 'Vonn', 1.75, 'BSCS', 3),
+(7, 'Jsohua', 'Yasil', 1, 'BSCS', 3),
+(8, 'Jenny', 'Vladimir', 1.5, 'BSCS', 3);
 
 -- --------------------------------------------------------
 
@@ -389,11 +556,10 @@ CREATE TABLE `programs` (
 --
 
 INSERT INTO `programs` (`id`, `code`, `description`, `years`, `level`, `created_at`, `updated_at`) VALUES
-(1, 'BSCS', 'Bachelor of Science in Computer Science', 4, 'Bachelor', '2022-11-03 07:10:55', '2023-04-13 13:59:59'),
+(1, 'BSCS', 'Bachelor of Science in Computer Science', 3, 'Bachelor', '2022-11-03 07:10:55', '2023-04-26 20:34:34'),
 (2, 'BSIT', 'Bachelor of Science in Information Technology', 4, 'Bachelor', '2022-11-03 07:24:14', '2023-04-10 12:49:33'),
-(16, 'BSCpE', 'Bachelor of Science in Computer Engineering', 5, 'Bachelor', '2023-04-13 14:02:31', '2023-04-13 14:03:51'),
-(17, 'BSCE', 'Bachelor of Science in Civil Engineering', 5, 'Bachelor', '2023-04-13 14:04:21', '2023-04-13 14:04:21'),
-(19, 'MIT', 'Master in Information Technology', 4, 'Masteral', '2023-04-13 14:05:26', '2023-04-13 14:13:32');
+(21, 'BSS', 'SAMPLE DESC', 2, 'Diploma', '2023-05-03 04:54:31', '2023-05-03 04:54:31'),
+(22, 'BSVS', 'BACHELOR OF SCIENCE IN VULCANIZING SHOP', 2, 'Bachelor', '2023-05-03 05:25:40', '2023-05-03 05:25:40');
 
 -- --------------------------------------------------------
 
@@ -418,9 +584,10 @@ CREATE TABLE `sy_application_time` (
 
 INSERT INTO `sy_application_time` (`id`, `sy_id`, `1st_sem`, `2nd_sem`, `1st_sem_start`, `1st_sem_end`, `2nd_sem_start`, `2nd_sem_end`) VALUES
 (1, 1, 1, 1, NULL, NULL, NULL, NULL),
-(3, 3, 0, 0, NULL, NULL, NULL, NULL),
+(3, 3, 1, 1, NULL, NULL, NULL, NULL),
 (7, 15, 1, 1, NULL, NULL, NULL, NULL),
-(8, 16, 0, 0, NULL, NULL, NULL, NULL);
+(8, 16, 1, 1, NULL, NULL, NULL, NULL),
+(9, 17, 1, 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -504,18 +671,20 @@ INSERT INTO `sy_subjects` (`id`, `subject_code`, `subject_name`, `lec_units`, `l
 (90, 'IT 137', 'Web Systems and Technologies', 3, 3, 'CC 104', 1, 2, 3, 15),
 (91, 'IT 139', 'IT Elective 1', 2, 3, '3rd Year Standing', 1, 2, 3, 15),
 (92, 'CC 105', 'Application Development and Emerging Technologies', 2, 3, 'CC 104', 1, 2, 3, 15),
-(102, 'CC 100', 'Introduction to Computing', 2, 3, 'None', 1, 1, 1, 1),
-(103, 'CC 101', 'Computer Programming 1 ', 3, 3, 'None', 1, 1, 1, 1),
-(104, 'CAS 101', 'Purposive Communication', 3, 0, 'None', 1, 1, 1, 1),
-(105, 'MATH 100', 'Mathematics in the Modern World', 3, 0, 'None', 1, 1, 1, 1),
-(106, 'US 101', 'Understanding the Self', 3, 0, 'None', 1, 1, 1, 1),
-(107, 'FIL 101', 'Komunikasyon sa Akademikong Filipino', 3, 0, 'None', 1, 1, 1, 1),
-(108, 'PE 101', 'Physical Education 1', 2, 0, 'None', 1, 1, 1, 1),
-(109, 'NSTP', 'National Service Training Program 1', 3, 0, 'None', 1, 1, 1, 1),
-(110, 'EUTH A', 'Euthenics A', 2, 0, 'None', 1, 1, 1, 1),
 (111, 'IT 142', 'Systems Administration and Maintenance', 2, 3, 'IT 143', 2, 2, 4, 15),
 (112, 'IT 144', 'Practicum / Industry Immersion', 0, 9, 'Graduating', 2, 2, 4, 15),
-(113, 'IT 123', 'Bulkanizing', 3, 3, 'None', 2, 2, 4, 15);
+(113, 'IT 123', 'Bulkanizing', 3, 3, 'None', 2, 2, 4, 15),
+(123, 'SM 101', 'SAMPLE 101', 3, 0, 'NONE', 1, 3, 1, 17),
+(124, 'SM 102', 'SAMPLE 102', 3, 0, 'NONE', 1, 3, 1, 17),
+(153, 'CC 100', 'Introduction to Computing', 2, 3, 'None', 1, 1, 1, 1),
+(154, 'CC 101', 'Computer Programming 1 ', 3, 3, 'None', 1, 1, 1, 1),
+(155, 'CAS 101', 'Purposive Communication', 3, 0, 'None', 1, 1, 1, 1),
+(156, 'MATH 100', 'Mathematics in the Modern World', 3, 0, 'None', 1, 1, 1, 1),
+(157, 'US 101', 'Understanding the Self', 3, 0, 'None', 1, 1, 1, 1),
+(158, 'FIL 101', 'Komunikasyon sa Akademikong Filipino', 3, 0, 'None', 1, 1, 1, 1),
+(159, 'PE 101', 'Physical Education 1', 2, 0, 'None', 1, 1, 1, 1),
+(160, 'NSTP', 'National Service Training Program 1', 3, 0, 'None', 1, 1, 1, 1),
+(161, 'EUTH A', 'Euthenics A', 2, 0, 'None', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1361,119 +1530,223 @@ INSERT INTO `tbl_list_grades` (`grades_id`, `subject_id`, `applicant_id`, `grade
 --
 
 CREATE TABLE `tbl_subject` (
-  `subject_id` int(11) NOT NULL,
+  `subject_unique_id` int(11) NOT NULL,
+  `subject_id` varchar(255) NOT NULL,
+  `subject_code` varchar(255) NOT NULL,
   `subject_name` varchar(255) NOT NULL,
   `sem` int(11) NOT NULL,
   `curriculum` varchar(50) NOT NULL,
-  `year_level` int(11) NOT NULL
+  `year_level` int(11) NOT NULL,
+  `unit_lec` int(11) NOT NULL,
+  `unit_lab` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_subject`
 --
 
-INSERT INTO `tbl_subject` (`subject_id`, `subject_name`, `sem`, `curriculum`, `year_level`) VALUES
-(1, 'Software Engineering 1', 1, 'cs', 3),
-(2, 'Automata Theory and Formal Languages', 1, 'cs', 3),
-(6, 'Introduction to Computing', 1, 'cs', 1),
-(7, 'Computer Programming 1', 1, 'cs', 1),
-(8, 'Purposive Communication', 1, 'cs', 1),
-(9, 'Mathematics in the Modern World', 1, 'cs', 1),
-(10, 'Understanding the Self', 1, 'cs', 1),
-(11, 'Komunikasyon sa Akedimikong Filipino', 1, 'cs', 1),
-(12, 'Physical Education 1', 1, 'cs', 1),
-(13, 'National Service Training Program 1', 1, 'cs', 1),
-(14, 'Euthenics A', 1, 'cs', 1),
-(15, 'Discrete Structures 1', 2, 'cs', 1),
-(16, 'Computer Programming 2', 2, 'cs', 1),
-(17, 'Calculus 1', 2, 'cs', 1),
-(18, 'The Contemporary World', 2, 'cs', 1),
-(19, 'Science, Technology and Society', 2, 'cs', 1),
-(20, 'Retorika', 2, 'cs', 1),
-(21, 'Physical Education 2', 2, 'cs', 1),
-(22, 'National Service Training Program 2', 2, 'cs', 1),
-(23, 'Euthenics B', 2, 'cs', 1),
-(24, 'Object-Oriented Programming', 1, 'cs', 2),
-(25, 'Discrete Structures 2', 1, 'cs', 2),
-(26, 'Digital Design', 1, 'cs', 2),
-(27, 'Human Computer Interaction', 1, 'cs', 2),
-(28, 'Data Structures and Algorithms', 1, 'cs', 2),
-(29, 'Calculus 2', 1, 'cs', 2),
-(30, 'Philippine Literature', 1, 'cs', 2),
-(31, 'Physical Education 3', 1, 'cs', 2),
-(32, 'Architecture and Organization', 2, 'cs', 2),
-(33, 'Design and Analysis of Algorithms', 2, 'cs', 2),
-(34, 'Programming Languages', 2, 'cs', 2),
-(35, 'Networks and Communications', 2, 'cs', 2),
-(36, 'CS Elective 1', 2, 'cs', 2),
-(37, 'Information Management', 2, 'cs', 2),
-(38, 'Physical Education 4', 2, 'cs', 2),
-(39, 'Advanced Database Systems', 1, 'cs', 3),
-(40, 'Information Assurance and Security', 1, 'cs', 3),
-(41, 'Web Programming and Development', 1, 'cs', 3),
-(42, 'CS Elective 2', 1, 'cs', 3),
-(43, 'Application Development and Emerging Technologies', 1, 'cs', 3),
-(44, 'CS Thesis 1', 2, 'cs', 3),
-(45, 'Software Engineering 2', 2, 'cs', 3),
-(46, 'Operating Systems', 2, 'cs', 3),
-(47, 'Modeling and Simulation', 2, 'cs', 3),
-(48, 'CS Elective 3', 2, 'cs', 3),
-(49, 'Ethics 101', 2, 'cs', 3),
-(50, 'Thesis 2', 1, 'cs', 4),
-(51, 'Life and Works of Rizal', 1, 'cs', 4),
-(52, 'Social Issues and Professional Practice', 2, 'cs', 4),
-(53, 'Reading in Philippine History', 2, 'cs', 4),
-(54, 'Art Appreciation', 2, 'cs', 4),
-(55, 'Introduction to Computing', 1, 'it', 1),
-(56, 'Computer Programming 1', 1, 'it', 1),
-(57, 'Purposive Communication', 1, 'it', 1),
-(58, 'Mathematics in the Modern World', 1, 'it', 1),
-(59, 'Understanding the Self', 1, 'it', 1),
-(60, 'Komunikasyon sa Akademikong Filipino', 1, 'it', 1),
-(61, 'Physical Education 1', 1, 'it', 1),
-(62, 'National Service Training Program', 1, 'it', 1),
-(63, 'Euthenics A', 1, 'it', 1),
-(64, 'Discrete Mathematics', 2, 'it', 1),
-(65, 'Operating Systems', 2, 'it', 1),
-(66, 'Computer Programming 2', 2, 'it', 1),
-(67, 'Life and Works of Rizal', 2, 'it', 1),
-(68, 'Art Appreciation', 2, 'it', 1),
-(69, 'Retorika', 2, 'it', 1),
-(70, 'Physical Education 2', 2, 'it', 1),
-(71, 'National Service Training Program 2', 2, 'it', 1),
-(72, 'Euthenics B', 2, 'it', 1),
-(73, 'Object-Oriented Programming', 1, 'it', 2),
-(74, '', 1, 'it', 2),
-(75, 'Platform Technologies', 1, 'it', 2),
-(76, 'Human Computer Interaction', 1, 'it', 2),
-(77, 'Data Structues and Algorithms', 1, 'it', 2),
-(78, 'Readings in Philippine History', 1, 'it', 2),
-(79, 'Science, Technology and Society', 1, 'it', 2),
-(80, 'Philippine Literature', 1, 'it', 2),
-(81, 'Physical Education 3', 1, 'it', 2),
-(82, 'Integrative Programming and Technologies', 2, 'it', 2),
-(83, 'Networking 1', 2, 'it', 2),
-(84, 'Quantitative Methods', 2, 'it', 2),
-(85, 'Information Management', 2, 'it', 2),
-(86, 'The Contemporary World', 2, 'it', 2),
-(87, 'Ethics', 2, 'it', 2),
-(88, 'Physical Education 4', 2, 'it', 2),
-(89, 'Advanced Database Systems', 1, 'it', 3),
-(90, 'Networking 2', 1, 'it', 3),
-(91, 'Systems Integration and Technologies', 1, 'it', 3),
-(92, 'Web Systems and Technologies', 1, 'it', 3),
-(93, 'IT Elective 1', 1, 'it', 3),
-(94, 'Application Development and Emerging Technologies', 1, 'it', 3),
-(95, 'Information Assurance and Security 1', 2, 'it', 3),
-(96, 'Software Engineering', 2, 'it', 3),
-(97, 'Social and Professional Practice', 2, 'it', 3),
-(98, 'IT Elective 2', 2, 'it', 3),
-(99, 'IT Elective 3', 2, 'it', 3),
-(100, 'Capstone Project and Research 2', 1, 'it', 4),
-(101, 'Information Assurance and Security 2', 1, 'it', 4),
-(102, 'IT Elective 4', 1, 'it', 4),
-(103, 'Systems Administration and Maintenance', 2, 'it', 4),
-(104, 'Practicum/Industry Immersion', 2, 'it', 4);
+INSERT INTO `tbl_subject` (`subject_unique_id`, `subject_id`, `subject_code`, `subject_name`, `sem`, `curriculum`, `year_level`, `unit_lec`, `unit_lab`) VALUES
+(1, '', '', 'Software Engineering 1', 1, 'BSCS', 3, 0, 0),
+(2, '', '', 'Automata Theory and Formal Languages', 1, 'BSCS', 3, 0, 0),
+(3, '', 'CC100', 'Introduction to Computing', 1, 'BSCS', 1, 0, 0),
+(4, '', 'CC 101', 'Computer Programming 1', 1, 'BSCS', 1, 0, 0),
+(5, '', 'CAS 101', 'Purposive Communication', 1, 'BSCS', 1, 0, 0),
+(6, '', 'MATH 100', 'Mathematics in the Modern World', 1, 'BSCS', 1, 0, 0),
+(7, '', 'US 101', 'Understanding the Self', 1, 'BSCS', 1, 0, 0),
+(8, '', 'FIL 101', 'Komunikasyon sa Akedimikong Filipino', 1, 'BSCS', 1, 0, 0),
+(9, '', 'PE 101', 'Physical Education 1', 1, 'BSCS', 1, 0, 0),
+(10, '', 'NSTP', 'National Service Training Program 1', 1, 'BSCS', 1, 0, 0),
+(11, '', 'EUTH A', 'Euthenics A', 1, 'BSCS', 1, 0, 0),
+(12, '', '', 'Discrete Structures 1', 2, 'BSCS', 1, 0, 0),
+(13, '', '', 'Computer Programming 2', 2, 'BSCS', 1, 0, 0),
+(14, '', 'MATH 103', 'Calculus 1', 2, 'BSCS', 1, 0, 0),
+(15, '', '', 'The Contemporary World', 2, 'BSCS', 1, 0, 0),
+(16, '', '', 'Science, Technology and Society', 2, 'BSCS', 1, 0, 0),
+(17, '', '', 'Retorika', 2, 'BSCS', 1, 0, 0),
+(18, '', '', 'Physical Education 2', 2, 'BSCS', 1, 0, 0),
+(19, '', '', 'National Service Training Program 2', 2, 'BSCS', 1, 0, 0),
+(20, '', '', 'Euthenics B', 2, 'BSCS', 1, 0, 0),
+(21, '', '', 'Object-Oriented Programming', 1, 'BSCS', 2, 0, 0),
+(22, '', '', 'Discrete Structures 2', 1, 'BSCS', 2, 0, 0),
+(23, '', '', 'Digital Design', 1, 'BSCS', 2, 0, 0),
+(24, '', '', 'Human Computer Interaction', 1, 'BSCS', 2, 0, 0),
+(25, '', '', 'Data Structures and Algorithms', 1, 'BSCS', 2, 0, 0),
+(26, '', '', 'Calculus 2', 1, 'BSCS', 2, 0, 0),
+(27, '', '', 'Philippine Literature', 1, 'BSCS', 2, 0, 0),
+(28, '', '', 'Physical Education 3', 1, 'BSCS', 2, 0, 0),
+(29, '', '', 'Architecture and Organization', 2, 'BSCS', 2, 0, 0),
+(30, '', '', 'Design and Analysis of Algorithms', 2, 'BSCS', 2, 0, 0),
+(31, '', '', 'Programming Languages', 2, 'BSCS', 2, 0, 0),
+(32, '', '', 'Networks and Communications', 2, 'BSCS', 2, 0, 0),
+(33, '', '', 'CS Elective 1', 2, 'BSCS', 2, 0, 0),
+(34, '', '', 'Information Management', 2, 'BSCS', 2, 0, 0),
+(35, '', '', 'Physical Education 4', 2, 'BSCS', 2, 0, 0),
+(36, '', '', 'Advanced Database Systems', 1, 'BSCS', 3, 0, 0),
+(37, '', '', 'Information Assurance and Security', 1, 'BSCS', 3, 0, 0),
+(38, '', '', 'Web Programming and Development', 1, 'BSCS', 3, 0, 0),
+(39, '', '', 'CS Elective 2', 1, 'BSCS', 3, 0, 0),
+(40, '', '', 'Application Development and Emerging Technologies', 1, 'BSCS', 3, 0, 0),
+(41, '', '', 'CS Thesis 1', 2, 'BSCS', 3, 0, 0),
+(42, '', '', 'Software Engineering 2', 2, 'BSCS', 3, 0, 0),
+(43, '', '', 'Operating Systems', 2, 'BSCS', 3, 0, 0),
+(44, '', '', 'Modeling and Simulation', 2, 'BSCS', 3, 0, 0),
+(45, '', '', 'CS Elective 3', 2, 'BSCS', 3, 0, 0),
+(46, '', '', 'Ethics 101', 2, 'BSCS', 3, 0, 0),
+(47, '', '', 'Thesis 2', 1, 'BSCS', 4, 0, 0),
+(48, '', '', 'Life and Works of Rizal', 1, 'BSCS', 4, 0, 0),
+(49, '', '', 'Social Issues and Professional Practice', 2, 'BSCS', 4, 0, 0),
+(50, '', '', 'Reading in Philippine History', 2, 'BSCS', 4, 0, 0),
+(51, '', '', 'Art Appreciation', 2, 'BSCS', 4, 0, 0),
+(52, '', '', 'Introduction to Computing', 1, 'BSIT', 1, 0, 0),
+(53, '', '', 'Computer Programming 1', 1, 'BSIT', 1, 0, 0),
+(54, '', '', 'Purposive Communication', 1, 'BSIT', 1, 0, 0),
+(55, '', '', 'Mathematics in the Modern World', 1, 'BSIT', 1, 0, 0),
+(56, '', '', 'Understanding the Self', 1, 'BSIT', 1, 0, 0),
+(57, '', '', 'Komunikasyon sa Akademikong Filipino', 1, 'BSIT', 1, 0, 0),
+(58, '', '', 'Physical Education 1', 1, 'BSIT', 1, 0, 0),
+(59, '', '', 'National Service Training Program', 1, 'BSIT', 1, 0, 0),
+(60, '', '', 'Euthenics A', 1, 'BSIT', 1, 0, 0),
+(61, '', '', 'Discrete Mathematics', 2, 'BSIT', 1, 0, 0),
+(62, '', '', 'Operating Systems', 2, 'BSIT', 1, 0, 0),
+(63, '', '', 'Computer Programming 2', 2, 'BSIT', 1, 0, 0),
+(64, '', '', 'Life and Works of Rizal', 2, 'BSIT', 1, 0, 0),
+(65, '', '', 'Art Appreciation', 2, 'BSIT', 1, 0, 0),
+(66, '', '', 'Retorika', 2, 'BSIT', 1, 0, 0),
+(67, '', '', 'Physical Education 2', 2, 'BSIT', 1, 0, 0),
+(68, '', '', 'National Service Training Program 2', 2, 'BSIT', 1, 0, 0),
+(69, '', '', 'Euthenics B', 2, 'BSIT', 1, 0, 0),
+(70, '', '', 'Object-Oriented Programming', 1, 'BSIT', 2, 0, 0),
+(71, '', '', 'Platform Technologies', 1, 'BSIT', 2, 0, 0),
+(72, '', '', 'Human Computer Interaction', 1, 'BSIT', 2, 0, 0),
+(73, '', '', 'Data Structues and Algorithms', 1, 'BSIT', 2, 0, 0),
+(74, '', '', 'Readings in Philippine History', 1, 'BSIT', 2, 0, 0),
+(75, '', '', 'Science, Technology and Society', 1, 'BSIT', 2, 0, 0),
+(76, '', '', 'Philippine Literature', 1, 'BSIT', 2, 0, 0),
+(77, '', '', 'Physical Education 3', 1, 'BSIT', 2, 0, 0),
+(78, '', '', 'Integrative Programming and Technologies', 2, 'BSIT', 2, 0, 0),
+(79, '', '', 'Networking 1', 2, 'BSIT', 2, 0, 0),
+(80, '', '', 'Quantitative Methods', 2, 'BSIT', 2, 0, 0),
+(81, '', '', 'Information Management', 2, 'BSIT', 2, 0, 0),
+(82, '', '', 'The Contemporary World', 2, 'BSIT', 2, 0, 0),
+(83, '', '', 'Ethics', 2, 'BSIT', 2, 0, 0),
+(84, '', '', 'Physical Education 4', 2, 'BSIT', 2, 0, 0),
+(85, '', '', 'Advanced Database Systems', 1, 'BSIT', 3, 0, 0),
+(86, '', '', 'Networking 2', 1, 'BSIT', 3, 0, 0),
+(87, '', '', 'Systems Integration and Technologies', 1, 'BSIT', 3, 0, 0),
+(88, '', '', 'Web Systems and Technologies', 1, 'BSIT', 3, 0, 0),
+(89, '', '', 'IT Elective 1', 1, 'BSIT', 3, 0, 0),
+(90, '', '', 'Application Development and Emerging Technologies', 1, 'BSIT', 3, 0, 0),
+(91, '', '', 'Information Assurance and Security 1', 2, 'BSIT', 3, 0, 0),
+(92, '', '', 'Software Engineering', 2, 'BSIT', 3, 0, 0),
+(93, '', '', 'Social and Professional Practice', 2, 'BSIT', 3, 0, 0),
+(94, '', '', 'IT Elective 2', 2, 'BSIT', 3, 0, 0),
+(95, '', '', 'IT Elective 3', 2, 'BSIT', 3, 0, 0),
+(96, '', '', 'Capstone Project and Research 2', 1, 'BSIT', 4, 0, 0),
+(97, '', '', 'Information Assurance and Security 2', 1, 'BSIT', 4, 0, 0),
+(98, '', '', 'IT Elective 4', 1, 'BSIT', 4, 0, 0),
+(99, '', '', 'Systems Administration and Maintenance', 2, 'BSIT', 4, 0, 0),
+(100, '', '', 'Practicum/Industry Immersion', 2, 'BSIT', 4, 0, 0),
+(101, '1', '', 'Software Engineering 1', 1, 'cs', 3, 0, 0),
+(102, '2', '', 'Automata Theory and Formal Languages', 1, 'cs', 3, 0, 0),
+(103, '6', '', 'Introduction to Computing', 1, 'cs', 1, 0, 0),
+(104, '7', '', 'Computer Programming 1', 1, 'cs', 1, 0, 0),
+(105, '8', '', 'Purposive Communication', 1, 'cs', 1, 0, 0),
+(106, '9', '', 'Mathematics in the Modern World', 1, 'cs', 1, 0, 0),
+(107, '10', '', 'Understanding the Self', 1, 'cs', 1, 0, 0),
+(108, '11', '', 'Komunikasyon sa Akedimikong Filipino', 1, 'cs', 1, 0, 0),
+(109, '12', '', 'Physical Education 1', 1, 'cs', 1, 0, 0),
+(110, '13', '', 'National Service Training Program 1', 1, 'cs', 1, 0, 0),
+(111, '14', '', 'Euthenics A', 1, 'cs', 1, 0, 0),
+(112, '15', '', 'Discrete Structures 1', 2, 'cs', 1, 0, 0),
+(113, '16', '', 'Computer Programming 2', 2, 'cs', 1, 0, 0),
+(114, '17', '', 'Calculus 1', 2, 'cs', 1, 0, 0),
+(115, '18', '', 'The Contemporary World', 2, 'cs', 1, 0, 0),
+(116, '19', '', 'Science, Technology and Society', 2, 'cs', 1, 0, 0),
+(117, '20', '', 'Retorika', 2, 'cs', 1, 0, 0),
+(118, '21', '', 'Physical Education 2', 2, 'cs', 1, 0, 0),
+(119, '22', '', 'National Service Training Program 2', 2, 'cs', 1, 0, 0),
+(120, '23', '', 'Euthenics B', 2, 'cs', 1, 0, 0),
+(121, '24', '', 'Object-Oriented Programming', 1, 'cs', 2, 0, 0),
+(122, '25', '', 'Discrete Structures 2', 1, 'cs', 2, 0, 0),
+(123, '26', '', 'Digital Design', 1, 'cs', 2, 0, 0),
+(124, '27', '', 'Human Computer Interaction', 1, 'cs', 2, 0, 0),
+(125, '28', '', 'Data Structures and Algorithms', 1, 'cs', 2, 0, 0),
+(126, '29', '', 'Calculus 2', 1, 'cs', 2, 0, 0),
+(127, '30', '', 'Philippine Literature', 1, 'cs', 2, 0, 0),
+(128, '31', '', 'Physical Education 3', 1, 'cs', 2, 0, 0),
+(129, '32', '', 'Architecture and Organization', 2, 'cs', 2, 0, 0),
+(130, '33', '', 'Design and Analysis of Algorithms', 2, 'cs', 2, 0, 0),
+(131, '34', '', 'Programming Languages', 2, 'cs', 2, 0, 0),
+(132, '35', '', 'Networks and Communications', 2, 'cs', 2, 0, 0),
+(133, '36', '', 'CS Elective 1', 2, 'cs', 2, 0, 0),
+(134, '37', '', 'Information Management', 2, 'cs', 2, 0, 0),
+(135, '38', '', 'Physical Education 4', 2, 'cs', 2, 0, 0),
+(136, '39', '', 'Advanced Database Systems', 1, 'cs', 3, 0, 0),
+(137, '40', '', 'Information Assurance and Security', 1, 'cs', 3, 0, 0),
+(138, '41', '', 'Web Programming and Development', 1, 'cs', 3, 0, 0),
+(139, '42', '', 'CS Elective 2', 1, 'cs', 3, 0, 0),
+(140, '43', '', 'Application Development and Emerging Technologies', 1, 'cs', 3, 0, 0),
+(141, '44', '', 'CS Thesis 1', 2, 'cs', 3, 0, 0),
+(142, '45', '', 'Software Engineering 2', 2, 'cs', 3, 0, 0),
+(143, '46', '', 'Operating Systems', 2, 'cs', 3, 0, 0),
+(144, '47', '', 'Modeling and Simulation', 2, 'cs', 3, 0, 0),
+(145, '48', '', 'CS Elective 3', 2, 'cs', 3, 0, 0),
+(146, '49', '', 'Ethics 101', 2, 'cs', 3, 0, 0),
+(147, '50', '', 'Thesis 2', 1, 'cs', 4, 0, 0),
+(148, '51', '', 'Life and Works of Rizal', 1, 'cs', 4, 0, 0),
+(149, '52', '', 'Social Issues and Professional Practice', 2, 'cs', 4, 0, 0),
+(150, '53', '', 'Reading in Philippine History', 2, 'cs', 4, 0, 0),
+(151, '54', '', 'Art Appreciation', 2, 'cs', 4, 0, 0),
+(152, '55', '', 'Introduction to Computing', 1, 'it', 1, 0, 0),
+(153, '56', '', 'Computer Programming 1', 1, 'it', 1, 0, 0),
+(154, '57', '', 'Purposive Communication', 1, 'it', 1, 0, 0),
+(155, '58', '', 'Mathematics in the Modern World', 1, 'it', 1, 0, 0),
+(156, '59', '', 'Understanding the Self', 1, 'it', 1, 0, 0),
+(157, '60', '', 'Komunikasyon sa Akademikong Filipino', 1, 'it', 1, 0, 0),
+(158, '61', '', 'Physical Education 1', 1, 'it', 1, 0, 0),
+(159, '62', '', 'National Service Training Program', 1, 'it', 1, 0, 0),
+(160, '63', '', 'Euthenics A', 1, 'it', 1, 0, 0),
+(161, '64', '', 'Discrete Mathematics', 2, 'it', 1, 0, 0),
+(162, '65', '', 'Operating Systems', 2, 'it', 1, 0, 0),
+(163, '66', '', 'Computer Programming 2', 2, 'it', 1, 0, 0),
+(164, '67', '', 'Life and Works of Rizal', 2, 'it', 1, 0, 0),
+(165, '68', '', 'Art Appreciation', 2, 'it', 1, 0, 0),
+(166, '69', '', 'Retorika', 2, 'it', 1, 0, 0),
+(167, '70', '', 'Physical Education 2', 2, 'it', 1, 0, 0),
+(168, '71', '', 'National Service Training Program 2', 2, 'it', 1, 0, 0),
+(169, '72', '', 'Euthenics B', 2, 'it', 1, 0, 0),
+(170, '73', '', 'Object-Oriented Programming', 1, 'it', 2, 0, 0),
+(171, '74', '', '', 1, 'it', 2, 0, 0),
+(172, '75', '', 'Platform Technologies', 1, 'it', 2, 0, 0),
+(173, '76', '', 'Human Computer Interaction', 1, 'it', 2, 0, 0),
+(174, '77', '', 'Data Structues and Algorithms', 1, 'it', 2, 0, 0),
+(175, '78', '', 'Readings in Philippine History', 1, 'it', 2, 0, 0),
+(176, '79', '', 'Science, Technology and Society', 1, 'it', 2, 0, 0),
+(177, '80', '', 'Philippine Literature', 1, 'it', 2, 0, 0),
+(178, '81', '', 'Physical Education 3', 1, 'it', 2, 0, 0),
+(179, '82', '', 'Integrative Programming and Technologies', 2, 'it', 2, 0, 0),
+(180, '83', '', 'Networking 1', 2, 'it', 2, 0, 0),
+(181, '84', '', 'Quantitative Methods', 2, 'it', 2, 0, 0),
+(182, '85', '', 'Information Management', 2, 'it', 2, 0, 0),
+(183, '86', '', 'The Contemporary World', 2, 'it', 2, 0, 0),
+(184, '87', '', 'Ethics', 2, 'it', 2, 0, 0),
+(185, '88', '', 'Physical Education 4', 2, 'it', 2, 0, 0),
+(186, '89', '', 'Advanced Database Systems', 1, 'it', 3, 0, 0),
+(187, '90', '', 'Networking 2', 1, 'it', 3, 0, 0),
+(188, '91', '', 'Systems Integration and Technologies', 1, 'it', 3, 0, 0),
+(189, '92', '', 'Web Systems and Technologies', 1, 'it', 3, 0, 0),
+(190, '93', '', 'IT Elective 1', 1, 'it', 3, 0, 0),
+(191, '94', '', 'Application Development and Emerging Technologies', 1, 'it', 3, 0, 0),
+(192, '95', '', 'Information Assurance and Security 1', 2, 'it', 3, 0, 0),
+(193, '96', '', 'Software Engineering', 2, 'it', 3, 0, 0),
+(194, '97', '', 'Social and Professional Practice', 2, 'it', 3, 0, 0),
+(195, '98', '', 'IT Elective 2', 2, 'it', 3, 0, 0),
+(196, '99', '', 'IT Elective 3', 2, 'it', 3, 0, 0),
+(197, '100', '', 'Capstone Project and Research 2', 1, 'it', 4, 0, 0),
+(198, '101', '', 'Information Assurance and Security 2', 1, 'it', 4, 0, 0),
+(199, '102', '', 'IT Elective 4', 1, 'it', 4, 0, 0),
+(200, '103', '', 'Systems Administration and Maintenance', 2, 'it', 4, 0, 0),
+(201, '104', '', 'Practicum/Industry Immersion', 2, 'it', 4, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1626,14 +1899,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `user_firstname`, `user_lastname`, `user_type`, `curriculum`, `user_status`, `verify_token`) VALUES
-(44, 'johndoe@wmsu.edu.ph', 'password', 'John', 'Doe', 'student', 'BSCS', '', ''),
-(45, 'lucyfelix@wmsu.edu.ph', 'password', 'Lucy Felix', 'Sadiwa', 'adviser', 'BSCS', '', ''),
+(44, 'johndoe@wmsu.edu.ph', 'password', 'John', 'Doe', 'student', 'BSCS', 'Active', ''),
+(45, 'lucyfelix@wmsu.edu.ph', 'password', 'Lucy Felix', 'Sadiwa', 'adviser', 'BSCS', 'Active', ''),
 (46, 'janedoe@wmsu.edu.ph', 'password', 'Jane', 'Doe', 'student', 'BSCS', '', ''),
-(47, 'gadmarbelamide@wmsu.edu.ph', 'password', 'Gadmar', 'Belamide', 'admin', 'BSCS', '', ''),
+(47, 'gadmarbelamide@wmsu.edu.ph', 'password', 'Gadmar', 'Belamide', 'admin', 'BSCS', 'Active', ''),
 (48, 'test123@wmsu.edu.ph', 'password', 'test', 'test', 'student', 'BSCS', '', ''),
 (49, 'wadwad@wmsu.edu.ph', 'password', 'wad', 'wad', 'student', 'BSCS', '', ''),
 (50, 'daphnagata@wmsu.edu.ph', 'password', 'Daph', 'Nagata', 'student', 'BSCS', '', ''),
-(51, 'denisegerzon@wmsu.edu.ph', 'password', 'Denise', 'Gerzon', 'student', 'BSCS', '', ''),
+(51, 'denisegerzon@wmsu.edu.ph', 'password', 'Denise', 'Gerzon', 'student', 'BSCS', 'Active', ''),
 (52, 'abdulasis@wmsu.edu.ph', 'password', 'Abdulasis', 'Hamja', 'student', 'BSCS', '', ''),
 (53, 'joshyasil@wmsu.edu.ph', 'password', 'Josh', 'Yasil', 'student', 'BSCS', '', ''),
 (54, 'markvladimir@wmsu.edu.ph', 'password', 'Mark', 'Vladimir', 'student', 'BSCS', '', ''),
@@ -1661,7 +1934,19 @@ INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `user_firstname`,
 (76, 'asd@wasd.com', '123123', 'qwe', 'qwe', 'student', 'BSCS', 'Active', 'beefa17837aebd84e2c57d44112507bb'),
 (77, '123@gmail.com', '123123', 'asd', 'asd', 'student', 'BSCS', 'Active', '60b524804ffa5a72f17a32e006de06d3'),
 (78, 'qweqwe@gmail.com', '123123', 'qwe', 'qwe', 'student', 'BSCS', 'Active', 'e427b05b8ca440b38dfd39f335c04b36'),
-(79, 'asdasd@wmsu.edu.ph', '123123', 'asd', 'asd', 'student', 'BSCS', 'Pending', 'fb350a038b9b8100310174cc2d123b26');
+(79, 'asdasd@wmsu.edu.ph', '123123', 'asd', 'asd', 'student', 'BSCS', 'Pending', 'fb350a038b9b8100310174cc2d123b26'),
+(80, 'helloworld1@wmsu.edu.ph', '123123', 'zzxc', 'zxccc', 'student', 'BSCS', 'Pending', 'cab9c4ce563b8d8b9bcd7b9c261b4adf'),
+(87, 'xt202002168@wmsu.edu.ph', '123', 'test', 'testtt', 'student', 'BSIT', 'Pending', '329fce9f3431c35b43d7453dfc4690b9'),
+(92, 'a@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Pending', '21e31e6e62402e1522162b5c1473d69f'),
+(93, 'akosidoggie@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Pending', '4336bd48973de497183affa978b586b3'),
+(108, 'eh20220029512@wmsu.edu.ph', '123', 'sample', 'sample', 'student', 'BSCS', 'Pending', 'a62e6c49d35a59b9a4659ca2dfd331cd'),
+(114, 'sample@wmsu.edu.ph', '123', '1234', '1234', 'student', 'BSCS', 'Pending', '9920c81b6b710425a8e49ab8b33b3bf3'),
+(117, 'eh2022002qqww95@wmsu.edu.ph', 'qwqw', 'qwqw', 'qwqw', 'student', 'BSCS', 'Pending', 'ba791d0f06b903d27347dd8bbed48246'),
+(118, 'jascha.mascunana@wmsu.edu.ph', 'chazz123123123', 'Jascha', 'Mascuñana', 'student', 'BSCS', 'Active', '1e4be8c85665d6414df4beba48c6fbd2'),
+(123, 'jaydeeballaho@wmsu.edu.ph', 'password', 'Jaydee', 'Ballaho', 'adviser', 'BSCS', 'Active', '175777eaf8ac5f11304e6dd222836f19'),
+(125, 'eh202200295@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Active', '1caf56e5dbebedb385800587d2184965'),
+(126, 'eh2022002951@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Pending', '7686c85eedf854ce1e5c71f67cc9f2d6'),
+(127, 'sajdnasjjas@wmsu.edu.ph', '123', '123', '123', 'student', 'BSCS', 'Pending', 'a5057119e4aa32890de1f008a9b2052a');
 
 -- --------------------------------------------------------
 
@@ -1670,7 +1955,7 @@ INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `user_firstname`,
 --
 DROP TABLE IF EXISTS `grades_list`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `grades_list`  AS SELECT `applicants_grades`.`applicant_id` AS `applicant_id`, `sy_subjects`.`subject_name` AS `subject_name`, `applicants_grades`.`grade` AS `grade` FROM (`applicants_grades` join `sy_subjects` on(`sy_subjects`.`id` = `applicants_grades`.`subject_id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `grades_list`  AS SELECT `applicants_grades`.`applicant_id` AS `applicant_id`, `sy_subjects`.`subject_name` AS `subject_name`, `applicants_grades`.`grade` AS `grade` FROM (`applicants_grades` join `sy_subjects` on(`sy_subjects`.`id` = `applicants_grades`.`subject_id`))  ;
 
 --
 -- Indexes for dumped tables
@@ -1726,6 +2011,12 @@ ALTER TABLE `faculty`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `listers`
+--
+ALTER TABLE `listers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `programs`
 --
 ALTER TABLE `programs`
@@ -1748,154 +2039,41 @@ ALTER TABLE `sy_subjects`
   ADD KEY `course_id` (`course_id`);
 
 --
--- Indexes for table `tbl_list_grades`
---
-ALTER TABLE `tbl_list_grades`
-  ADD PRIMARY KEY (`grades_id`);
-
---
 -- Indexes for table `tbl_subject`
 --
 ALTER TABLE `tbl_subject`
-  ADD PRIMARY KEY (`subject_id`);
-
---
--- Indexes for table `tlb_applicant`
---
-ALTER TABLE `tlb_applicant`
-  ADD PRIMARY KEY (`applicant_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `user_email` (`user_email`);
+  ADD PRIMARY KEY (`subject_unique_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `applicants_grades`
---
-ALTER TABLE `applicants_grades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
-
---
--- AUTO_INCREMENT for table `course`
---
-ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `course_schoolyear`
 --
 ALTER TABLE `course_schoolyear`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `deanslist_applicants`
---
-ALTER TABLE `deanslist_applicants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
-
---
--- AUTO_INCREMENT for table `deans_listers`
---
-ALTER TABLE `deans_listers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `dean_applicants`
---
-ALTER TABLE `dean_applicants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
-
---
--- AUTO_INCREMENT for table `faculty`
---
-ALTER TABLE `faculty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
-
---
--- AUTO_INCREMENT for table `programs`
---
-ALTER TABLE `programs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT for table `sy_application_time`
---
-ALTER TABLE `sy_application_time`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `sy_subjects`
 --
 ALTER TABLE `sy_subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
--- AUTO_INCREMENT for table `tbl_list_grades`
+-- AUTO_INCREMENT for table `tbl_subject`
 --
-ALTER TABLE `tbl_list_grades`
-  MODIFY `grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=913;
-
---
--- AUTO_INCREMENT for table `tlb_applicant`
---
-ALTER TABLE `tlb_applicant`
-  MODIFY `applicant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+ALTER TABLE `tbl_subject`
+  MODIFY `subject_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `applicants_grades`
---
-ALTER TABLE `applicants_grades`
-  ADD CONSTRAINT `applicant_id` FOREIGN KEY (`applicant_id`) REFERENCES `deanslist_applicants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `subject_id` FOREIGN KEY (`subject_id`) REFERENCES `sy_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `course_schoolyear`
---
-ALTER TABLE `course_schoolyear`
-  ADD CONSTRAINT `course` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `deanslist_applicants`
---
-ALTER TABLE `deanslist_applicants`
-  ADD CONSTRAINT `adviser_id` FOREIGN KEY (`adviser_id`) REFERENCES `faculty` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `sy` FOREIGN KEY (`school_year_id`) REFERENCES `course_schoolyear` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `deans_listers`
---
-ALTER TABLE `deans_listers`
-  ADD CONSTRAINT `app_id` FOREIGN KEY (`app_id`) REFERENCES `deanslist_applicants` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `sy_application_time`
---
-ALTER TABLE `sy_application_time`
-  ADD CONSTRAINT `sy_time_id` FOREIGN KEY (`sy_id`) REFERENCES `course_schoolyear` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `sy_subjects`
 --
 ALTER TABLE `sy_subjects`
-  ADD CONSTRAINT `course_id` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `sy_id` FOREIGN KEY (`sy_id`) REFERENCES `course_schoolyear` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
