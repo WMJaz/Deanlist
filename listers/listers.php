@@ -286,7 +286,7 @@
                                     <td>
                                         <div class="action">
                                             <a class="action-edit" href="editlisters.php?id=<?php echo $value['id'] ?>">Edit</a>
-                                           <a class="action-delete" href="deletelisters.php?id=<?php echo $value['id'] ?>">Remove</a>
+                                            <a class="action-delete" href="deletelisters.php?id=<?php echo $value['id'] ?>">Remove</a>
                                         </div>
                                     </td>
                                 <?php
@@ -304,10 +304,10 @@
         </div>
 
         <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="list-student">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Applicant List</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Accepted Applicant List</h5>
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -324,6 +324,7 @@
                                     <?php
                                         if($_SESSION['user_type'] == 'admin'){
                                     ?>
+                                        <th>Status</th>
                                         <th class="action">Action</th>
                                     <?php
                                         }
@@ -339,6 +340,7 @@
 
                                     //loop for each record found in the array
                                     foreach ($deanLists as $row){ //start of loop
+                                        $status = "Accepted";
                                 ?>
                                     <tr>
                                         <!-- always use echo to output PHP values -->
@@ -346,7 +348,10 @@
                                         <td><?php echo $row['gpa']; ?></td>
                                         <td><?php echo $row['curriculum']; ?></td>
                                         <td><?php echo $row['year_level']; ?></td>
-                                        <td class="action"><a class="action-edit" href="addlisters.php?id=<?php echo $row['id']; ?>">Add</a></td>
+                                        <td><span class="text-success"><?php echo $status; ?></span></td>
+                                        <td class="action">
+                                            <a class="action-edit" href="addlisters.php?id=<?php echo $row['id']; ?>">Add</a>
+                                        </td>
                                     </tr>
                                     <?php
                                     //end of loop

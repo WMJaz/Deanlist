@@ -330,9 +330,6 @@ if (isset($_POST["submitStatus"])) {
                 <div class="table-container course-select" style="width: 100%; height: 600px; background-color: white">
                     <div class="header-program d-flex flex-row">
                         <h1 class=" text-center" style="margin: 0; margin-left: 100px;font-weight: bold; font-size: 28px; width: 100%"><?php echo $_GET['course'] ?> CURRICULUMS</h1>
-                        <button type="button" name="add-curr" class="btn btn-success add-course-btn d-flex flex-row" data-bs-toggle="modal" data-bs-target="#add-curr"><i class='bx bx-plus'></i>
-                            <p class="add-text" style="margin-top: 0 !important">Add New</p>
-                        </button>
                     </div>
                     <div class="curriculum-container" style="overflow: auto; width: 100%; height: 90%; border: 1px gray solid">
                         <table class="table" id="syTable" style="margin: 0">
@@ -375,20 +372,25 @@ if (isset($_POST["submitStatus"])) {
                 <div class="table-container course-select" style="width: 100%; height: 600px; background-color: white">
                     <div class="header-program d-flex flex-row">
                     <h1 class=" text-center" style="margin: 0; margin-left: 100px;font-weight: bold; font-size: 28px; width: 100%">CCS COURSES</h1>
-                        
                     </div>
                     <div class="course-container d-flex flex-wrap flex-row justify-content-center" style="overflow: auto; width: 100%; padding-top: 20px; padding-bottom: 20px; height: 90%">
-                        <a href="settings.php?course=BSCS" style="text-decoration: none;">
-                            <button class="course-box d-flex justify-content-center align-items-center">
-                                BSCS
-                            </button>
-                        </a>
-
-                        <a href="settings.php?course=BSIT" style="text-decoration: none;">
-                            <button class="course-box d-flex justify-content-center align-items-center">
-                                BSIT
-                            </button>
-                        </a>
+                        <?php
+                            require_once '../class/program.class.php';
+                            $program = new Program();
+            
+                            foreach ($program->GetAllCourse() as $value) {
+                        ?>
+                            <a href="settings.php?course=<?php echo $value['course_name'];?>" style="text-decoration: none;">
+                                <button class="course-box d-flex justify-content-center align-items-center">
+                                <div class="form-group">
+                                    <div class="text"><h1><?php echo $value['course_name']; ?></h1></div>
+                                    <p class="text-secondary"><?php echo $value['course_fullname']; ?></p>
+                                </div>      
+                                </button>
+                            </a>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <h5 style="font-size: 20px; width: 100%; text-align:center">Select Department</h5>
                 </div>

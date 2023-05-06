@@ -25,12 +25,17 @@ Class subject{
         $this->db = new Database();
     }
 
-
-    function GetCertainStudentGrade(){
-        $sql = "SELECT * FROM `deanslist_applicants` as a 
-                JOIN `applicants_grades` as b ON a.id = b.applicant_id 
-                JOIN `sy_subjects` as c on b.subject_id = c.id
-                WHERE a.id = :ID;";
+    function GetCertainStudentGrade($record_id){
+        $sql = "SELECT *,a.id as 'tmpID'  FROM `applicants_grades` as a 
+                    JOIN `sy_subjects` as b on b.id = a.subject_id
+                    JOIN `deanslist_applicants` as c on c.id = a.applicant_id
+                WHERE a.applicant_id = :ID";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }    
+        return $data;
     }
 
     function fetch($record_id){
@@ -66,6 +71,18 @@ Class subject{
         $query->bindParam(':year_level', $this->year_level);
         $query->bindParam(':syid', $this->schoolyear);
 
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function GetCertainApplicationSubjects($record_id){
+        $sql = "SELECT * FROM `applicants_grades` as a 
+                JOIN sy_subjects as b on b.id = a.subject_id
+                WHERE a.applicant_id = :id";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
         if($query->execute()){
             $data = $query->fetchAll();
         }

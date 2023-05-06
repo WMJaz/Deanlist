@@ -133,7 +133,7 @@
                               <td>'. $grades[$x]['subject_name'] .'</td>
                               <td>'. ($grades[$x]['lec_units'] + $grades[$x]['lab_units']) .'</td>
                               <td>'. $grades[$x]['grade'] .'</td>
-                              <td></td>
+                              <td><textarea style="width:100%; margin:0;border:none;" rows="1"></textarea></td>
                             </tr>';
                     }
                       
@@ -202,7 +202,7 @@
               <div class="text-center">
                 <small>
                   <strong>
-                    <u><?php echo $adviser;?></u>
+                    <b><input type="text" style="width:100%; margin:0;border:none;border-bottom: 1px solid;;text-align: center;" value="<?php echo $adviser;?>"></input></b>
                   </strong>
                   <br>
                   Adviser
@@ -223,7 +223,7 @@
 
           <div class="col-12">
             <small class="float-start">
-              <strong>RODERICK P. GO, PhD</strong>
+              <strong><input type="text" style="width:100%; margin:0;border:none;border-bottom: 1px solid;text-align: center;" value="RODERICK P. GO, PhD"></input></strong>
               <br>
               OIC-DEAN, CSS
             </small>
@@ -251,7 +251,7 @@
 
               <div class="col-6 mt-2">
                 <small>
-                  <strong>LUCY FELIX-SADIWA, MSCS</strong>
+                <strong><input type="text" style="width:100%; margin:0;border:none;text-align: center;" value="LUCY FELIX-SADIWA, MSCS"></input></strong>
                   <br>
                   Member/Computer Science Department Head
                 </small>
@@ -259,7 +259,7 @@
 
               <div class="col-6 mt-2">
                 <small>
-                  <strong>GADMAR M. BELAMIDE, MEnggEd</strong>
+                <strong><input type="text" style="width:100%; margin:0;border:none;text-align: center;" value="GADMAR M. BELAMIDE, MEnggEd"></input></strong>
                   <br>
                   Member/College Secretary
                 </small>
@@ -268,7 +268,7 @@
 
               <div class="col-6 mt-2">
                 <small>
-                  <strong>MARJORIE A. ROJAS</strong>
+                  <strong><input type="text" style="width:100%; margin:0;border:none;text-align: center;" value="MARJORIE A. ROJAS"></input></strong>
                   <br>
                   Member/Student Affairs Coordinator
                 </small>
@@ -277,7 +277,7 @@
 
               <div class="col-6 mt-2">
                 <small>
-                  <strong>JOHN ED AUGUSTUS A. ESCORIAL, MIT</strong>
+                <strong><input type="text" style="width:100%; margin:0;border:none;text-align: center;" value="JOHN ED AUGUSTUS A. ESCORIAL, MIT"></input></strong>
                   <br>
                   Member/Information Technology Department Head
                 </small>
@@ -285,8 +285,7 @@
 
               <div class="col-12 mt-2 text-center">
                 <small>
-                  <strong>ODON A. MARAVILLAS JR, MSCS
-                  </strong>
+                <strong><input type="text" style="width:100%; margin:0;border:none;text-align: center;" value="ODON A. MARAVILLAS JR, MSCS"></input></strong>
                   <br>
                   Chairperson/Associate Dean
                 </small>
@@ -352,10 +351,16 @@
           callback: function(docPDF) {
             docPDF.save('HTML Linuxhint web page.pdf');
           },
-          x: 15,
-          y: 15,
-          width: 170,
-          windowWidth: 650
+             x: 20,
+             y:  2,
+              width: 170,
+              windowWidth: 700,
+            // orientation: "portrait",
+            // unit: "in",
+            // format: [8, 12],
+            orientation: "l",
+            unit: "in",
+            // format: 'legal',
           });
       }
           

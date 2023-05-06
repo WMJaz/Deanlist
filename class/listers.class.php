@@ -60,6 +60,23 @@ class Listers{
         }
     }
 
+    function add2(){
+        $sql = "INSERT INTO deans_listers (app_id,fullname, gpa, department, yearlevel) VALUES
+        (:appid, :fullname, :GPA, :department, :year_level);";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':appid', $this->App_ID);
+        $query->bindParam(':fullname', $this->Fullname);
+        $query->bindParam(':GPA', $this->GPA);
+        $query->bindParam(':department', $this->department);
+        $query->bindParam(':year_level', $this->year_level);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     function GetTopDeanLister_ByValue(){
         $sql = "SELECT * FROM deans_listers ORDER BY GPA ASC LIMIT 5;";
         $query=$this->db->connect()->prepare($sql);
@@ -67,7 +84,6 @@ class Listers{
             $data = $query->fetchAll();
         }
         return $data;
-        
     }
 
     function GetDeanListers_OrderByRank(){
@@ -79,6 +95,57 @@ class Listers{
         return $data;
     }
 
+    function Approved_Deanlist($record_id){
+        $sql = "UPDATE deanslist_applicants SET app_status = 'Accepted', adviser_status = 'Accepted' WHERE id = :ID";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function Decline_Deanlist($record_id,$feedback){
+        $sql = "UPDATE deanslist_applicants SET app_status = 'Declined', adviser_status = 'Declined', feedback = :feed WHERE id = :ID";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        $query->bindParam(':feed', $feedback);
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function ReApply($record_id){
+        $sql = "UPDATE deanslist_applicants SET accept_reapplication = 1 
+                WHERE user_id = :ID AND (app_status != 'Pending')";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    function CancelPending($record_id){
+        $sql = "DELETE FROM deanslist_applicants WHERE user_id = :ID AND (app_status = 'Pending')";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
     function show(){
         $sql = "SELECT * FROM deans_listers ORDER BY GPA ASC;";
         $query=$this->db->connect()->prepare($sql);
@@ -98,7 +165,7 @@ class Listers{
     }
 
     function GetAllDeanlistApplicants_ExeptDupicate(){
-        $sql = "SELECT * FROM deanslist_applicants where id not in (SELECT app_id from deans_listers);";
+        $sql = "SELECT * FROM deanslist_applicants WHERE (app_status = 'Accepted' AND adviser_status = 'Accepted') AND id not in (SELECT app_id from deans_listers);";
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
             $data = $query->fetchAll();
@@ -239,11 +306,11 @@ class Listers{
     }
 
     function updateApplicant($id, $gpa, $appstatus, $fileName){
-        $sql = "UPDATE deanslist_applicants SET gpa=:gpa, app_status=:appstatus, app_file=:appfilename WHERE id = :appid;";
+        $sql = "UPDATE deanslist_applicants SET gpa=:gpa, app_status=:appstatus, app_file=:appfilename WHERE  (app_status= 'Incomplete' AND id = :appid);";
         $query=$this->db->connect()->prepare($sql);
-
+        $finalGPA = round($gpa, 4);
         $query->bindParam(':appid', $id);
-        $query->bindParam(':gpa', $gpa);
+        $query->bindParam(':gpa', $finalGPA);
         $query->bindParam(':appstatus', $appstatus);
         $query->bindParam(':appfilename', $fileName);
 
@@ -253,19 +320,73 @@ class Listers{
         else{
             return false;
         }
-
     }
     
-    function recordGradesPerSubject($app_id, $subject_id, $grade){
-        $sql = "INSERT INTO applicants_grades (applicant_id, subject_id, grade) VALUES (:appid, :subjectid, :subgrade)";
+    function updateGradesPerSubject($app_id, $subject_id, $grade){
+        $sql = "UPDATE applicants_grades SET grade= :subgrade WHERE (applicant_id = :appid AND subject_id = :subjectid);";
         $query=$this->db->connect()->prepare($sql);
-
         $query->bindParam(':appid', $app_id);
         $query->bindParam(':subjectid', $subject_id);
         $query->bindParam(':subgrade', $grade);
+        if($query->execute())
+            return true;
+        else
+            return false;
+    }
 
+    function updateApplicantGPA($id, $gpa){
+        $sql = "UPDATE `deanslist_applicants` SET gpa = :gpa WHERE id = :appid";
+        $query=$this->db->connect()->prepare($sql);
+        $finalGPA = round($gpa, 4);
+        $query->bindParam(':appid', $id);
+        $query->bindParam(':gpa', $finalGPA);
+        if($query->execute())
+            return true;
+        else
+            return false;
+    }
+
+    function ChecKIfExist_GradePerSubject($app_id, $subject_id){
+        $sql = "SELECT id FROM `applicants_grades` WHERE (applicant_id = :appid AND subject_id = :subjectid);";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':appid', $app_id);
+        $query->bindParam(':subjectid', $subject_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+            if (count($data) > 0){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    function RemoveNotification($record_id) {
+        $sql = "UPDATE `deanslist_applicants` SET `notificationseen` = 1 WHERE user_id = :ID";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':ID', $record_id);
         $query->execute();
+    }
 
+    function GetNotifications($record_id) {
+        $sql = "SELECT IF(app_status = 'Accepted', 1, 0) as 'notif',feedback FROM `deanslist_applicants` WHERE (notificationseen = 0 AND (app_status = 'Accepted' OR app_status = 'Declined')) AND user_id = :uid ORDER by id DESC LIMIT 1;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':uid', $record_id);
+        if($query->execute()){
+            if ($query->rowCount() > 0){
+                $data = $query->fetch();
+                return $data; 
+            }
+        }
+        return null;
+    }
+
+    function recordGradesPerSubject($app_id, $subject_id, $grade){
+        $sql = "INSERT INTO applicants_grades (applicant_id, subject_id, grade) VALUES (:appid, :subjectid, :subgrade)";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':appid', $app_id);
+        $query->bindParam(':subjectid', $subject_id);
+        $query->bindParam(':subgrade', $grade);
+        return $query->execute();
     }
 
     function get_submitted_grades($app_id){

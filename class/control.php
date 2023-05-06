@@ -27,9 +27,72 @@
                 $returnData["Student_List"] = $listdata;
                 echo json_encode($returnData);
                break;
-
             case "GetCertainStudentGrades":
+                include_once 'subject.class.php';
+                $subject = new subject;
                 $ID = $_POST["ID"];
+                $data = $subject->GetCertainStudentGrade($ID);
+                $returnval = array();
+                $ctrListData = 0;
+                foreach ($data as $row) {
+                    $returnval[$ctrListData]["ID"] = $row["tmpID"];
+                    $returnval[$ctrListData]["Subject_Code"] = $row["subject_code"];
+                    $returnval[$ctrListData]["Subject_Name"] = $row["subject_name"];
+                    $returnval[$ctrListData]["Grades"] = $row["grade"];
+                    $returnval[$ctrListData]["GPA"] = $row["gpa"];
+                    $returnval[$ctrListData]["Img_File"] = $row["app_file"];
+                    $ctrListData++;
+                }
+                echo json_encode($returnval);
+                break;
+            case "ApproveDeanlist":
+                include_once 'listers.class.php';
+                $lister = new Listers;
+                $ID = $_POST["ID"];
+                if($lister->Approved_Deanlist($ID)){
+                    $dnlstData = $lister->GetCertainDeanListApplicant($ID);
+                    $lister->App_ID = $dnlstData["tmp_appid"];
+                    $lister->Fullname = $dnlstData["user_name"];
+                    $lister->GPA = round($dnlstData["gpa"],4);
+                    $lister->department = $dnlstData["curriculum"];
+                    $lister->year_level = $dnlstData["year_level"];
+                    if($lister->add2()){
+                        echo 1;
+                    }
+                    else{
+                        echo 0;
+                    }
+                }  
+                else{
+                    echo 0;
+                }
+                break;
+            case "DeclineDeanlist":
+                include_once 'listers.class.php';
+                $lister = new Listers;
+                $ID = $_POST["ID"];
+                $Feedback = $_POST["Feedback"];
+                if($lister->Decline_Deanlist($ID,$Feedback))
+                    echo 1;
+                else
+                    echo 0;
+                break;
+            case "GetNotification":
+                include_once 'listers.class.php';
+                $lister = new Listers;
+                $ID = $_SESSION['user_id'];
+                $data = $lister->GetNotifications($ID);
+                if (!is_null($data)) {
+                    $returnval = array();
+                    $returnval["NotifCode"] = $data["notif"];
+                    $returnval["Feedback"] = $data["feedback"];
+                    echo json_encode($returnval);
+                    $lister->RemoveNotification($ID);
+                }else{
+                    echo 0;
+                }
+                
+                break;
            default:
                echo 0;            
        }

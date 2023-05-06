@@ -11,7 +11,6 @@ Class Program{
     public $description;
     public $years;
     public $level;
-    
 
     protected $db;
 
@@ -31,6 +30,21 @@ Class Program{
         $query->bindParam(':code', $this->code);
         $query->bindParam(':years', $this->years);
         $query->bindParam(':level', $this->level);
+        
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }	
+    }
+
+    function addCourse(){
+        $sql = "INSERT INTO `course`(`course_name`,`course_fullname`) VALUES (:cname,:cfname);";
+
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':cname', $this->code);
+        $query->bindParam(':cfname', $this->description);
         
         if($query->execute()){
             return true;
@@ -64,6 +78,15 @@ Class Program{
         $query->bindParam(':id', $record_id);
         if($query->execute()){
             $data = $query->fetch();
+        }
+        return $data;
+    }
+
+    function GetAllCourse(){
+        $sql = "SELECT * FROM `course`;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
         }
         return $data;
     }

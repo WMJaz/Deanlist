@@ -20,13 +20,39 @@ function GetDashboardData(){
             $("#dashboard_deanlister_count").text(summaryDT["Dean_Lister"]);
             $("span[name='dashboard_asof']").text(summaryDT["AsOf"]);
           }
-
-          //patListDT values ([Student_Name],[GPA],[Department],[Year_Level])
-          //patListDT["Student_Name"];
-          //patListDT["GPA"];
-          //patListDT["Department"];
-          //patListDT["Year_Level"];
-          
+          $("#top-student").empty();
+          var ctr = patListDT.length
+          if (ctr > 3){
+            ctr = 3
+          }
+          var tmpGPA = 0
+          for (var i = 0; i < ctr; i++) {
+            var view = "";
+            if (tmpGPA == patListDT[i]["GPA"]){
+              ctr+=1;
+            }
+            view = '<div class="box card text-center m-4 col-3">'+
+                        '<div class="row mt-3">'+
+                            '<div class="col-3">'+
+                                //'<small class="text"><b>TOP ' +(i+1)+'</b></small>'+ 
+                                '<i class="bx bxs-medal"></i>'+
+                            '</div>'+
+                            '<div class="col-4">'+
+                              '<span><b>' + patListDT[i]["Student_Name"]+'</b></span>'+
+                            '</div>'+
+                            '<div class="col-5">'+
+                                '<span>'+
+                                   "GPA"+
+                                '</span>'+
+                                '<p>'+
+                                   "<b>" + patListDT[i]["GPA"]+"</b>"
+                                '</p>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>';
+            $("#top-student").append(view);
+            tmpGPA == patListDT[i]["GPA"];
+          }
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.responseText);
@@ -34,7 +60,42 @@ function GetDashboardData(){
     });
 }
 
+function GetNotification(){
+  $.ajax({
+      type: 'POST',
+      url: '../class/control.php',
+      dataType: "json",
+      data: {"call": "GetNotification"},
+      success: function(result){
+        if (!result==0){
+          var notifType = result["NotifCode"];
+          var notifFeedback = result["Feedback"];
+          if (notifType == 1){
+            $.toast({
+                heading: 'Congrats',
+                text: "Your application for dean's lister was approved.",
+                showHideTransition: 'slide',
+                icon: 'success'
+            }); 
+          }else if (notifType == 0){
+            $.toast({
+                heading: 'Sorry',
+                text: "Your application for dean's lister was decline.",
+                showHideTransition: 'slide',
+                icon: 'error'
+            });
+          }
+        } 
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+          alert(xhr.responseText);
+      }
+  });
+}
+
 $(function($) {
   GetDashboardData();
+  GetNotification();
   setInterval(GetDashboardData, 10000);
+ 
 });

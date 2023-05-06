@@ -28,15 +28,23 @@
         $programs = new Program();
 
         $existing = false;
+        $withPending = false;
+
         $userid = $_SESSION['user_id'];
 
-
         $conn = mysqli_connect('localhost', 'root', '', 'deanslist');
-        $sql = "SELECT * FROM deanslist_applicants WHERE user_id = '$userid' AND (app_status = 'Pending' OR app_status = 'Accepted' OR app_status = 'Declined')";
+        $sql = "SELECT * FROM deanslist_applicants WHERE (app_status = 'Pending' OR app_status = 'Accepted' OR app_status = 'Declined') AND (accept_reapplication = 0) AND user_id = '$userid'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             $existing = true;
         }
+
+        $sqlReApply = "SELECT * FROM `deanslist_applicants` WHERE (app_status = 'Pending' AND  user_id = $userid);";
+        $resultReApply = mysqli_query($conn, $sqlReApply);
+        if (mysqli_num_rows($resultReApply) > 0) {
+            $withPending = true;
+        }
+
         ?>
         <div class="card" style="overflow: hidden;">
             <div class="card-body">
@@ -77,10 +85,10 @@
                             <h6 class="fs-5" style="margin-left:40px; font-weight: bold; font-size: 100px">NAME: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['user_firstname'] . ' ' . $_SESSION['user_lastname'] . '</span>'; ?></h6>
                             <h6 class="fs-5" style="margin-left:10px; font-weight: bold; font-size: 100px">COURSE: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['curriculum'] . '</span>'; ?></h6>
                         </div>
+                        <div class="col-12 d-flex flex-row justify-content-between" style="width: 95%">
+                            <h6 class="fs-5" style="margin-left:40px; font-weight: bold; font-size: 100px">Email: <span class="ms-3 fw-light "><?php echo '<span class="admin-name" style="font-weight: bold; font-size: 16px !important">' . $_SESSION['user_email'] . '</span>'; ?></h6>
+                        </div>
                     </div>
-
-
-
                     <form action="application-new.php" method="post" enctype="multipart/form-data" class="firstStepForm d-flex flex-column align-items-center">
                         <!-- Logic is:
                                 Checks first if user has clicked the "Submit" button on the Application UI.
@@ -89,13 +97,10 @@
                                 If user have not clicked the "Submit" button then proceed to the first step: Student Info UI
                                 on the Student Info UI, if user clicks the "Next" button,
                                 proceeds to the Application UI, where user can input grades.
-
                                 After clicking the "Submit" on Application UI, proceed to the Assessment UI
                         -->
-
                         <?php
                         /* Check if user has already clicked "Submit" button or has existing application */
-
                         if (isset($_POST['secondStepSubmit']) || $existing) {
                             $sql = "SELECT * FROM deanslist_applicants WHERE user_id = '$userid' AND (app_status = 'Pending' OR app_status = 'Accepted' OR app_status = 'Declined');";
                             $result = mysqli_query($conn, $sql);
@@ -108,11 +113,11 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col" class="table-name">#</th>
-                                            <th scope="col">Email</th>
+                                            <th scope="col" class="table-name">Date</th>
+                                            <th scope="col">Feedback</th>
                                             <th scope="col" class="academic-rank">Academic Rank</th>
-
                                             <th scope="col">Year</th>
+                                            <th scope="col">Sem</th>
                                             <th scope="col">GPA</th>
                                             <th scope="col">Status</th>
                                         </tr>
@@ -123,17 +128,19 @@
                                             if (mysqli_num_rows($result) > 0) {
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $applicantID = $row["id"];
+                                                    $dte = date_create($row["created_at"]);
                                         ?>
                                         <tr>
-                                            <td><?php echo '<span class="admin-name">' . $row["user_id"] . '</span>'; ?></td>
-                                            <td><?php echo '<span class="admin-name">' . $row["email"] . '</span>'; ?></td>
+                                            <td><?php echo '<span class="admin-name">' . date_format($dte,"M/d") . '</span>'; ?></td>
+                                            <td><?php echo '<span class="admin-name">' . $row["feedback"] . '</span>'; ?></td>
                                             <td><?php echo '<span class="admin-name">Student</span>'; ?></td>
                                             <td><?php echo strtoupper($row["year_level"])  ?></td>
+                                            <td><?php echo strtoupper($row["semester"])  ?></td>
                                             <td>
                                                 <p><?php echo $row["gpa"] ?></p>
                                             </td>
-                                            <td><mark style="<?php if ($row["app_status"] == 'Accepted') echo "background-color: rgb(181, 247, 57)";
-                                                                elseif ($row["app_status"] == 'Declined') echo "background-color: rgb(238, 115, 32)" ?>"><?php echo ucfirst($row["app_status"]) ?></mark></td>
+                                            <td><a target="_blank" href="../PDF Format/pftTemplate.php?id=<?php echo $row["id"]; ?>"><mark style="<?php if ($row["app_status"] == 'Accepted') echo "background-color: rgb(181, 247, 57)";
+                                                                elseif ($row["app_status"] == 'Declined') echo "background-color: rgb(238, 115, 32)" ?>"><?php echo ucfirst($row["app_status"]) ?></mark></a></td>
                                         </tr>
                                         <?php
                                                 }
@@ -331,12 +338,15 @@
                                                     </div>
                                                 </div>
 
-
                                             </div>
                                             <div class="file-input mb-3 d-flex flex-row justify-content-left">
                                                 <label for="formFile" class="form-label">Portal Screenshot: </label>
                                                 <input class="form-control" type="file" id="formFile" name="formFile" required>
                                             </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <span class="text-center text-danger" id="err-msg"></span>
                                         </div>
 
                         <?php
@@ -348,16 +358,19 @@
 
                         <?php
                         if ($existing) {
-
                         ?>
                             <div class="submit-container d-flex flex-row justify-content-between">
-                                <a href="../dashboard/dashboard.php"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Back to Homepage</button></a>
-                                <a href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
-                          
+                                <a class ="m-2" href="../dashboard/dashboard.php"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Back to Homepage</button></a>
+                                <a class ="m-2" target="_blank" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
+                                <?php if (!$withPending){ ?>
+                                <a class ="m-2" href="reapply.php?idx=<?php echo $userid; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Apply New</button></a>
+                                <?php }else{?>
+                                    <a class ="m-2" href="application-edit.php?id=<?php echo $applicantID; ?>" id="edit-grades"><button type="button" class="btn btn-secondary homeBtn">Edit</button></a>
+                                    <a class ="m-2" href="reapply.php?idy=<?php echo $userid; ?>"><button type="button" name="homeBtn" class="btn btn-danger homeBtn">Cancel</button></a>
+                                <?php }?>
                             </div> 
                                 
                             <?php
-
                         } else {
                             if (!isset($_POST['secondStepSubmit'])) {
                             ?>
@@ -368,7 +381,7 @@
                                             if (!isset($_POST['firstStepSubmit'])) {
                                             ?> type="submit" name="firstStepSubmit" <?php
                                                                                 } else {
-                                                                                    ?> type="button" data-bs-toggle="modal" data-bs-target="#successModal" <?php
+                                                                                    ?> type="button" id="submitgrades" <?php
                                                                                                                                                     }
                                                                                                                                                         ?> class="btn btn-success nxtBtn"><?php echo isset($_POST['firstStepSubmit']) ? "Submit" : "Next" ?></button>
 
@@ -411,7 +424,42 @@
         </div>
 
     </div>
+
+    
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script >
+    $(function($) {
+        $("#submitgrades").click(function(){
+            $("#err-msg").empty("");  
+            initial = 0; //Reset Value
+            let grades = document.querySelectorAll(".grade");
+            let totalSubject = parseInt(grades.length);
+            grades.forEach(grade => {
+                initial += parseFloat(grade.value);
+            })
+            let finalCalc = (initial / totalSubject).toFixed(4);
+            if (isNaN(finalCalc)){
+                $("#err-msg").append("Please fill up all the grades");
+            }
+            else if ($('#formFile').get(0).files.length === 0) {
+                $("#err-msg").append("Please attach a file of proof");
+            }
+            else{
+                $("#successModal").modal("show");
+            }
+        });
 
+        $("input[name='grade[]'").change(function(){
+            var val = $(this).val();
+            var fixVal = (parseFloat(val)).toFixed(4);
+            $(this).val(fixVal);
+        });
+
+        $("input[name='grade[]'").keypress(function() {
+            //code to not allow any changes to be made to input field
+            return false;
+        });
+    });
+</script>
 </html>
