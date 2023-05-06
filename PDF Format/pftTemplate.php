@@ -351,10 +351,16 @@
           callback: function(docPDF) {
             docPDF.save('HTML Linuxhint web page.pdf');
           },
-          x: 15,
-          y: 15,
-          width: 170,
-          windowWidth: 650
+             x: 20,
+             y:  2,
+              width: 170,
+              windowWidth: 700,
+            // orientation: "portrait",
+            // unit: "in",
+            // format: [8, 12],
+            orientation: "l",
+            unit: "in",
+            // format: 'legal',
           });
       }
           
