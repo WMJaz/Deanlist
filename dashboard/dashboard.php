@@ -19,17 +19,11 @@ $dashboard = 'active';
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-<<<<<<< HEAD
-    <title>Dashboard | Dean's List Application System</title>
-    <link rel="icon" href="../img/ccslogo.png" type="image/icon type">
-    <link rel="stylesheet" href="../css/jquery.toast.css">
-=======
 
 
     <title>Dashboard | Dean's List Application System</title>
     <link rel="icon" href="../img/ccslogo.png" type="image/icon type">
 
->>>>>>> dev
 <body>
     <div class="side-bar">
         <br>
@@ -105,20 +99,6 @@ $dashboard = 'active';
 
             <?php if ($_SESSION['user_type'] == 'admin') { ?>
                 <li>
-<<<<<<< HEAD
-                    <a href="../settings/settings.php">
-                        <i class='bx bx-cog'></i>
-                        <span class="links-name">Settings</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../users/index.php">
-                        <i class='bx bx-cog'></i>
-                        <span class="links-name">Users</span>
-                    </a>
-                </li>
-=======
                 <a href="../settings/settings.php">
                     <i class='bx bx-cog'></i>
                     <span class="links-name">Settings</span>
@@ -134,11 +114,10 @@ $dashboard = 'active';
 
             <li>
                 <a href="../users/index.php">
-                    <i class='bx bxs-user-account'></i>
+                <i class='bx bxs-user-account'></i>
                     <span class="links-name">Users</span>
                 </a>
             </li>
->>>>>>> dev
             <?php } ?>
 
 
@@ -272,11 +251,7 @@ $dashboard = 'active';
 
                 <div class="box">
                     <div class="right-side">
-<<<<<<< HEAD
-                        <div class="box-topic">Programs</div>
-=======
                         <div class="box-topic">Courses</div>
->>>>>>> dev
                         <div class="number"><span id="dashboard_program_count"></div>
                         <div class="indicator">
                             <span class="text">As of <span class="text" name="dashboard_asof"></span></span>
