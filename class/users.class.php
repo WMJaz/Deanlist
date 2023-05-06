@@ -11,7 +11,6 @@ Class User{
     public $user_status;
     public $verify_token;
 
-
     function __construct()
     {
         $this->db = new Database();
