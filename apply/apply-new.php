@@ -164,12 +164,11 @@
                                     <div class="input-container w-100 d-flex flex-wrap justify-content-center">
                                         <div class="form-floating dropdown-select">
                                             <select class="form-select" name="schoolyear" id="schoolyear" required>
-                                                <option value="">-- Select --</option>
                                                 <?php
-                                                foreach ($programs->showSchoolYears($_SESSION['curriculum']) as $schoolyear) {
+                                                foreach ($programs->showLatestSchoolYears($_SESSION['curriculum']) as $schoolyear) {
                                                 ?>
 
-                                                <option value="<?php echo $schoolyear['id'] ?>">School Year <?php echo $schoolyear['school_year'] ?></option>
+                                                <option value="<?php echo $schoolyear['id'] ?>" selected>School Year <?php echo $schoolyear['school_year'] ?></option>
                                                 <?php
                                                 }
                                                 ?>

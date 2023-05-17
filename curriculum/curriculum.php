@@ -440,7 +440,8 @@ if(isset($_POST['submit'])){
                     <input value="<?php echo $_GET['course'] ?>" hidden name="course" id="courses">
                     <div class="modal-body" style="min-height: 600px; padding: 15px">
                         <div class="select-div d-flex flex-row" style="width: 45%">
-                            <input class="form-control" type="text" placeholder="School Year" style="width: 33%; margin-right: 10px; font-size: 15px !important" name="sy" required>
+                            <input class="form-control" type="text" value="<?php echo date('Y') .'-'. date('Y', strtotime('+1 year')); ?>" name="sy" hidden>
+                            <input class="form-control" type="text" value="<?php echo date('Y') .'-'. date('Y', strtotime('+1 year')); ?>" style="width: 33%; margin-right: 10px; font-size: 15px !important" disabled>
                             <select class="form-select sem-select" style="height: 40px; width: 33%; font-size: 15px !important; margin-right: 10px" name="sem" id="sem" aria-label="semester" required>
                                 <option selected>Select Sem</option>
                                 <option value="1">1st Semester</option>

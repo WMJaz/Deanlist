@@ -131,6 +131,18 @@ Class Program{
         return $data;
     }
 
+    function showLatestSchoolYears($course){
+        $dateNow    = date('Y').'-'.date('Y', strtotime('+1 year'));
+
+        $sql = "SELECT course_schoolyear.id, course_name, course_schoolyear.school_year FROM course INNER JOIN course_schoolyear ON course.id = course_schoolyear.course_id WHERE course_name = :course AND school_year = '$dateNow' ORDER BY course_schoolyear.school_year DESC;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':course', $course);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
     function showSubjects($coursename, $coursesy, $sem, $yearlevel){
         $sql = "SELECT sy_subjects.*, course.course_name, course_schoolyear.school_year FROM sy_subjects INNER JOIN course ON course.id=sy_subjects.course_id INNER JOIN course_schoolyear ON course_schoolyear.id=sy_subjects.sy_id WHERE course.course_name=:coursename AND course_schoolyear.school_year = :coursesy AND sem=:sem AND year_level=:yearlevel;";
         $query=$this->db->connect()->prepare($sql);
