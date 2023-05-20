@@ -1851,7 +1851,7 @@ INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `user_firstname`,
 --
 DROP TABLE IF EXISTS `grades_list`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `grades_list`  AS SELECT `applicants_grades`.`applicant_id` AS `applicant_id`, `sy_subjects`.`subject_name` AS `subject_name`, `applicants_grades`.`grade` AS `grade` FROM (`applicants_grades` join `sy_subjects` on(`sy_subjects`.`id` = `applicants_grades`.`subject_id`)) ;
+CREATE VIEW `grades_list`  AS SELECT `applicants_grades`.`applicant_id` AS `applicant_id`, `sy_subjects`.`subject_name` AS `subject_name`, `applicants_grades`.`grade` AS `grade` FROM (`applicants_grades` join `sy_subjects` on(`sy_subjects`.`id` = `applicants_grades`.`subject_id`)) ;
 
 --
 -- Indexes for dumped tables

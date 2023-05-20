@@ -8,7 +8,7 @@
    <title>Home | Dean's List Application System - CCS</title>
    <link rel="icon" href="./img/ccslogo.png" type="image/icon type">
     <!-- swiper css link  -->
-   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
    <!-- font awesome cdn link  -->
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,16 +16,17 @@
    <link rel="stylesheet" href="https://kit.fontawesome.com/529e4c40ff.css" crossorigin="anonymous">
    <!-- custom css file link  -->
    <link rel="stylesheet" href="./css/style.css">
+
 </head>
 <body>
 <!-- header section starts  -->
 <section class="header">
-	<a href="home.php" class="logo" img src="ccslogo.png" width ="50" height = "50">Dean's List Application System</a>
+			<a href="home.php" class="logo" img src="ccslogo.png" width ="50" height = "50">Dean's List Application System</a>
    <nav class="navbar">
       <a href="#home">Home</a>
-      <!-- <a href="#features">Features</a> -->
+      <a href="#features">Features</a>
       <a href="#about">About</a>
-      <!-- <a href="#programs">Programs</a> -->
+      <a href="#courses">Courses</a>
       <a href="#team">Team</a>
       <a href="#contact">Contact us</a>
       <a href="./login/login.php"><button class="btn btn-outline-success btn-login">Login</button></a>
@@ -40,12 +41,12 @@
         <div class="swiper-slide slide" style="background: linear-gradient(45deg,
             rgba(98, 156, 148, 0.75),
             rgba(19, 115, 104, 0.75)),
-            url('img/banner-1.jpg'); background-position: center;
+            url('img/ccsbg.png'); background-position: center;
             background-size: cover;
             background-repeat: no-repeat;">
             <div class="content">
                 <h3 style="font-weight:500">Announcement </h3>
-                <span style="font-size: 2.5rem; font-weight:500">A student with excellent grades in all academic subjects shall receive recognition through inclusion in the Dean’s List at the end of every semester of each school year.</span>
+                <span style="font-size: 2.5rem; font-weight:500; color:var(--white);" >A student with excellent grades in all academic subjects shall receive recognition through inclusion in the Dean’s List at the end of every semester of each school year.</span>
                <a href="./login/login.php" class="btn">Apply Now</a>
             </div>
          </div>
@@ -57,19 +58,19 @@
             background-repeat: no-repeat;">
             <div class="content">
                 <h3 style="font-weight:500">Announcement</h3>
-                <span style="font-size: 2.5rem; font-weight:500">Submission of form is available during November 9 to December 29 at 8:30am and closes at 4:30pm.</span>
+                <span style="font-size: 2.5rem; font-weight:500; color:var(--white)">Submission of form is available from April 11, 2023 to May 11, 2023 at 8:30am until 4:00pm only.</span>
                <a href="./login/login.php" class="btn">Apply Now</a>
             </div>
          </div>
          <div class="swiper-slide slide" style="background: linear-gradient(45deg,
             rgba(98, 156, 148, 0.75),
             rgba(19, 115, 104, 0.75)),
-            url('img/banner-3.jpg'); background-position: center;
+            url('img/csbuilding.jpg'); background-position: center;
             background-size: cover;
             background-repeat: no-repeat;">
             <div class="content">
                 <h3 style="font-weight:500">Announcement</h3>
-                <span style="font-size: 2.5rem; font-weight:500">Submit yours now and be part of Deans List CCS!</span>
+                <span style="font-size: 2.5rem; font-weight:500; color:var(--white)">Submit yours now and be part of CCS Dean's List!</span>
                <a href="./login/login.php" class="btn">Apply Now</a>
             </div>
          </div>
@@ -81,7 +82,7 @@
 </section>
 <!-- home section ends -->
 <!-- services section starts  -->
-<!-- <section class="services" id="features">
+<section class="services" id="features">
    <h1 class="heading-title" style="font-weight:500"> Features</h1>
    <div class="box-container">
    <div class="box">
@@ -102,14 +103,11 @@
       </div>
       <div class="box">
       <i class="fas fa-book-reader" style="font-size:60px;color: white;"></i>
-         <h3>Programs</h3>
+         <h3>Courses</h3>
       </div>
-      <div class="box">
-      <i class="fas fa-cog" style="font-size:60px;color: white;"></i>
-         <h3>Settings</h3>
-      </div>
+     
    </div>
-</section> -->
+</section>
 <!-- services section ends -->
 <!-- home about section starts  -->
 <h1 class="heading-title" id ="about" style="font-weight:500">About the System</h1>
@@ -123,14 +121,16 @@
       <center><a href="about.php" class="btn">See more</a></center>
    </div>
 </section>
-<!-- <h1 class="heading-title" id ="programs" style="font-weight:500">Programs</h1>
+   
+
+<h1 class="heading-title" id ="courses" style="font-weight:500">Courses</h1>
+
+   
 <section class="home-about" >
-   <div class="image">
-      <img src="images/cspic.jpg" alt="">
-   </div>
+   
    <br>
    <br>
-   <br>
+   
    <div class="content">
       <h2>BS in Computer Science</h2>
       <p align="justify" style="font-size:1.8rem; font-weight:200">
@@ -138,7 +138,8 @@
          computing concepts and theories, algorithmic foundations, and new developments in computing. 
          The program includes the study of the standards and practices in Software Engineering. It prepares 
          students to acquire skills and disciplines required for designing, writing, and modifying software components, 
-         modules, and applications that comprise software solutions.</p><br>
+         modules, and applications that comprise software solutions.</p>
+         <center><img src="images/CSBG.jpg" alt="" width="510" height= "510"><center>
    </div>
    <br><div class="content">
       <h2>BS in Information Technology</h2>
@@ -146,16 +147,17 @@
          Bachelor of Science in Information Technology (BSIT) is a four-year program that prepares students to be IT 
          professionals who are able to perform installation, operation, development, maintenance and administration of 
          computer applications. The goal of the program is to gear up students as "information technologists" who can 
-         assist individuals and organizations in solving problems using information technology (IT) techniques.<br><br><br></p>
+         assist individuals and organizations in solving problems using information technology (IT) techniques.<br><br></p>
+         <center><img src="images/ITBG.jpg" alt="" width="510" height= "510"><center>
    </div>
    <br>
    <br>
-   <br>
-   <div class="image">
-      <br><img src="images/itpic.jpg" alt="">
-   </div>
-</section> -->
+   
+   
+</section>
 <!-- home about section ends -->
+
+
 <!-- home packages section starts  -->
 <section class="home-packages" id="team">
    <h1 class="heading-title" style="font-weight:500"> Our Team </h1>
@@ -165,7 +167,7 @@
             <br><center><img src="./img/josh.png" alt="" width="100" height="100"></center>
          </div>
          <div class="content">
-            <h3>Joshua A. Yasil</h3>
+            <h3>Joshua Yasil</h3>
             <p>Project Manager</p>
          </div>
       </div>
@@ -258,7 +260,7 @@
       </div>
    </div>
    
-   <div  class="credit"> &copy; Developed by <span>Group 6 XD</span> | All Rights Reserved! <p class="float-end"><br><a href="#" style="color: #107869">Back to top</a></p></div>
+   <div  class="credit"> &copy; Developed by <span>Group 6 XD</span> | All Rights Reserved! <p class="float-end"><br><a href="#" style="color:var(--white);">Back to top</a></p></div>
 </section>
 <!-- footer section ends -->
 <!-- swiper js link  -->

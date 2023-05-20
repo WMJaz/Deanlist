@@ -10,6 +10,8 @@
 ?>	
 		<tr>
             <td><?=$i++ ?></td>
+			
+			<td><?= $row['user_firstname'] . ' ' . $row['user_lastname'] ?></td>
 			<td> <?=$row['user_email'];?> </td>
 			<td class="text-uppercase">
 				<?=$row['user_type'];?>

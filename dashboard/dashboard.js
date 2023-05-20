@@ -45,7 +45,7 @@ function GetDashboardData(){
                                    "GPA"+
                                 '</span>'+
                                 '<p>'+
-                                   "<b>" + patListDT[i]["GPA"]+"</b>"
+                                   "<b>" + patListDT[i]["GPA"]+"</b>" +
                                 '</p>'+
                             '</div>'+
                         '</div>'+

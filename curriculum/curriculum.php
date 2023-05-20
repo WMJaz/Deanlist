@@ -4,6 +4,7 @@ session_start();
 
 include_once '../class/program.class.php';
 
+
 $program = new Program();
 
 if (!isset($_SESSION['logged-in'])) {
@@ -21,7 +22,6 @@ if(isset($_POST['submit'])){
     $subName = $_POST['subjname'];
     $lecUnit = $_POST['lecunit'];
     $labUnit = $_POST['labunit'];
-    $preReq = $_POST['prereq'];
     $courseID = 0;
 
     foreach ($program->getCourseID($course) as $value) {
@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
     $program->addYearApplicationTime($lastID);
     
     foreach($subCode as $key => $n ) {
-        if($program->addSubjects($n, $subName[$key], $lecUnit[$key], $labUnit[$key], $preReq[$key], $sem, $courseID, $year, $lastID)){
+        if($program->addSubjects($n, $subName[$key], $lecUnit[$key], $labUnit[$key], $sem, $courseID, $year, $lastID)){
             echo "Success!";
         }
         else {
@@ -164,8 +164,15 @@ if(isset($_POST['submit'])){
             </li>
 
             <li>
+                <a href="../subject/index.php">
+                <i class='bx bxs-file-plus'></i>
+                    <span class="links-name">Subjects</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="../users/index.php">
-                    <i class='bx bx-cog'></i>
+                <i class='bx bxs-user-account'></i>
                     <span class="links-name">Users</span>
                 </a>
             </li>
@@ -372,7 +379,7 @@ if(isset($_POST['submit'])){
                                 ?>
                                     <form method="POST" action="curriculum.php">
                                         <input hidden name="sy_id" value="<?php echo $value['id'] ?>">
-                                        <input hidden name="course_name" value="<?php echo $_GET['course'] ?>">
+                                        <input hidden class="course_name" name="course_name" value="<?php echo $_GET['course'] ?>">
                                         <input hidden name="sy" value="<?php echo $value['school_year'] ?>">
                                         <input hidden name="sem" value=1>
                                         <input hidden name="year" value=1>
@@ -421,6 +428,7 @@ if(isset($_POST['submit'])){
             ?>
         </div>
     </section>
+    
     <div class="modal" tabindex="-1" id="add-curr">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content modal-dialog-scrollable">
@@ -428,16 +436,19 @@ if(isset($_POST['submit'])){
                     <h5 class="modal-title" style="font-size: 20px !important">Add New Curriculum</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="curriculum.php" method="post">
-                    <input value="<?php echo $_GET['course'] ?>" hidden name="course">
+                <form action="curriculum.php" method="post" id="test">
+                    <input value="<?php echo $_GET['course'] ?>" hidden name="course" id="courses">
                     <div class="modal-body" style="min-height: 600px; padding: 15px">
                         <div class="select-div d-flex flex-row" style="width: 45%">
-                            <input class="form-control" type="text" placeholder="School Year" style="width: 33%; margin-right: 10px; font-size: 15px !important" name="sy" required>
-                            <select class="form-select sem-select" style="height: 40px; width: 33%; font-size: 15px !important; margin-right: 10px" name="sem" aria-label="semester" required>
+                            <input class="form-control" type="text" value="<?php echo date('Y') .'-'. date('Y', strtotime('+1 year')); ?>" name="sy" hidden>
+                            <input class="form-control" type="text" value="<?php echo date('Y') .'-'. date('Y', strtotime('+1 year')); ?>" style="width: 33%; margin-right: 10px; font-size: 15px !important" disabled>
+                            <select class="form-select sem-select" style="height: 40px; width: 33%; font-size: 15px !important; margin-right: 10px" name="sem" id="sem" aria-label="semester" required>
+                                <option selected>Select Sem</option>
                                 <option value="1">1st Semester</option>
                                 <option value="2">2nd Semester</option>
                             </select>
-                            <select class="form-select year-select" style="height: 40px; width: 33%; font-size: 15px !important" name="yearlevel" aria-label="yearlevel" required>
+                            <select class="form-select year-select" style="height: 40px; width: 33%; font-size: 15px !important" name="yearlevel" id="yearlevel" aria-label="yearlevel" required>
+                                <option selected>Select Year level</option>
                                 <option value="1">1st year</option>
                                 <option value="2">2nd year</option>
                                 <option value="3">3rd year</option>
@@ -447,24 +458,32 @@ if(isset($_POST['submit'])){
                         <table class="table" id="inputTable" style="margin: 15px 0 15px 0">
                             <thead>
                                 <tr>
+                                    <th hidden>Subject Id</th>
                                     <th style="font-size: 16px">Subject Code</th>
                                     <th style="font-size: 16px">Subject Name</th>
                                     <th style="font-size: 16px">Lec</th>
                                     <th style="font-size: 16px">Lab</th>
-                                    <th style="font-size: 16px">Pre-requisite</th>
+                                    <!-- <th style="font-size: 16px">Pre-requisite</th> -->
                                     <th style="font-size: 16px"></th>
                                 </tr>
                             </thead>
                             <tbody id="subjtable">
-                                <tr>
+                                <!-- <tr> -->
                                     <!-- always use echo to output PHP values -->
-                                    <td style="font-size: 16px; width: 20%"><input class="form-control" type="text" placeholder="Subject Code" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjcode[]" required></td>
-                                    <td style="font-size: 16px; width: 30%"><input class="form-control" type="text" placeholder="Subject Name" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjname[]" required></td>
-                                    <td style="font-size: 16px; width: 7%"><input class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="lecunit[]" id="lecunit" required></td>
-                                    <td style="font-size: 16px; width: 7%"><input class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="labunit[]" id="labunit" required></td>
-                                    <td style="font-size: 16px"><input class="form-control" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]" required></td>
+                                    <!-- <td style="font-size: 16px; width: 20%"><input class="form-control" type="text" placeholder="Subject Code" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjcode[]" required></td> -->
+                                
+                                    <!-- <td style="font-size: 16px; width: 20%">
+                                        <select class="form-select subjcode" aria-label="Default select example" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjcode[]" id="subjcode">
+                                            
+                                        </select>
+                                    </td> -->
+
+                                    <!-- <td style="font-size: 16px; width: 30%"><input class="form-control subjname" type="text" placeholder="Subject Name" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjname[]" id="subjname" required></td>
+                                    <td style="font-size: 16px; width: 7%"><input class="form-control lecunit" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="lecunit[]" id="lecunit" required></td>
+                                    <td style="font-size: 16px; width: 7%"><input class="form-control labunit" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="labunit[]" id="labunit" required></td>
+                                    <td style="font-size: 16px"><input class="form-control pre_req" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]" required></td>
                                     <td style="font-size: 16px; width: 7%"><button onclick="deleteTableRow(this)" type="button" class="btn btn-danger" style="margin-top: 4px; margin-left: 10px">X</button></td>
-                                </tr>
+                                </tr> -->
 
                             </tbody>
                         </table>
@@ -483,6 +502,22 @@ if(isset($_POST['submit'])){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 
 <script>
+    $(document).on("change", "#sem, #yearlevel", function() {             
+        $.ajax({
+            url: "../controller/curriculum/select-subject.php",
+            type: "POST",
+            cache: false,
+            data:{
+                sem: $('#sem').val(),
+                yearlevel: $('#yearlevel').val(),
+                curriculum: $('#courses').val(),
+            },
+            success: function(data){
+                $('#subjtable').html(data); 
+            }
+        });
+    });
+
     function createRow() {
         var row = document.createElement('tr'); // create row node
         var col = document.createElement('td'); // create column node
@@ -498,10 +533,10 @@ if(isset($_POST['submit'])){
         row.appendChild(col5);
         row.appendChild(col6);
         col.innerHTML = '<input class="form-control" type="text" placeholder="Subject Code" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjcode[]" required>'; // put data in first column
-        col2.innerHTML = '<input class="form-control" type="text" placeholder="Subject Name" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjname[]" required>'; // put data in second column
-        col3.innerHTML = '<input class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="lecunit[]" id="lecunit" required>';
-        col4.innerHTML = '<input class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="labunit[]" id="labunit" required>';
-        col5.innerHTML = '<input class="form-control" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]" required>';
+        col2.innerHTML = '<input class="form-control subjname" type="text" placeholder="Subject Name" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjname[]" required>'; // put data in second column
+        col3.innerHTML = '<input class="form-control lecunit" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="lecunit[]" id="lecunit" required>';
+        col4.innerHTML = '<input class="form-control labunit" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="labunit[]" id="labunit" required>';
+        // col5.innerHTML = '<input class="form-control prereq" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]" required>';
         col6.innerHTML = '<button type="button" onclick="deleteTableRow(this)" class="btn btn-danger" style="margin-top: 4px; margin-left: 10px">X</button>';
         var table = document.getElementById("subjtable"); // find table to append to
         table.appendChild(row); // append row to table

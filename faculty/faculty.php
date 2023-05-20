@@ -98,7 +98,7 @@
                 </a>
             </li>
 
-            <?php if($_SESSION['user_type'] == 'admin') { ?>
+            <?php if($_SESSION['user_type'] != 'student') { ?>
             <li>
                 <a href="../curriculum/curriculum.php">
                 <i class='bx bxs-edit'></i>
@@ -116,8 +116,15 @@
             </li>
 
             <li>
+                <a href="../subject/index.php">
+                <i class='bx bxs-file-plus'></i>
+                    <span class="links-name">Subjects</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="../users/index.php">
-                    <i class='bx bx-cog'></i>
+                <i class='bx bxs-user-account'></i>
                     <span class="links-name">Users</span>
                 </a>
             </li>
@@ -235,7 +242,7 @@
                     <?php
                         if($_SESSION['user_type'] == 'admin'){ 
                     ?>
-                        <a href="addfaculty.php" class="button" style="color:white"><center>Add Faculty</center></a>
+                        <a href="addfaculty.php" class="button" style="color:white">Add Faculty</a>
                     <?php
                         }
                     ?>

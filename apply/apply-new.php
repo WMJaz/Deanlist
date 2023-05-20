@@ -78,7 +78,7 @@
 
                 <div class="mainContent">
                     <div class="text-header w-100 text-center" style="margin-top: 2%">
-                        <h6 style="font-weight: bold">APPLICATION FOR DEAN LIST</h6>
+                        <h6 style="font-weight: bold">APPLICATION FOR DEAN'S LIST</h6>
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex flex-row justify-content-between" style="width: 95%">
@@ -164,12 +164,11 @@
                                     <div class="input-container w-100 d-flex flex-wrap justify-content-center">
                                         <div class="form-floating dropdown-select">
                                             <select class="form-select" name="schoolyear" id="schoolyear" required>
-                                                <option value="">-- Select --</option>
                                                 <?php
-                                                foreach ($programs->showSchoolYears($_SESSION['curriculum']) as $schoolyear) {
+                                                foreach ($programs->showLatestSchoolYears($_SESSION['curriculum']) as $schoolyear) {
                                                 ?>
 
-                                                <option value="<?php echo $schoolyear['id'] ?>">School Year <?php echo $schoolyear['school_year'] ?></option>
+                                                <option value="<?php echo $schoolyear['id'] ?>" selected>School Year <?php echo $schoolyear['school_year'] ?></option>
                                                 <?php
                                                 }
                                                 ?>
@@ -360,8 +359,8 @@
                         if ($existing) {
                         ?>
                             <div class="submit-container d-flex flex-row justify-content-between">
-                                <a class ="m-2" href="../dashboard/dashboard.php"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Back to Homepage</button></a>
-                                <a class ="m-2" target="_blank" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
+                            
+                                <a class ="m-2" href="../PDF Format/pftTemplate.php?id=<?php echo $applicantID; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Download PDF</button></a>
                                 <?php if (!$withPending){ ?>
                                 <a class ="m-2" href="reapply.php?idx=<?php echo $userid; ?>"><button type="button" name="homeBtn" class="btn btn-success homeBtn">Apply New</button></a>
                                 <?php }else{?>

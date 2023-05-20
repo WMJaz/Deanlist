@@ -131,6 +131,18 @@ Class Program{
         return $data;
     }
 
+    function showLatestSchoolYears($course){
+        $dateNow    = date('Y').'-'.date('Y', strtotime('+1 year'));
+
+        $sql = "SELECT course_schoolyear.id, course_name, course_schoolyear.school_year FROM course INNER JOIN course_schoolyear ON course.id = course_schoolyear.course_id WHERE course_name = :course AND school_year = '$dateNow' ORDER BY course_schoolyear.school_year DESC;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':course', $course);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
     function showSubjects($coursename, $coursesy, $sem, $yearlevel){
         $sql = "SELECT sy_subjects.*, course.course_name, course_schoolyear.school_year FROM sy_subjects INNER JOIN course ON course.id=sy_subjects.course_id INNER JOIN course_schoolyear ON course_schoolyear.id=sy_subjects.sy_id WHERE course.course_name=:coursename AND course_schoolyear.school_year = :coursesy AND sem=:sem AND year_level=:yearlevel;";
         $query=$this->db->connect()->prepare($sql);
@@ -184,15 +196,14 @@ Class Program{
         }
     }
 
-    function addSubjects($subjCode, $subjName, $lecunits, $labunits, $prereq, $sem, $courseid, $yearlevel, $syid){
-        $sql = "INSERT INTO sy_subjects (subject_code, subject_name, lec_units, lab_units, pre_req, sem, course_id, year_level, sy_id) 
-        VALUES (:subcode, :subname, :lecunits, :labunits, :prereq, :semester, :courseid, :yearlevel, :syid)";
+    function addSubjects($subjCode, $subjName, $lecunits, $labunits, $sem, $courseid, $yearlevel, $syid){
+        $sql = "INSERT INTO sy_subjects (subject_code, subject_name, lec_units, lab_units, sem, course_id, year_level, sy_id) 
+        VALUES (:subcode, :subname, :lecunits, :labunits, :semester, :courseid, :yearlevel, :syid)";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':subcode', $subjCode);
         $query->bindParam(':subname', $subjName);
         $query->bindParam(':lecunits', $lecunits);
         $query->bindParam(':labunits', $labunits);
-        $query->bindParam(':prereq', $prereq);
         $query->bindParam(':semester', $sem);
         $query->bindParam(':courseid', $courseid);
         $query->bindParam(':yearlevel', $yearlevel);

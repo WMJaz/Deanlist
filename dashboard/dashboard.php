@@ -97,18 +97,25 @@ $dashboard = 'active';
 
             <?php if ($_SESSION['user_type'] == 'admin') { ?>
                 <li>
-                    <a href="../settings/settings.php">
-                        <i class='bx bx-cog'></i>
-                        <span class="links-name">Settings</span>
-                    </a>
-                </li>
+                <a href="../settings/settings.php">
+                    <i class='bx bx-cog'></i>
+                    <span class="links-name">Settings</span>
+                </a>
+            </li>
 
-                <li>
-                    <a href="../users/index.php">
-                        <i class='bx bx-cog'></i>
-                        <span class="links-name">Users</span>
-                    </a>
-                </li>
+            <li>
+                <a href="../subject/index.php">
+                <i class='bx bxs-file-plus'></i>
+                    <span class="links-name">Subjects</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../users/index.php">
+                <i class='bx bxs-user-account'></i>
+                    <span class="links-name">Users</span>
+                </a>
+            </li>
             <?php } ?>
 
 
@@ -242,7 +249,7 @@ $dashboard = 'active';
 
                 <div class="box">
                     <div class="right-side">
-                        <div class="box-topic">Programs</div>
+                        <div class="box-topic">Courses</div>
                         <div class="number"><span id="dashboard_program_count"></div>
                         <div class="indicator">
                             <span class="text">As of <span class="text" name="dashboard_asof"></span></span>
