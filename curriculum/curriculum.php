@@ -323,7 +323,7 @@ if(isset($_POST['submit'])){
                                     <th style="font-size: 18px">Lec</th>
                                     <th style="font-size: 18px">Lab</th>
                                     <th style="font-size: 18px">Total Units</th>
-                                    <th style="font-size: 18px">Pre-requisite</th>
+                                    <!-- <th style="font-size: 18px">Pre-requisite</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -341,7 +341,7 @@ if(isset($_POST['submit'])){
                                         <td style="font-size: 16px; width: 5%"><?php echo $value['lec_units'] ?></td>
                                         <td style="font-size: 16px; width: 5%"><?php echo $value['lab_units'] ?></td>
                                         <td style="font-size: 16px; width: 15%"><?php echo $value['lec_units'] + $value['lab_units'] ?></td>
-                                        <td style="font-size: 16px"><?php echo $value['pre_req'] ?></td>
+                                        <!-- <td style="font-size: 16px"><?php echo $value['pre_req'] ?></td> -->
                                     </tr>
                                 <?php
                                 }

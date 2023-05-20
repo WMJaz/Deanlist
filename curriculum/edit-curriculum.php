@@ -28,12 +28,12 @@ if(isset($_POST["submit"])){
     foreach ($program->getCourseID($course) as $value) {
         $courseID = $value['id'];
     }
-
-    $program->editCurriculum($syid, $schoolyear);
     $program->deleteUpdate($sem, $year, $syid);
-
+    echo $sem;
+    echo $year;
+    echo $syid;
     foreach($subCode as $key => $n ) {
-        if($program->addSubjects($n, $subName[$key], $lecUnit[$key], $labUnit[$key], $preReq[$key], $sem, $courseID, $year, $syid)){
+        if($program->addSubjects($n, $subName[$key], $lecUnit[$key], $labUnit[$key], $sem, $courseID, $year, $syid)){
         ?>
         <h1>ss</h1>
         <?php
@@ -46,7 +46,6 @@ if(isset($_POST["submit"])){
             echo "Failed!";
         }
     }
-
     header('location: curriculum.php?course=' . $course);
 }elseif(isset($_POST['sem'])){
     header('location: edit-curriculum.php?course=' . $_POST['course_name'] . "&sy=" . $_POST['sy'] . "&sem=" . $_POST['sem'] . "&year=" . $_POST['year'] . "&syid=" . $_POST['sy_id']);
@@ -285,7 +284,9 @@ if(isset($_POST["submit"])){
                         <div class="filter-div w-100 d-flex flex-row justify-content-between" style="min-height: 50px;">
                             <div class="d-flex flex-row align-items-center" style="width: 45%;">
                                 <form class="d-flex flex-row align-items-center" style="width: 100%;" method="POST" action="edit-curriculum.php">
-                                    <input class="form-control" form="editform" value="<?php echo $_GET['sy'] ?>" type="text" placeholder="School Year" style="width: 33%; margin-right: 10px; font-size: 15px !important" name="sy" required>
+                                    <input hidden class="form-control" form="editform" value="<?php echo $_GET['sy'] ?>" type="text" placeholder="School Year" style="width: 33%; margin-right: 10px; font-size: 15px !important" name="sy" required>
+                                    <input class="form-control" value="<?php echo $_GET['sy'] ?>" type="text" placeholder="School Year" style="width: 33%; margin-right: 10px; font-size: 15px !important" disabled>
+
                                     <input hidden name="sy_id" value="<?php echo $_GET['syid'] ?>">
                                 
                                     <select onchange="this.form.submit()" class="form-select sem-select" style="height: 40px; width: 33%; font-size: 15px !important; margin-right: 10px" name="sem" aria-label="semester">
@@ -316,7 +317,7 @@ if(isset($_POST["submit"])){
                                     <th style="font-size: 16px">Subject Name</th>
                                     <th style="font-size: 16px">Lec</th>
                                     <th style="font-size: 16px">Lab</th>
-                                    <th style="font-size: 16px">Pre-requisite</th>
+                                    <!-- <th style="font-size: 16px">Pre-requisite</th> -->
                                     <th style="font-size: 16px"></th>
                                 </tr>
                             </thead>
@@ -335,7 +336,7 @@ if(isset($_POST["submit"])){
                                             <td style="font-size: 16px; width: 30%"><input form="editform" value="<?php echo $value['subject_name'] ?>"class="form-control" type="text" placeholder="Subject Name" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjname[]" required></td>
                                             <td style="font-size: 16px; width: 7%"><input form="editform" value="<?php echo $value['lec_units'] ?>" class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="lecunit[]" id="lecunit" required></td>
                                             <td style="font-size: 16px; width: 7%"><input  form="editform"value="<?php echo $value['lab_units'] ?>" class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="labunit[]" id="labunit" required></td>
-                                            <td style="font-size: 16px"><input form="editform" value="<?php echo $value['pre_req'] ?>" class="form-control" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]" required></td>
+                                            <!-- <td style="font-size: 16px"><input form="editform" value="<?php echo $value['pre_req'] ?>" class="form-control" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]"></td> -->
                                             <td style="font-size: 16px; width: 7%"><button onclick="deleteTableRow(this)" type="button" class="btn btn-danger" style="margin-top: 4px; margin-left: 10px">X</button></td>
                                         </tr>
                                     <?php
@@ -371,19 +372,19 @@ if(isset($_POST["submit"])){
         var col2 = document.createElement('td'); // create second column node
         var col3 = document.createElement('td');
         var col4 = document.createElement('td');
-        var col5 = document.createElement('td');
+        // var col5 = document.createElement('td');
         var col6 = document.createElement('td');
         row.appendChild(col); // append first column to row
         row.appendChild(col2); // append second column to row
         row.appendChild(col3);
         row.appendChild(col4);
-        row.appendChild(col5);
+        // row.appendChild(col5);
         row.appendChild(col6);
         col.innerHTML = '<input form="editform" class="form-control" type="text" placeholder="Subject Code" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjcode[]" required>'; // put data in first column
         col2.innerHTML = '<input form="editform" class="form-control" type="text" placeholder="Subject Name" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="subjname[]" required>'; // put data in second column
         col3.innerHTML = '<input form="editform" class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="lecunit[]" id="lecunit" required>';
         col4.innerHTML = '<input form="editform" class="form-control" type="number" min=0 max=10 style="width: 95%; margin-right: 10px; font-size: 15px !important" name="labunit[]" id="labunit" required>';
-        col5.innerHTML = '<input form="editform" class="form-control" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]" required>';
+        // col5.innerHTML = '<input form="editform" class="form-control" type="text" placeholder="Pre-requisite" style="width: 95%; margin-right: 10px; font-size: 15px !important" name="prereq[]">';
         col6.innerHTML = '<button type="button" onclick="deleteTableRow(this)" class="btn btn-danger" style="margin-top: 4px; margin-left: 10px">X</button>';
         var table = document.getElementById("subjtable"); // find table to append to
         table.appendChild(row); // append row to table
